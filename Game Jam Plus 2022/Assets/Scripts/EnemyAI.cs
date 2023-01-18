@@ -40,8 +40,6 @@ namespace Game.Enemy.AI
 
         private void Update()
         {
-            //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-            //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
             playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, playerLayer);
             playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, playerLayer);
 

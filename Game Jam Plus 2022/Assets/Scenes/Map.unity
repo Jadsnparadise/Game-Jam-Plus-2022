@@ -524,6 +524,23 @@ MonoBehaviour:
     maxValue: 100
     minValue: 0
   speed: 6
+  hitbox:
+    colliderTag: Hitbox
+    dimension: 0
+    layer:
+      serializedVersion: 2
+      m_Bits: 0
+    offset: {x: 0, y: 0, z: 0}
+    colliderMesh: 2
+    size: {x: 1, y: 1}
+    radius: 1
+    raycastDir: 0
+    raycastDistance: 1
+    flip: 0
+    colliderRenderer:
+      showGizmos: 1
+      colorOutCollision: {r: 1, g: 0.046545766, b: 0, a: 1}
+      colorInCollision: {r: 0, g: 1, b: 0, a: 1}
 --- !u!50 &975762231
 Rigidbody2D:
   serializedVersion: 4

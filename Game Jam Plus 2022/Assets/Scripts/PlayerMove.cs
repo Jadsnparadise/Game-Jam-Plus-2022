@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Game.Player
 {
+    using CollisionSystem;
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMove : MonoBehaviour
     {
@@ -15,6 +16,8 @@ namespace Game.Player
         [SerializeField, Min(1)] float speed;
         Vector2 moveDir;
 
+        [Header("Colliders")]
+        [SerializeField] Collision hitbox;
 
         //Components
         Rigidbody2D rig;
@@ -47,7 +50,7 @@ namespace Game.Player
         {
 
         }
-        void Die()
+        void Death()
         {
 
         }
@@ -55,6 +58,15 @@ namespace Game.Player
         void Damage(int _damage)
         {
             life.DecreaseValue(_damage);
+            if (life.CurrentValue <= life.MinValue)
+            {
+                Death();
+            }
+        }
+
+        private void OnDrawGizmos()
+        {
+            hitbox.DrawCollider(transform);
         }
     }
 
