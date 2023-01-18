@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AimController : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer hand;
     public Vector2 lookingDir { get; private set; }
+
 
     void Start()
     {
@@ -24,5 +26,6 @@ public class AimController : MonoBehaviour
         lookingDir = new(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
         float angle = Mathf.Atan2(lookingDir.y, lookingDir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+        hand.flipY = mousePos.x < screenPoint.x;
     }
 }

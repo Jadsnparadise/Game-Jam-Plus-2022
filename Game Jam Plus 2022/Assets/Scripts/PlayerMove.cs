@@ -11,6 +11,7 @@ namespace Game.Player
     {
         [Header("Player Settings")]
         [SerializeField] Attribute life;
+        [SerializeField] Attribute stamina;
         [SerializeField, Min(1)] float speed;
         Vector2 moveDir;
 
@@ -44,12 +45,16 @@ namespace Game.Player
 
         void AnimationController()
         {
-            
-        }
 
+        }
         void Die()
         {
 
+        }
+
+        void Damage(int _damage)
+        {
+            life.DecreaseValue(_damage);
         }
     }
 
@@ -57,10 +62,10 @@ namespace Game.Player
     public class Attribute
     {
         [SerializeField] string attributeName;
-        [SerializeField] int currentValue;
-        [SerializeField] int startValue;
-        [SerializeField] int maxValue;
-        [SerializeField] int minValue;
+        [SerializeField] int currentValue = 100;
+        [SerializeField] int startValue = 100;
+        [SerializeField] int maxValue = 100;
+        [SerializeField] int minValue = 0;
         public string AttributeName { get { return attributeName; } private set { AttributeName = value; } }
         public int CurrentValue { get { return currentValue; } private set { CurrentValue = value; } }
         public int StartValue { get { return startValue; } private set { StartValue = value; } }
@@ -70,24 +75,19 @@ namespace Game.Player
         {
             SetValue(startValue);
         }
-
         public void SetValue(int _newValue)
         {
             currentValue = _newValue;
         }
-
         public void AddValue(int _addValue)
         {
             currentValue += _addValue;
             currentValue = currentValue > maxValue ? maxValue : currentValue;
         }
-
         public void DecreaseValue(int _decreaseValue)
         {
             currentValue -= _decreaseValue;
             currentValue = currentValue < minValue ? minValue : currentValue;
         }
-
-        
     }
 }

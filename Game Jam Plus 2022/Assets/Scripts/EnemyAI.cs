@@ -21,6 +21,7 @@ namespace Game.Enemy.AI
         [SerializeField] Vector3 walkPoint; //o ponto o qual o inimigo ira se mover
         [SerializeField] bool walkPointSet; //controla se o walkPoint está setado
         [SerializeField] float walkPointRange; //o range que o walkPoint poderá estar
+        [SerializeField, Min(1)] float minRange = 1f;
 
         //Atacando
         [SerializeField] float coolDownAttack;
@@ -39,8 +40,10 @@ namespace Game.Enemy.AI
 
         private void Update()
         {
-            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+            //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+            //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+            playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, playerLayer);
+            playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, playerLayer);
 
             //3 estados possíveis para a IA
             if (!playerInSightRange && !playerInAttackRange) Patrol();
@@ -50,13 +53,18 @@ namespace Game.Enemy.AI
 
         private void Patrol()
         {
-            if (!walkPointSet) WalkPointGeneration();
-
-            if (walkPointSet) enemy.SetDestination(walkPoint);
+            if (walkPointSet)
+            {
+                enemy.SetDestination(walkPoint);
+            }
+            else
+            {
+                WalkPointGeneration();
+            }
 
             Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-            if (distanceToWalkPoint.magnitude < 0.2f) walkPointSet = false;
+            if (Mathf.Abs(distanceToWalkPoint.magnitude) < minRange) walkPointSet = false;
         }
 
         private void WalkPointGeneration()
@@ -67,7 +75,8 @@ namespace Game.Enemy.AI
 
             walkPoint = new Vector3(transform.position.x + randomX, transform.position.y + randomY,0f);
 
-            if (Physics.Raycast(walkPoint, -transform.right, 10f, groundLayer))
+            //if (Physics2D.Raycast(walkPoint, -transform.up, 10f, groundLayer))
+            if(Physics2D.OverlapCircle(walkPoint, 0.1f, groundLayer))
             {
                 //(origin, direction, maxDistance, layerMask)
                 Debug.Log("passou aqui");
@@ -84,7 +93,7 @@ namespace Game.Enemy.AI
         {
             enemy.SetDestination(player.position);
 
-            transform.LookAt(player);
+            //transform.LookAt(player);
 
             if (!attacked)
             {
