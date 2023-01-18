@@ -46,6 +46,11 @@ namespace Game.Player
         {
             
         }
+
+        void Die()
+        {
+
+        }
     }
 
     [Serializable]
@@ -82,6 +87,7 @@ namespace Game.Player
             currentValue -= _decreaseValue;
             currentValue = currentValue < minValue ? minValue : currentValue;
         }
+
         
     }
 }
