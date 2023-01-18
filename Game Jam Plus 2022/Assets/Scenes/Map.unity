@@ -221,8 +221,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7e1ec7f848c6c4eac0120f1b7c4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life:
+    attributeName: Life
+    currentValue: 100
+    startValue: 100
+    maxValue: 100
+    minValue: 0
   speed: 6
-  sprintMultiplier: 0
 --- !u!50 &975762231
 Rigidbody2D:
   serializedVersion: 4
