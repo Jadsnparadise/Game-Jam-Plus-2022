@@ -7,8 +7,6 @@ using static UnityEngine.UI.Image;
 
 namespace Game.Enemy.AI
 {
-
-
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] NavMeshAgent enemy;
@@ -16,6 +14,9 @@ namespace Game.Enemy.AI
         [SerializeField] Transform player;
 
         [SerializeField] LayerMask groundLayer, playerLayer;
+        [SerializeField] System.Attribute life;
+        [SerializeField] int enemyDamage;
+        public int EnemyDamage { get { return enemyDamage; } private set { EnemyDamage = value; } }
 
         //vigiando
         [SerializeField] Vector3 walkPoint; //o ponto o qual o inimigo ira se mover
@@ -35,7 +36,8 @@ namespace Game.Enemy.AI
         {          
             player = GameObject.Find("Player").transform;
             enemy = GetComponent<NavMeshAgent>();
-            enemy.updateRotation = false; enemy.updateUpAxis = false;
+            enemy.updateRotation = false; 
+            enemy.updateUpAxis = false;
         }
 
         private void Update()
@@ -106,6 +108,21 @@ namespace Game.Enemy.AI
         {
             attacked = false;
         }
+
+        void Death()
+        {
+            Destroy(gameObject);
+        }
+
+        public void Damage(int _damage)
+        {
+            life.DecreaseValue(_damage);
+            if (life.CurrentValue <= life.MinValue)
+            {
+                Death();
+            }
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;

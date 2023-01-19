@@ -16,8 +16,7 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   description: 9MM
   itemDamage: 1
-  currentAmmo: 2147483123
+  currentAmmo: 2147474049
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
-  fireRate: 99
-  automatic: 1
+  fireRate: 0
   bulletType: {fileID: 11400000, guid: 0fe40395b47b6a143ad63452fdb227f5, type: 2}

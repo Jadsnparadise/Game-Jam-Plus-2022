@@ -8,8 +8,8 @@ namespace Game.Itens
     {
         public string itemName;
         public Sprite itemSprite;
-        [TextArea(1, 3)] public string description;
-        [SerializeField, Min(1)] int itemDamage;
+        [TextArea(2, 3)] public string description;
+        [Min(1)] public int itemDamage;
         public virtual void ItemStart()
         {
             Debug.Log($"{itemName} Start");

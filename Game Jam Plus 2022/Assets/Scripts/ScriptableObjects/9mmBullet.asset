@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: 9mm Ammo
   itemSprite: {fileID: 0}
   description: 9mm Ammo
-  itemDamage: 10
+  itemDamage: 1
   speed: 5
   lifeTime: 5

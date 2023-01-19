@@ -11,10 +11,12 @@ namespace Game.Player
     public class PlayerMove : MonoBehaviour
     {
         [Header("Player Settings")]
-        [SerializeField] Attribute life;
-        [SerializeField] Attribute stamina;
+        [SerializeField] System.Attribute life;
+        [SerializeField] System.Attribute stamina;
         [SerializeField, Min(1)] float speed;
         Vector2 moveDir;
+
+        
 
         [Header("Colliders")]
         [SerializeField] Collision hitbox;
@@ -34,6 +36,17 @@ namespace Game.Player
         {
             Move();
             AnimationController();
+
+            Debug.Log($"Player: {life.CurrentValue} / {life.MaxValue}");
+
+            if (hitbox.InCollision(transform, out Collider2D[] objects))
+            {
+                foreach (Collider2D c in objects)
+                {
+                    Enemy.AI.EnemyAI a = c.gameObject.GetComponent<Enemy.AI.EnemyAI>();
+                    Damage(a.EnemyDamage);
+                }
+            }
         }
 
         void FixedUpdate()
@@ -52,7 +65,7 @@ namespace Game.Player
         }
         void Death()
         {
-
+            Debug.LogWarning("MORREU BURRO RUIM LIXO HORROROSO");
         }
 
         void Damage(int _damage)
@@ -68,8 +81,13 @@ namespace Game.Player
         {
             hitbox.DrawCollider(transform);
         }
-    }
 
+
+    }
+}
+
+namespace Game.System
+{
     [Serializable]
     public class Attribute
     {

@@ -10,40 +10,23 @@ namespace Game.Itens
         [Min(0)] public int currentAmmo;
         [SerializeField] GameObject bullet;
         [SerializeField, Min(0)] float fireRate;
-        [SerializeField] bool automatic = true;
-        bool shoot = false;
         float currentFireRate;
         [SerializeField] Bullets bulletType;
 
         public override void ItemStart()
         {
             currentFireRate = fireRate;
-            shoot = false;
         }
         public override void ItemUpdate()
         {
-            Debug.Log(currentFireRate);
             currentFireRate += Time.deltaTime;
-            
         }
         public override void Atacking(Vector3 _handPos, Quaternion _handRot)
         {
-            /*
-            if (automatic)
+            if (currentFireRate >= fireRate)
             {
-                if (currentFireRate >= fireRate)
-                {
-                    Shot(_handPos, _handRot);
-                }
+                Shot(_handPos, _handRot);
             }
-            else
-            {
-                if (shoot)
-                {
-
-                }
-            }
-            */
         }
 
         void Shot(Vector3 _handPos, Quaternion _handRot)
