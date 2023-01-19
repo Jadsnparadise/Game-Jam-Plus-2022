@@ -5,7 +5,7 @@ using UnityEngine;
 public class AimController : MonoBehaviour
 {
     [SerializeField] GameObject hand;
-    SpriteRenderer handSpriteRenderer;
+    [SerializeField] SpriteRenderer handSpriteRenderer;
     public Vector2 lookingDir { get; private set; }
     [SerializeField] Game.Itens.ItemScriptable currentItem;
 

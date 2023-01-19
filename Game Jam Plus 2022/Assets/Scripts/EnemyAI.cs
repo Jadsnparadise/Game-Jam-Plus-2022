@@ -7,17 +7,20 @@ using static UnityEngine.UI.Image;
 
 namespace Game.Enemy.AI
 {
+    using CollisionSystem;
     public class EnemyAI : MonoBehaviour
     {
+
         [SerializeField] NavMeshAgent enemy;
 
         [SerializeField] Transform player;
 
         [SerializeField] LayerMask groundLayer, playerLayer;
         [SerializeField] System.Attribute life;
-        [SerializeField] int enemyDamage;
-        public int EnemyDamage { get { return enemyDamage; } private set { EnemyDamage = value; } }
-
+        
+        [SerializeField] float CDWalkPoint;
+        [SerializeField] float currentCDWalkPoint;
+        
         //vigiando
         [SerializeField] Vector3 walkPoint; //o ponto o qual o inimigo ira se mover
         [SerializeField] bool walkPointSet; //controla se o walkPoint está setado
@@ -26,11 +29,16 @@ namespace Game.Enemy.AI
 
         //Atacando
         [SerializeField] float coolDownAttack;
-        [SerializeField] bool attacked;
+        [SerializeField] int enemyDamage;
+        public int EnemyDamage { get { return enemyDamage; } private set { EnemyDamage = value; } }
+        
+        bool attacked;
 
         //controle dos estados
-        [SerializeField] float sightRange, attackRange;
-        [SerializeField] bool playerInSightRange, playerInAttackRange;
+        float sightRange;
+        float attackRange;
+        bool playerInSightRange; 
+        bool playerInAttackRange;
 
         private void Awake()
         {          
@@ -42,6 +50,8 @@ namespace Game.Enemy.AI
 
         private void Update()
         {
+            currentCDWalkPoint += Time.deltaTime;
+
             playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, playerLayer);
             playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, playerLayer);
 
@@ -49,6 +59,7 @@ namespace Game.Enemy.AI
             if (!playerInSightRange && !playerInAttackRange) Patrol();
             if (playerInSightRange && !playerInAttackRange) Chase();
             if (playerInSightRange && playerInAttackRange) Attack();
+
         }
 
         private void Patrol()
@@ -57,29 +68,37 @@ namespace Game.Enemy.AI
             {
                 enemy.SetDestination(walkPoint);
             }
-            else
+            else if(currentCDWalkPoint >= CDWalkPoint)
             {
                 WalkPointGeneration();
             }
 
             Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-            if (Mathf.Abs(distanceToWalkPoint.magnitude) < minRange) walkPointSet = false;
+            if (Mathf.Abs(distanceToWalkPoint.magnitude) < minRange)
+            {
+                Debug.Log("Distancia até o ponto que tenho q andar: " + distanceToWalkPoint.magnitude);
+                Debug.Log("Distancia até o ponto que tenho q andar: " + distanceToWalkPoint.magnitude);
+                walkPointSet = false ;
+                //currentCDWalkPoint = 0;
+            }
+            
         }
 
         private void WalkPointGeneration()
         {
             float randomX = Random.Range(-walkPointRange, walkPointRange);
             float randomY = Random.Range(-walkPointRange, walkPointRange);
-            
+            Debug.Log("passou aqui");
 
-            walkPoint = new Vector3(transform.position.x + randomX, transform.position.y + randomY,0f);
+            walkPoint = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
 
             //if (Physics2D.Raycast(walkPoint, -transform.up, 10f, groundLayer))
-            if(Physics2D.OverlapCircle(walkPoint, 0.1f, groundLayer))
+            if(Physics2D.OverlapCircle(walkPoint, 2f, groundLayer))
             {
                 //(origin, direction, maxDistance, layerMask)
                 walkPointSet = true;
+                currentCDWalkPoint = 0;
             }
         }
 
@@ -122,6 +141,7 @@ namespace Game.Enemy.AI
                 Death();
             }
         }
+
 
         private void OnDrawGizmosSelected()
         {

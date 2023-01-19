@@ -37,7 +37,7 @@ namespace Game.Player
             Move();
             AnimationController();
 
-            Debug.Log($"Player: {life.CurrentValue} / {life.MaxValue}");
+            //Debug.Log($"Player: {life.CurrentValue} / {life.MaxValue}");
 
             if (hitbox.InCollision(transform, out Collider2D[] objects))
             {
