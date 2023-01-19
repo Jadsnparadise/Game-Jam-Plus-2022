@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133eebdc45f0e1145878afc9cff796ab, type: 3}
+  m_Name: NewGun
+  m_EditorClassIdentifier: 
+  itemName: Pistol
+  itemSprite: {fileID: 0}
+  description: 9MM
+  itemDamage: 1
+  currentAmmo: 2147483123
+  bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
+  fireRate: 99
+  automatic: 1
+  bulletType: {fileID: 11400000, guid: 0fe40395b47b6a143ad63452fdb227f5, type: 2}

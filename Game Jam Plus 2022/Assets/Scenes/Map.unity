@@ -861,7 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070e1c1231cdb554ea62f494dd87a380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 997408218}
+  hand: {fileID: 997408216}
+  currentItem: {fileID: 11400000, guid: a39ad3da6f342fc4ebc880b7f0db5710, type: 2}
 --- !u!1 &2019327653
 GameObject:
   m_ObjectHideFlags: 0

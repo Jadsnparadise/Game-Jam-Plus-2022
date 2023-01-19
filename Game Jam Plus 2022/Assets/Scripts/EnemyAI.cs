@@ -77,7 +77,6 @@ namespace Game.Enemy.AI
             if(Physics2D.OverlapCircle(walkPoint, 0.1f, groundLayer))
             {
                 //(origin, direction, maxDistance, layerMask)
-                Debug.Log("passou aqui");
                 walkPointSet = true;
             }
         }
