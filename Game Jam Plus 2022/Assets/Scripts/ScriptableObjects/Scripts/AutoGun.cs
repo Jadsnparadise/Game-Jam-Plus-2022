@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Game.Itens
 {
-    [CreateAssetMenu(fileName = "NewGun", menuName = "New Item/New Gun")]
-    public class Guns : ItemScriptable
+    [CreateAssetMenu(fileName = "NewGun", menuName = "New Item/New Gun/New Auto Gun")]
+    public class AutoGun : ItemScriptable
     {
         [Min(0)] public int currentAmmo;
         [SerializeField] GameObject bullet;

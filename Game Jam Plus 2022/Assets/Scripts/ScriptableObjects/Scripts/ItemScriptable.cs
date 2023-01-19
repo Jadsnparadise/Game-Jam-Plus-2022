@@ -27,8 +27,6 @@ namespace Game.Itens
         {
             Debug.Log($"Using {itemName}");
         }
-
-        
     }
 
     public class CraftableItens : ItemScriptable
