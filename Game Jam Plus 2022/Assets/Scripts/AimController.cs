@@ -32,8 +32,21 @@ public class AimController : MonoBehaviour
         
         if (Input.GetButton("Fire1"))
         {
-            currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+            if (currentItem != null)
+            {
+                currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+            }
+            else
+            {
+                BaseAtack();
+            }
+            
         }
+    }
+
+    void BaseAtack()
+    {
+        Debug.Log("Atack");
     }
 
     void Aim()

@@ -49,7 +49,6 @@ namespace Game.Itens
             {
                 float r = Random.Range(randomAccuracy.x, randomAccuracy.y);
                 Quaternion rot = Quaternion.Euler(1, 1, r);
-                //Quaternion rot = new Quaternion(_handRot.x, _handRot.y, _handRot.z + r, _handRot.w + r);
                 
                 BulletController b = Instantiate(bullet, _handPos, _handRot * rot).GetComponent<BulletController>();
                 b.SetBullet(bulletType);

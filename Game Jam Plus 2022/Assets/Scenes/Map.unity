@@ -945,19 +945,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7e1ec7f848c6c4eac0120f1b7c4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life:
-    attributeName: Life
+  lifeBar:
+    attributeName: 
     currentValue: 100
     startValue: 100
     maxValue: 100
     minValue: 0
-  stamina:
-    attributeName: Stamina
+  staminaBar:
+    attributeName: 
+    currentValue: 100
+    startValue: 100
+    maxValue: 100
+    minValue: 0
+  hungrybar:
+    attributeName: 
+    currentValue: 100
+    startValue: 100
+    maxValue: 100
+    minValue: 0
+  hapinessbar:
+    attributeName: 
     currentValue: 100
     startValue: 100
     maxValue: 100
     minValue: 0
   speed: 6
+  godSeconds: 2
+  knockbackForce: 150
   hitbox:
     colliderTag: Hitbox
     dimension: 0
@@ -1720,7 +1734,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 997408216}
-  handSpriteRenderer: {fileID: 997408218}
   currentItem: {fileID: 0}
 --- !u!1 &1752393953
 GameObject:

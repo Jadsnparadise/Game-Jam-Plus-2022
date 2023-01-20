@@ -10,13 +10,18 @@ namespace Game.Player
     [RequireComponent(typeof(Rigidbody2D))]
     public class Player : MonoBehaviour
     {
-        [Header("Player Settings")]
-        [SerializeField] System.Attribute life;
-        [SerializeField] System.Attribute stamina;
-        [SerializeField, Min(1)] float speed;
-        Vector2 moveDir;
+        [Header("Player Attributes")]
+        [SerializeField] System.Attribute lifeBar;
+        [SerializeField] System.Attribute staminaBar;
+        [SerializeField] System.Attribute hungrybar;
+        [SerializeField] System.Attribute hapinessbar;
 
-        
+        [Header("Player Settings")]
+        [SerializeField, Min(1)] float speed;
+        [SerializeField, Min(1)] float godSeconds;
+        [SerializeField, Min(1)] float knockbackForce;
+        Vector2 moveDir;
+        bool canTakeDamage;
 
         [Header("Colliders")]
         [SerializeField] Collision hitbox;
@@ -25,12 +30,15 @@ namespace Game.Player
         Rigidbody2D rig;
         Animator anim;
         AimController aim;
+        SpriteRenderer spriteRenderer;
         void Start()
         {
             rig ??= GetComponent<Rigidbody2D>();
             anim ??= GetComponent<Animator>();
             aim ??= gameObject.GetComponentInChildren<AimController>();
             anim ??= GetComponent<Animator>();
+            spriteRenderer ??= GetComponent<SpriteRenderer>();
+            canTakeDamage = true;
         }
 
         // Update is called once per frame
@@ -74,12 +82,34 @@ namespace Game.Player
 
         void Damage(int _damage)
         {
-            life.DecreaseValue(_damage);
-            if (life.CurrentValue <= life.MinValue)
+            if (!canTakeDamage)
+            {
+                return;
+            }
+            lifeBar.DecreaseValue(_damage);
+            if (lifeBar.CurrentValue <= lifeBar.MinValue)
             {
                 Death();
             }
+            Vector2 knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
+            rig.AddForce(Vector2.one * knockbackDir, ForceMode2D.Impulse);
+            StartCoroutine(DmageTaken());
         }
+
+        IEnumerator DmageTaken()
+        {
+            canTakeDamage = false;
+            for (int i = 0; i < godSeconds; i++)
+            {
+                spriteRenderer.color = Color.clear;
+                yield return new WaitForSeconds(0.1f);
+                spriteRenderer.color = Color.white;
+                yield return new WaitForSeconds(0.1f);
+            }
+            canTakeDamage = true;
+        }
+
+
 
         private void OnDrawGizmos()
         {
