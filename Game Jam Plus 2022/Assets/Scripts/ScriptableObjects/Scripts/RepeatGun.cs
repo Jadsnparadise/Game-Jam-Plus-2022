@@ -25,24 +25,15 @@ namespace Game.Itens
         {
             currentFireRate += Time.deltaTime;
 
-            if (shot)
+            if (shot && !Input.GetButton("Fire1") && currentFireRate >= fireRate)
             {
-                if (!Input.GetButton("Fire1"))
-                {
-                    if (currentFireRate >= fireRate)
-                    {
-                        shot = false;
-                    }
-                }
-            }
-
-            
+                shot = false;
+            }            
         }
         public override void Atacking(Vector3 _handPos, Quaternion _handRot)
         {
             if (!shot)
             {
-                Debug.Log("Plou");
                 Shot(_handPos, _handRot);
                 shot = true;
             }
@@ -63,7 +54,6 @@ namespace Game.Itens
                 BulletController b = Instantiate(bullet, _handPos, _handRot * rot).GetComponent<BulletController>();
                 b.SetBullet(bulletType);
             }
-            
             currentAmmo -= 1;
             currentFireRate = 0;
         }

@@ -16,5 +16,5 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   description: Shotgun Bullet
   itemDamage: 3
-  speed: 4
-  lifeTime: 0.4
+  speed: 6
+  lifeTime: 0.8

@@ -8,7 +8,7 @@ namespace Game.Player
 {
     using CollisionSystem;
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerMove : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [Header("Player Settings")]
         [SerializeField] System.Attribute life;
@@ -28,6 +28,8 @@ namespace Game.Player
         void Start()
         {
             rig ??= GetComponent<Rigidbody2D>();
+            anim ??= GetComponent<Animator>();
+            aim ??= gameObject.GetComponentInChildren<AimController>();
             anim ??= GetComponent<Animator>();
         }
 
@@ -61,7 +63,9 @@ namespace Game.Player
 
         void AnimationController()
         {
-
+            anim.SetFloat("playerSpeed", moveDir.magnitude);
+            anim.SetFloat("mousePosX", aim.lookingDir.x);
+            anim.SetFloat("mousePosY", aim.lookingDir.y);
         }
         void Death()
         {
