@@ -35,10 +35,10 @@ namespace Game.Enemy.AI
         bool attacked;
 
         //controle dos estados
-        float sightRange;
-        float attackRange;
-        bool playerInSightRange; 
-        bool playerInAttackRange;
+        [SerializeField] float sightRange;
+        [SerializeField] float attackRange;
+        [SerializeField] bool playerInSightRange;
+        [SerializeField] bool playerInAttackRange;
 
         private void Awake()
         {          

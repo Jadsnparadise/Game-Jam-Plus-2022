@@ -12,9 +12,16 @@ namespace Game.Player
     {
         [Header("Player Attributes")]
         [SerializeField] System.Attribute lifeBar;
+        public System.Attribute LifeBar { get { return lifeBar; } private set { LifeBar = value; } }
+
         [SerializeField] System.Attribute staminaBar;
+        public System.Attribute StaminaBar { get { return staminaBar; } private set { StaminaBar = value; } }
+
         [SerializeField] System.Attribute hungrybar;
+        public System.Attribute Hungrybar { get { return hungrybar; } private set { Hungrybar = value; } }
+
         [SerializeField] System.Attribute hapinessbar;
+        public System.Attribute Hapinessbar { get { return hapinessbar; } private set { Hapinessbar = value; } }
 
         [Header("Player Settings")]
         [SerializeField, Min(1)] float speed;
