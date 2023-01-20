@@ -38,6 +38,8 @@ namespace Game.Player
         Animator anim;
         AimController aim;
         SpriteRenderer spriteRenderer;
+
+        GameObject statusController;
         void Start()
         {
             rig ??= GetComponent<Rigidbody2D>();
@@ -45,6 +47,7 @@ namespace Game.Player
             aim ??= gameObject.GetComponentInChildren<AimController>();
             anim ??= GetComponent<Animator>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
+            statusController = GameObject.Find("Status Controller");
             canTakeDamage = true;
         }
 
