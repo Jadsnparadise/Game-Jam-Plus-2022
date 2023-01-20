@@ -73,7 +73,6 @@ namespace Game.Player
         {
             anim.SetFloat("playerSpeed", moveDir.magnitude);
             anim.SetFloat("mousePosX", aim.lookingDir.x);
-            anim.SetFloat("mousePosY", aim.lookingDir.y);
         }
         void Death()
         {
@@ -92,6 +91,10 @@ namespace Game.Player
                 Death();
             }
             Vector2 knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
+            while (knockbackDir.magnitude < knockbackForce/3)
+            {
+                knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
+            }
             rig.AddForce(Vector2.one * knockbackDir, ForceMode2D.Impulse);
             StartCoroutine(DmageTaken());
         }

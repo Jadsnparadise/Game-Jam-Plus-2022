@@ -33,6 +33,10 @@ namespace CollisionSystem
         {
             return colliderTag == _c.colliderTag;
         }
+        public void SetLayerMask(LayerMask _newLayer)
+        {
+            layer = _newLayer;
+        }
         public bool InCollision(Vector3 _origin)
         {
             if (dimension == Dimension.TwoD)

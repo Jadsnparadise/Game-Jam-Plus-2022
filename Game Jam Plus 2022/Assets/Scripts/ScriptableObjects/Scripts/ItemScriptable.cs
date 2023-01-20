@@ -10,6 +10,8 @@ namespace Game.Itens
         public Sprite itemSprite;
         [TextArea(2, 3)] public string description;
         [Min(1)] public int itemDamage;
+        [SerializeField] Slash slashType;
+        [SerializeField] GameObject slashGameObject;
         public virtual void ItemStart()
         {
             Debug.Log($"{itemName} Start");
@@ -20,7 +22,8 @@ namespace Game.Itens
         }
         public virtual void Atacking(Vector3 _handPos, Quaternion _handRot)
         {
-            Debug.Log($"Atacking with {itemName}");
+            SlashController s = Instantiate(slashGameObject, _handPos, _handRot).GetComponent<SlashController>();
+            s.SetSlash(slashType);
         }
 
         public virtual void Using()
