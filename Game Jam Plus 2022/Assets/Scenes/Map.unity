@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeBar: {fileID: 1679578717}
-  stamninaBar: {fileID: 1333253953}
+  staminaBar: {fileID: 1333253953}
   waterBar: {fileID: 207063119}
   hungryBar: {fileID: 416324889}
   happinessBar: {fileID: 1485849056}

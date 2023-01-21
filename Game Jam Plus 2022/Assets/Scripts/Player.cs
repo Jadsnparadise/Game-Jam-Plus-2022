@@ -40,6 +40,7 @@ namespace Game.Player
         SpriteRenderer spriteRenderer;
 
         GameObject statusController;
+        Game.StatusController.StatusController statusPlayerController;
         void Start()
         {
             rig ??= GetComponent<Rigidbody2D>();
@@ -48,6 +49,7 @@ namespace Game.Player
             anim ??= GetComponent<Animator>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
             statusController = GameObject.Find("Status Controller");
+            statusPlayerController = statusController.GetComponent<Game.StatusController.StatusController>();
             canTakeDamage = true;
         }
 
@@ -77,6 +79,7 @@ namespace Game.Player
         void Move()
         {
             moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            statusPlayerController.StaminaDecrease();
         }
 
         void AnimationController()
