@@ -77,12 +77,8 @@ namespace Game.Enemy.AI
 
             if (Mathf.Abs(distanceToWalkPoint.magnitude) < minRange)
             {
-                Debug.Log("Distancia até o ponto que tenho q andar: " + distanceToWalkPoint.magnitude);
-                Debug.Log("Distancia até o ponto que tenho q andar: " + distanceToWalkPoint.magnitude);
                 walkPointSet = false ;
-                //currentCDWalkPoint = 0;
             }
-            
         }
 
         private void WalkPointGeneration()
@@ -93,7 +89,6 @@ namespace Game.Enemy.AI
 
             walkPoint = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
 
-            //if (Physics2D.Raycast(walkPoint, -transform.up, 10f, groundLayer))
             if(Physics2D.OverlapCircle(walkPoint, 2f, groundLayer))
             {
                 //(origin, direction, maxDistance, layerMask)
@@ -110,8 +105,6 @@ namespace Game.Enemy.AI
         private void Attack()
         {
             enemy.SetDestination(player.position);
-
-            //transform.LookAt(player);
 
             if (!attacked)
             {

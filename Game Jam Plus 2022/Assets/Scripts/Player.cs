@@ -7,6 +7,8 @@ using UnityEngine;
 namespace Game.Player
 {
     using CollisionSystem;
+    using Unity.VisualScripting;
+
     [RequireComponent(typeof(Rigidbody2D))]
     public class Player : MonoBehaviour
     {
@@ -16,6 +18,9 @@ namespace Game.Player
 
         [SerializeField] System.Attribute staminaBar;
         public System.Attribute StaminaBar { get { return staminaBar; } private set { StaminaBar = value; } }
+
+        [SerializeField] System.Attribute waterBar;
+        public System.Attribute WaterBar { get { return waterBar; } private set { WaterBar = value; } }
 
         [SerializeField] System.Attribute hungrybar;
         public System.Attribute Hungrybar { get { return hungrybar; } private set { Hungrybar = value; } }
@@ -30,7 +35,7 @@ namespace Game.Player
         [SerializeField, Min(1)] float knockbackForce;
         Vector2 moveDir;
         bool canTakeDamage;
-        [SerializeField] bool isRunning;
+        bool isRunning;
 
         [Header("Colliders")]
         [SerializeField] Collision hitbox;
@@ -43,6 +48,9 @@ namespace Game.Player
 
         GameObject statusController;
         Game.StatusController.StatusController statusPlayerController;
+
+        bool gotInZero = false;
+
         void Start()
         {
             rig ??= GetComponent<Rigidbody2D>();
@@ -81,19 +89,31 @@ namespace Game.Player
 
         void Move()
         {
-            if (staminaBar.CurrentValue > staminaBar.MinValue)
+            if (!gotInZero)
             {
+                
                 isRunning = Input.GetKey(KeyCode.LeftShift);
             }
             moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue) { 
+
+            if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue) {
                 statusPlayerController.StaminaDecrease();
             }
             else
             {
+                if(staminaBar.CurrentValue == staminaBar.MinValue)
+                {
+                    gotInZero = true;
+                    isRunning = false;
+                }
+                else if (staminaBar.CurrentValue > staminaBar.MaxValue/2)
+                {
+                    gotInZero = false;
+                }
                 statusPlayerController.StaminaIncrease();
-                isRunning = false;
+                
             }
+
         }
 
         void AnimationController()

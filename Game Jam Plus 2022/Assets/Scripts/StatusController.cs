@@ -73,9 +73,14 @@ namespace Game.StatusController
             
         }
 
-        private void WaterControl()
+        private void WaterIncrease()
         {
-
+            if (playerStatus.WaterBar.CurrentValue < playerStatus.WaterBar.MaxValue)
+            {
+                //se o objeto for água aumentar em 25 a barra de água
+                waterBar.value += 25;
+                playerStatus.WaterBar.AddValue(25);//modificar depois para pegar diretamente do atributo do item
+            }
         }
 
         private void HungryControl()
@@ -90,7 +95,7 @@ namespace Game.StatusController
 
         private void StonedControl()
         {
-
+            
         }
 
         private void DrunkControl()
