@@ -6,8 +6,10 @@ public class AimController : MonoBehaviour
 {
     [SerializeField] GameObject hand;
     SpriteRenderer handSpriteRenderer;
+    
     public Vector2 lookingDir { get; private set; }
     [SerializeField] Game.Itens.ItemScriptable currentItem;
+    [SerializeField] Game.Itens.ItemScriptable handItem;
 
     void Start()
     {
@@ -22,16 +24,26 @@ public class AimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentItem ??= handItem;
+        handSpriteRenderer.sprite = currentItem.itemSprite;
+        currentItem.ItemUpdate();
+        /*
         if (currentItem != null)
         {
             handSpriteRenderer.sprite = currentItem.itemSprite;
             currentItem.ItemUpdate();
         }
-        
+        else
+        {
+            currentItem = 
+        }*/
+
         Aim();
         
         if (Input.GetButton("Fire1"))
         {
+            currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+            /*
             if (currentItem != null)
             {
                 currentItem.Atacking(hand.transform.position, hand.transform.rotation);
@@ -40,13 +52,8 @@ public class AimController : MonoBehaviour
             {
                 BaseAtack();
             }
-            
+            */
         }
-    }
-
-    void BaseAtack()
-    {
-        Debug.Log("Atack");
     }
 
     void Aim()

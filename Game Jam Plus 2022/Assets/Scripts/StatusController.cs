@@ -34,7 +34,7 @@ namespace Game.StatusController
         {
             player = GameObject.Find("Player");
             playerStatus = player.GetComponent<Game.Player.Player>();
-            clock = Clock.GetComponent<Game.Clock.ClockController>();
+            //clock = Clock.GetComponent<Game.Clock.ClockController>();
         }
 
         private void Update()

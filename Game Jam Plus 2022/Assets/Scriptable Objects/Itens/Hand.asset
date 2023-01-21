@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc0598789b6daf14c9979e4673ef7b81, type: 3}
-  m_Name: NewItem
+  m_Name: Hand
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Hand
   itemSprite: {fileID: 0}
   description: 
   itemDamage: 1
+  timeToAtack: 0.5
   slashType: {fileID: 11400000, guid: 8c5be954a5803eb4b9476af101901b8e, type: 2}
   slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}

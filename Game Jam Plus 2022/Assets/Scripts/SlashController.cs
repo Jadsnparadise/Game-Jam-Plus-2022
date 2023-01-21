@@ -18,10 +18,11 @@ namespace Game.Itens
         {
 
         }
-        public void SetSlash(Slash _newSlash)
+        public void SetSlash(Slash _newSlash, float _slashRotation)
         {
             slashType = _newSlash;
             col.SetLayerMask(slashType.activeLayerMasks);
+            col.SetRotation(_slashRotation);
             Destroy(gameObject, slashType.lifeTime);
         }
 

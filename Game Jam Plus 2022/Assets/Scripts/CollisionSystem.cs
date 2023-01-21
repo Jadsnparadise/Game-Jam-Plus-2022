@@ -15,6 +15,7 @@ namespace CollisionSystem
         [Space(10)]
         [Header("Box Settings")]
         [SerializeField, Tooltip("Box collider size"), Min(0)] Vector2 size = Vector2.one;
+        [SerializeField, Tooltip("Box collider rotation")] float rotation = 0;
         [Space(10)]
         [Header("Circle Settings")]
         [SerializeField, Tooltip("Circle collider radius"), Min(0)] float radius = 1;
@@ -37,6 +38,10 @@ namespace CollisionSystem
         {
             layer = _newLayer;
         }
+        public void SetRotation(float _newRotation)
+        {
+            rotation = _newRotation;
+        }
         public bool InCollision(Vector3 _origin)
         {
             if (dimension == Dimension.TwoD)
@@ -44,7 +49,7 @@ namespace CollisionSystem
                 switch (colliderMesh)
                 {
                     case ColliderMesh.Box:
-                        return Physics2D.OverlapBox(_origin + offset, size, 0f, layer);
+                        return Physics2D.OverlapBox(_origin + offset, size, rotation, layer);
                     case ColliderMesh.Sphere:
                         return Physics2D.OverlapCircle(_origin + offset, radius, layer);
                     case ColliderMesh.Raycast:
