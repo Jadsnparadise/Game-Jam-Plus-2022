@@ -24,11 +24,13 @@ namespace Game.Player.Inventory
             currentItem ??= handItem;
             handSpriteRenderer.sprite = currentItem.itemSprite;
             currentItem.ItemStart();
+            inventory.InvStart();
         }
 
         // Update is called once per frame
         void Update()
         {
+            currentItem = inventory.CurrentItem();
             currentItem ??= handItem;
             handSpriteRenderer.sprite = currentItem.itemSprite;
             currentItem.ItemUpdate();
@@ -61,6 +63,31 @@ namespace Game.Player.Inventory
             transform.rotation = Quaternion.Euler(0, 0, angle);
             handSpriteRenderer.flipY = mousePos.x < screenPoint.x;
         }
+        [ContextMenu("Inv Update")]
+        public void InvUpdate()
+        {
+            inventory.InvUpdate();
+        }
+    }
+
+
+    [Serializable]
+    public class Resources
+    {
+        public Itens.ItemScriptable item;
+        public int quantity;
+
+        public Resources()
+        {
+            item = null;
+            quantity = 0;
+        }
+
+        public Resources(Itens.ItemScriptable _newItem)
+        {
+            item = _newItem;
+            quantity = 1;
+        }
     }
 
     [Serializable]
@@ -68,7 +95,7 @@ namespace Game.Player.Inventory
     {
         [SerializeField] List<GameObject> slots = new();
         public int currentSlot { get; private set; }
-        [SerializeField] List<Itens.Resources> resources = new();
+        [SerializeField] List<Resources> resources = new(8);
 
         public void ChangeSlot(int _newValue)
         {
@@ -92,6 +119,69 @@ namespace Game.Player.Inventory
         public void DecreaseSlot()
         {
             ChangeSlot(currentSlot - 1);
+        }
+
+        public void AddItem(Itens.ItemScriptable _newItem)
+        {
+            Resources r = resources.Find(x => x.item == _newItem);
+            if (_newItem.stack)
+            {
+                if (r.item != null)
+                {
+                    resources.Find(x => x.item == _newItem).quantity++;
+                }
+                else
+                {
+                    NewItem(_newItem);
+                }
+            }
+            else
+            {
+                NewItem(_newItem);
+            }
+            InvUpdate();
+        }
+
+        void NewItem(Itens.ItemScriptable _newItem)
+        {
+            if (resources[currentSlot].item == null)
+            {
+                resources[currentSlot] = new(_newItem);
+            }
+            else
+            {
+                for (int i = 0; i < resources.Count; i++)
+                {
+                    if (resources[i].item == null)
+                    {
+                        resources[i] = new(_newItem);
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void InvStart()
+        {
+            while (resources.Count < 8)
+            {
+                resources.Add(new Resources());
+            }
+            InvUpdate();
+        }
+
+        public void InvUpdate()
+        {
+            for (int i = 0; i < slots.Count - 1; i++)
+            {
+                UnityEngine.UI.RawImage slot = slots[i].GetComponent<UnityEngine.UI.RawImage>();
+
+                if (resources[i].item != null)
+                {
+                    Sprite spr = resources[i].item.itemSprite;
+                    slot.texture = spr != null ? spr.texture : slot.texture;
+                }
+            }
         }
 
         public Itens.ItemScriptable CurrentItem()

@@ -10,12 +10,11 @@ namespace Game.Itens
         public string itemName;
         public Sprite itemSprite;
         [TextArea(2, 3)] public string description;
-        [Min(1)] public int itemDamage = 1;
         [SerializeField, Min(0)] float timeToAtack = 1;
         float currentAtackTimer;
         [SerializeField] Slash slashType;
         [SerializeField] GameObject slashGameObject;
-        [SerializeField] bool stack;
+        public bool stack;
 
         public virtual void ItemStart()
         {

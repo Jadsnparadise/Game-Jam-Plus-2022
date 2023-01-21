@@ -49,7 +49,7 @@ namespace Game.Itens
                     if (o.CompareTag("Enemy"))
                     {
                         Enemy.AI.EnemyAI enemy = o.gameObject.GetComponent<Enemy.AI.EnemyAI>();
-                        enemy.Damage(bulletType.itemDamage);
+                        enemy.Damage(bulletType.damage);
                     }
                     Destroy(gameObject);
                 }

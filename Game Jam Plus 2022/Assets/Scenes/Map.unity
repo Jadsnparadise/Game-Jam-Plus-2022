@@ -4530,7 +4530,9 @@ MonoBehaviour:
     - {fileID: 973336678}
     - {fileID: 443688937}
     - {fileID: 1970851997}
-    resources: []
+    resources:
+    - item: {fileID: 11400000, guid: 16280e6eca48e8a48be37634c206e0f3, type: 2}
+      quantity: 1
 --- !u!1 &1679578714
 GameObject:
   m_ObjectHideFlags: 0

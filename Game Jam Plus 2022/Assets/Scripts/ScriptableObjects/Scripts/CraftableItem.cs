@@ -11,11 +11,4 @@ namespace Game.Itens
     {
         public List<ItemScriptable> craftingResources;
     }
-
-    [Serializable]
-    public struct Resources
-    {
-        public ItemScriptable item;
-        public int quantity;
-    }
 }
