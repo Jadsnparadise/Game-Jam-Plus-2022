@@ -3990,7 +3990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 997408216}
-  currentItem: {fileID: 11400000, guid: b8699c6022d337e4d998ba32d6594f8a, type: 2}
+  currentItem: {fileID: 0}
+  handItem: {fileID: 11400000, guid: b8699c6022d337e4d998ba32d6594f8a, type: 2}
 --- !u!1 &1679578714
 GameObject:
   m_ObjectHideFlags: 0

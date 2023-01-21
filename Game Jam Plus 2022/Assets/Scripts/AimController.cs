@@ -14,11 +14,9 @@ public class AimController : MonoBehaviour
     void Start()
     {
         handSpriteRenderer = hand.GetComponent<SpriteRenderer>();
-        if (currentItem != null)
-        {
-            currentItem.ItemStart();
-        }
-        
+        currentItem ??= handItem;
+        handSpriteRenderer.sprite = currentItem.itemSprite;
+        currentItem.ItemStart();
     }
 
     // Update is called once per frame
@@ -27,32 +25,12 @@ public class AimController : MonoBehaviour
         currentItem ??= handItem;
         handSpriteRenderer.sprite = currentItem.itemSprite;
         currentItem.ItemUpdate();
-        /*
-        if (currentItem != null)
-        {
-            handSpriteRenderer.sprite = currentItem.itemSprite;
-            currentItem.ItemUpdate();
-        }
-        else
-        {
-            currentItem = 
-        }*/
 
         Aim();
         
         if (Input.GetButton("Fire1"))
         {
             currentItem.Atacking(hand.transform.position, hand.transform.rotation);
-            /*
-            if (currentItem != null)
-            {
-                currentItem.Atacking(hand.transform.position, hand.transform.rotation);
-            }
-            else
-            {
-                BaseAtack();
-            }
-            */
         }
     }
 

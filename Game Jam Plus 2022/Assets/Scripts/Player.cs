@@ -100,6 +100,7 @@ namespace Game.Player
         {
             anim.SetFloat("playerSpeed", moveDir.x);
             anim.SetFloat("mousePosX", aim.lookingDir.x);
+            anim.SetBool("walking", moveDir.magnitude != 0);
             spriteRenderer.flipX = aim.lookingDir.x < 0;
         }
         void Death()
