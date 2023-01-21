@@ -23,7 +23,7 @@ namespace Game.Itens
             slashType = _newSlash;
             col.SetLayerMask(slashType.activeLayerMasks);
             col.SetRotation(_slashRotation);
-            Destroy(gameObject, slashType.lifeTime);
+            Destroy(gameObject, slashType.LifeTime);
         }
 
         public void OnDrawGizmos()

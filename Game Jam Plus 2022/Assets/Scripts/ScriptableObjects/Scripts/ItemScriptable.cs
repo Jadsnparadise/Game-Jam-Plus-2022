@@ -4,16 +4,18 @@ using UnityEngine;
 
 namespace Game.Itens
 {
+    [CreateAssetMenu(fileName = "NewItem", menuName = "New Item/New Generic Item", order = 1)]
     public class ItemScriptable : ScriptableObject
     {
         public string itemName;
         public Sprite itemSprite;
         [TextArea(2, 3)] public string description;
-        [Min(1)] public int itemDamage;
+        [Min(1)] public int itemDamage = 1;
         [SerializeField, Min(0)] float timeToAtack = 1;
         float currentAtackTimer;
         [SerializeField] Slash slashType;
         [SerializeField] GameObject slashGameObject;
+        [SerializeField] bool stack;
 
         public virtual void ItemStart()
         {
@@ -40,10 +42,5 @@ namespace Game.Itens
         {
             Debug.Log($"Using {itemName}");
         }
-    }
-
-    public class CraftableItens : ItemScriptable
-    {
-        public List<ItemScriptable> craftingResources;
     }
 }

@@ -43,7 +43,7 @@ namespace Game.Player
         //Components
         Rigidbody2D rig;
         Animator anim;
-        AimController aim;
+        Inventory.AimController aim;
         SpriteRenderer spriteRenderer;
 
         GameObject statusController;
@@ -55,7 +55,7 @@ namespace Game.Player
         {
             rig ??= GetComponent<Rigidbody2D>();
             anim ??= GetComponent<Animator>();
-            aim ??= gameObject.GetComponentInChildren<AimController>();
+            aim ??= gameObject.GetComponentInChildren<Inventory.AimController>();
             anim ??= GetComponent<Animator>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
             statusController = GameObject.Find("Status Controller");

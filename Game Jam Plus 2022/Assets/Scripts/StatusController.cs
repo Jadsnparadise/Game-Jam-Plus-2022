@@ -39,9 +39,9 @@ namespace Game.StatusController
 
         private void Update()
         {
-            Debug.Log("Vida atual: " + playerStatus.LifeBar.CurrentValue);
-            Debug.Log("Vida max: " + playerStatus.LifeBar.MaxValue);
-            Debug.Log("fillamount: " + lifeBar.value);
+            //Debug.Log("Vida atual: " + playerStatus.LifeBar.CurrentValue);
+            //Debug.Log("Vida max: " + playerStatus.LifeBar.MaxValue);
+            //Debug.Log("fillamount: " + lifeBar.value);
             LifeControl();
         }
 
