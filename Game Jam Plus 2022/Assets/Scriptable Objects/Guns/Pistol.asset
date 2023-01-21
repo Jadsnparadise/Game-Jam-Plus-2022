@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   itemName: Pistol
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: b88c5048c7dc80f4989c74151e56b642, type: 3}
   description: Pistol
   itemDamage: 0
+  slashType: {fileID: 0}
+  slashGameObject: {fileID: 0}
   currentAmmo: 999999999
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
+  weaponRange: 0
   fireRate: 0.3
   bulletType: {fileID: 11400000, guid: 749357f2399ff5b4ca60a13440d0a5c4, type: 2}
+  flash: {fileID: 406102140075121989, guid: 0b7c95a90a144bb489685e4b8cf2b9ed, type: 3}

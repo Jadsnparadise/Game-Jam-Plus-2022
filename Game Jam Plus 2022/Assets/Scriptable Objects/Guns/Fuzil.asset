@@ -16,9 +16,12 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   description: Fuzil
   itemDamage: 0
+  slashType: {fileID: 0}
+  slashGameObject: {fileID: 0}
   currentAmmo: 999999999
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   fireRate: 1
   bulletType: {fileID: 11400000, guid: d33fa45968aeb6c438fefec0a161a1a7, type: 2}
   randomAccuracy: {x: 0, y: 0}
   randomBullet: {x: 1, y: 1}
+  flash: {fileID: 406102140075121989, guid: 0b7c95a90a144bb489685e4b8cf2b9ed, type: 3}

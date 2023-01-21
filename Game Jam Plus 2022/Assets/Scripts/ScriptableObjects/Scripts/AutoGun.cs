@@ -9,9 +9,11 @@ namespace Game.Itens
     {
         [Min(0)] public int currentAmmo;
         [SerializeField] GameObject bullet;
+        [SerializeField, Min(1)] float weaponRange;
         [SerializeField, Min(0)] float fireRate;
         float currentFireRate;
         [SerializeField] Bullets bulletType;
+        [SerializeField] GameObject flash;
 
         public override void ItemStart()
         {
@@ -35,8 +37,21 @@ namespace Game.Itens
             {
                 return;
             }
+            
             BulletController b = Instantiate(bullet, _handPos, _handRot).GetComponent<BulletController>();
+            //GameObject f = Instantiate(flash, _handPos, _handRot);
+            Destroy(Instantiate(flash, _handPos, _handRot), 0.8f);
             b.SetBullet(bulletType);
+            /*
+            RaycastHit2D hit = Physics2D.Raycast(_handPos, Vector2.right, weaponRange);
+            GameObject trail = Instantiate(bullet, _handPos, _handRot);
+            BulletController trailScript = trail.GetComponent<BulletController>();
+            trailScript.SetBullet(bulletType);
+            if (hit.collider != null)
+            {
+                trailScript.SetTargetPos(hit.point);               
+            }
+            */
             currentAmmo -= 1;
             currentFireRate = 0;
         }

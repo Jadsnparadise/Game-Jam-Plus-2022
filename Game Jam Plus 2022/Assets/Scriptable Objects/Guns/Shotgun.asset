@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   itemName: Shotgun
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 128027fbd6cdd5e459332814c8360834, type: 3}
   description: Shotgun
   itemDamage: 0
-  currentAmmo: 999999741
+  slashType: {fileID: 0}
+  slashGameObject: {fileID: 0}
+  currentAmmo: 999999706
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   fireRate: 0.8
   bulletType: {fileID: 11400000, guid: 5b878713cc92afe498385d6dc5ca01be, type: 2}
   randomAccuracy: {x: -30, y: 30}
   randomBullet: {x: 6, y: 12}
+  flash: {fileID: 406102140075121989, guid: 0b7c95a90a144bb489685e4b8cf2b9ed, type: 3}

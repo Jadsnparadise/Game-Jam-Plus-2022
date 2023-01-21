@@ -49,7 +49,7 @@ namespace Game.Player
             anim ??= GetComponent<Animator>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
             statusController = GameObject.Find("Status Controller");
-            statusPlayerController = statusController.GetComponent<Game.StatusController.StatusController>();
+            statusPlayerController = statusController.GetComponent<StatusController.StatusController>();
             canTakeDamage = true;
         }
 
@@ -84,8 +84,9 @@ namespace Game.Player
 
         void AnimationController()
         {
-            anim.SetFloat("playerSpeed", moveDir.magnitude);
+            anim.SetFloat("playerSpeed", moveDir.x);
             anim.SetFloat("mousePosX", aim.lookingDir.x);
+            spriteRenderer.flipX = aim.lookingDir.x < 0;
         }
         void Death()
         {

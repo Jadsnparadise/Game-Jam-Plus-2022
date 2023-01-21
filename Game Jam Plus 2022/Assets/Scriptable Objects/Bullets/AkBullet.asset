@@ -16,5 +16,7 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   description: Ak Bullet
   itemDamage: 2
-  speed: 12
-  lifeTime: 3
+  slashType: {fileID: 0}
+  slashGameObject: {fileID: 0}
+  speed: 25
+  lifeTime: 10

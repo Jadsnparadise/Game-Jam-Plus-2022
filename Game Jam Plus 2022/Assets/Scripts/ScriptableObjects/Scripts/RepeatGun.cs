@@ -15,6 +15,7 @@ namespace Game.Itens
         bool shot = false;
         [SerializeField] Vector2 randomAccuracy;
         [SerializeField] Vector2Int randomBullet;
+        [SerializeField] GameObject flash;
 
         public override void ItemStart()
         {
@@ -53,6 +54,7 @@ namespace Game.Itens
                 BulletController b = Instantiate(bullet, _handPos, _handRot * rot).GetComponent<BulletController>();
                 b.SetBullet(bulletType);
             }
+            Destroy(Instantiate(flash, _handPos, _handRot), 0.8f);
             currentAmmo -= 1;
             currentFireRate = 0;
         }
