@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Game.Clock;
+using Unity.VisualScripting;
 
 namespace Game.StatusController
 {
@@ -26,7 +27,8 @@ namespace Game.StatusController
         GameObject Clock;
         Game.Clock.ClockController clock;
 
-
+        float modifyStaminaRate = 0.2f;
+        float clockStamina;
 
         private void Start()
         {
@@ -50,12 +52,25 @@ namespace Game.StatusController
 
         public void StaminaIncrease()
         {
-            
+            clockStamina += Time.deltaTime;
+            if (clockStamina >= modifyStaminaRate)
+            {
+                playerStatus.StaminaBar.AddValue(2);
+                staminaBar.value = playerStatus.StaminaBar.CurrentValue;
+                clockStamina = 0;
+            }
         }
         public void StaminaDecrease()
         {
-            playerStatus.StaminaBar.DecreaseValue(1);
-            staminaBar.value = playerStatus.StaminaBar.CurrentValue;
+            clockStamina += Time.deltaTime;
+            if (clockStamina >= modifyStaminaRate)
+            {
+                playerStatus.StaminaBar.DecreaseValue(5);
+                staminaBar.value = playerStatus.StaminaBar.CurrentValue;
+                clockStamina = 0;
+            }
+
+            
         }
 
         private void WaterControl()

@@ -25,10 +25,12 @@ namespace Game.Player
 
         [Header("Player Settings")]
         [SerializeField, Min(1)] float speed;
+        [SerializeField, Min(1)] float speedRun;
         [SerializeField, Min(1)] float godSeconds;
         [SerializeField, Min(1)] float knockbackForce;
         Vector2 moveDir;
         bool canTakeDamage;
+        [SerializeField] bool isRunning;
 
         [Header("Colliders")]
         [SerializeField] Collision hitbox;
@@ -73,13 +75,25 @@ namespace Game.Player
 
         void FixedUpdate()
         {
-            rig.AddForce(moveDir * speed, ForceMode2D.Impulse);
+            float currentSpeed = isRunning ? speedRun : speed;
+            rig.AddForce(moveDir * currentSpeed, ForceMode2D.Impulse);
         }
 
         void Move()
         {
+            if (staminaBar.CurrentValue > staminaBar.MinValue)
+            {
+                isRunning = Input.GetKey(KeyCode.LeftShift);
+            }
             moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            statusPlayerController.StaminaDecrease();
+            if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue) { 
+                statusPlayerController.StaminaDecrease();
+            }
+            else
+            {
+                statusPlayerController.StaminaIncrease();
+                isRunning = false;
+            }
         }
 
         void AnimationController()
