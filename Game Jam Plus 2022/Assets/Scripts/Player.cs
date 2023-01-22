@@ -37,6 +37,22 @@ namespace Game.Player
         bool canTakeDamage;
         bool isRunning;
 
+        bool isStoned;
+        public bool IsStoned { get { return isStoned; } private set { IsStoned = value; } }
+
+        bool isDrunk;
+        public bool IsDrunk { get { return isDrunk; } private set { IsDrunk = value; } }
+
+        bool isPoisoned;
+        public bool IsPoisoned { get { return isPoisoned; } private set { IsPoisoned = value; } }
+
+        bool isCold;
+        public bool IsCold { get { return isCold; } private set { IsCold = value; } }
+
+        bool isHot;
+        public bool IsHot { get { return isHot; } private set { IsHot = value; } }
+
+
         [Header("Colliders")]
         [SerializeField] Collision hitbox;
 

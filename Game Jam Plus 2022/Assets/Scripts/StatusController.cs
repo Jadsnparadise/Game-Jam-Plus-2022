@@ -15,6 +15,12 @@ namespace Game.StatusController
         [SerializeField] Slider hungryBar;
         [SerializeField] Slider happinessBar;
 
+        [SerializeField] GameObject stonedUI;
+        [SerializeField] GameObject drunkUI;
+        [SerializeField] GameObject poisonedUI;
+        [SerializeField] GameObject coldUI;
+        [SerializeField] GameObject hotUI;
+
         bool stoned;
         bool drunk;
         bool poisoned;
@@ -43,6 +49,13 @@ namespace Game.StatusController
             //Debug.Log("Vida max: " + playerStatus.LifeBar.MaxValue);
             //Debug.Log("fillamount: " + lifeBar.value);
             LifeControl();
+            StonedControl();
+            DrunkControl();
+            PoisonedControl();
+            HotControl();
+            ColdControl();
+            Happiness();
+            HungryControl();
         }
 
         private void LifeControl()
@@ -70,7 +83,7 @@ namespace Game.StatusController
                 clockStamina = 0;
             }
 
-            
+
         }
 
         private void WaterIncrease()
@@ -85,36 +98,79 @@ namespace Game.StatusController
 
         private void HungryControl()
         {
-
+            hungryBar.value = playerStatus.Hungrybar.CurrentValue;
+            if (playerStatus.IsStoned)
+            {
+                playerStatus.Hungrybar.DecreaseValue(1);
+            }
         }
 
         private void Happiness()
         {
+            happinessBar.value = playerStatus.Hapinessbar.CurrentValue;
+            if (playerStatus.IsStoned)
+            {
+                playerStatus.Hapinessbar.AddValue(playerStatus.Hapinessbar.MaxValue);
 
+            }
         }
 
         private void StonedControl()
         {
-            
+            if (playerStatus.IsStoned)
+            {
+                stonedUI.SetActive(true);
+            }
+            else
+            {
+                stonedUI.SetActive(false);
+            }
         }
 
         private void DrunkControl()
         {
-
+            if (playerStatus.IsDrunk)
+            {
+                drunkUI.SetActive(true);
+            }
+            else
+            {
+                drunkUI.SetActive(false);
+            }
         }
 
         private void PoisonedControl()
         {
-
+            if (playerStatus.IsPoisoned)
+            {
+                poisonedUI.SetActive(true);
+            }
+            else
+            {
+                poisonedUI.SetActive(false);
+            }
         }
         private void ColdControl()
         {
-
+            if (playerStatus.IsCold)
+            {
+                coldUI.SetActive(true);
+            }
+            else
+            {
+                coldUI.SetActive(false);
+            }
         }
         private void HotControl()
         {
-
+            if (playerStatus.IsHot)
+            {
+                hotUI.SetActive(true);
+            }
+            else
+            {
+                hotUI.SetActive(false);
+            }
         }
     }
 }
-
