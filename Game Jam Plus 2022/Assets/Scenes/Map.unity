@@ -4538,6 +4538,12 @@ MonoBehaviour:
     resources:
     - item: {fileID: 11400000, guid: 16280e6eca48e8a48be37634c206e0f3, type: 2}
       quantity: 1
+    - item: {fileID: 11400000, guid: ce4f752804f9af940895f19e0dbd53d0, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: b4e573c0a34124f45a2822695dc1430c, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: 34f05d6b6f2a9ec4592ff10e1036e4c7, type: 2}
+      quantity: 1
 --- !u!1 &1679578714
 GameObject:
   m_ObjectHideFlags: 0
