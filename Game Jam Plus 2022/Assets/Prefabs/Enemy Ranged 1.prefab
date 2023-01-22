@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4922530135993468860}
   - component: {fileID: 4922530135993468863}
-  - component: {fileID: 4922530135993468862}
   - component: {fileID: 4922530135993468801}
   - component: {fileID: 4922530135993468861}
+  - component: {fileID: 4922530135993468862}
+  - component: {fileID: 1665221962684440140}
   m_Layer: 7
   m_Name: Enemy Ranged 1
   m_TagString: Enemy
@@ -87,44 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4922530135993468862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4922530135993468800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac32ae6c60214c4b9e32cb96958078a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 4922530135993468801}
-  player: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  life:
-    attributeName: Life
-    currentValue: 10
-    startValue: 10
-    maxValue: 10
-    minValue: 0
-  CDWalkPoint: 20
-  currentCDWalkPoint: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 50
-  minRange: 10
-  coolDownAttack: 0.5
-  enemyDamage: 1
-  sightRange: 3.5
-  attackRange: 3
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!195 &4922530135993468801
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -173,3 +136,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &4922530135993468862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922530135993468800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac32ae6c60214c4b9e32cb96958078a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4922530135993468801}
+  player: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  life:
+    attributeName: Life
+    currentValue: 10
+    startValue: 10
+    maxValue: 10
+    minValue: 0
+  CDWalkPoint: 20
+  currentCDWalkPoint: 0
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointSet: 0
+  walkPointRange: 50
+  minRange: 10
+  coolDownAttack: 0.5
+  enemyDamage: 1
+  sightRange: 3.5
+  attackRange: 3
+  playerInSightRange: 0
+  playerInAttackRange: 0
+--- !u!114 &1665221962684440140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922530135993468800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079314c30653d04185417aa125ab37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life:
+    attributeName: Life
+    currentValue: 10
+    startValue: 10
+    maxValue: 10
+    minValue: 0
+  dropType: 0
+  drop: []
+  dropGameObject: {fileID: 0}

@@ -16,7 +16,6 @@ namespace Game.Enemy.AI
         [SerializeField] Transform player;
 
         [SerializeField] LayerMask groundLayer, playerLayer;
-        [SerializeField] System.Attribute life;
         
         [SerializeField] float CDWalkPoint;
         [SerializeField] float currentCDWalkPoint;
@@ -120,21 +119,6 @@ namespace Game.Enemy.AI
         {
             attacked = false;
         }
-
-        void Death()
-        {
-            Destroy(gameObject);
-        }
-
-        public void Damage(int _damage)
-        {
-            life.DecreaseValue(_damage);
-            if (life.CurrentValue <= life.MinValue)
-            {
-                Death();
-            }
-        }
-
 
         private void OnDrawGizmosSelected()
         {
