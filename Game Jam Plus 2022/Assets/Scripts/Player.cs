@@ -55,6 +55,7 @@ namespace Game.Player
 
         [Header("Colliders")]
         [SerializeField] Collision hitbox;
+        [SerializeField] Collision itemCollider;
 
         //Components
         Rigidbody2D rig;
@@ -100,6 +101,22 @@ namespace Game.Player
             {
                 Application.Quit();
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PickItem();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                aim.DropItem();
+                aim.InvUpdate();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            }
         }
 
         void FixedUpdate()
@@ -108,11 +125,25 @@ namespace Game.Player
             rig.AddForce(moveDir * currentSpeed, ForceMode2D.Impulse);
         }
 
+        void PickItem()
+        {
+            if (itemCollider.InCollision(transform, out Collider2D[] obj))
+            {
+                foreach (Collider2D o in obj)
+                {
+                    Itens.ItemScriptable _item = o.GetComponent<Itens.ItemController>().CurrentItem();
+                    if (aim.AddItem(_item))
+                    {
+                        Destroy(o.gameObject);
+                    }
+                }
+            }
+        }
+
         void Move()
         {
             if (!gotInZero)
             {
-                
                 isRunning = Input.GetKey(KeyCode.LeftShift);
             }
             moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -132,9 +163,7 @@ namespace Game.Player
                     gotInZero = false;
                 }
                 statusPlayerController.StaminaIncrease();
-                
             }
-
         }
 
         void AnimationController()
@@ -183,14 +212,11 @@ namespace Game.Player
             canTakeDamage = true;
         }
 
-
-
         private void OnDrawGizmos()
         {
             hitbox.DrawCollider(transform);
+            itemCollider.DrawCollider(transform);
         }
-
-
     }
 }
 

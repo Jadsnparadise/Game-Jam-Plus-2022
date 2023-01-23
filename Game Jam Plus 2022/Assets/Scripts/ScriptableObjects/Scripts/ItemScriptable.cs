@@ -19,12 +19,12 @@ namespace Game.Itens
         public virtual void ItemStart()
         {
             currentAtackTimer = timeToAtack;
-            Debug.Log($"{itemName} Start");
+            //Debug.Log($"{itemName} Start");
         }
         public virtual void ItemUpdate()
         {
             currentAtackTimer += Time.deltaTime;
-            Debug.Log($"{itemName} Update");
+            //Debug.Log($"{itemName} Update");
         }
         public virtual void Atacking(Vector3 _handPos, Quaternion _handRot)
         {

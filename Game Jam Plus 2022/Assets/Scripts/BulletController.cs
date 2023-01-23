@@ -23,24 +23,10 @@ namespace Game.Itens
             {
                 foreach (Collider2D o in obj)
                 {
-                    /*
-                    if (o.CompareTag("Enemy"))
+                    if (o.gameObject.TryGetComponent(out StatusController.LifeSystem life))
                     {
-                        Enemy.AI.EnemyAI enemy = o.gameObject.GetComponent<Enemy.AI.EnemyAI>();
-                        enemy.Damage(bulletType.damage);
+                        life.Damage(bulletType.damage);
                     }
-                    Destroy(gameObject);
-                    */
-                    StatusController.LifeSystem life;
-                    try
-                    {
-                        life = o.gameObject.GetComponent<StatusController.LifeSystem>();
-                    }
-                    catch
-                    {
-                        continue;
-                    }
-                    life.Damage(bulletType.damage);
                     Destroy(gameObject);
                 }
             }

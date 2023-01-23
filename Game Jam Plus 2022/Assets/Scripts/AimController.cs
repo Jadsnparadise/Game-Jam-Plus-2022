@@ -17,6 +17,7 @@ namespace Game.Player.Inventory
         [SerializeField] Itens.ItemScriptable handItem;
 
         [SerializeField] Inventory inventory = new();
+        [SerializeField] List<KeyCode> inventoryKeys = new();
 
         void Start()
         {
@@ -35,7 +36,7 @@ namespace Game.Player.Inventory
             handSpriteRenderer.sprite = currentItem.itemSprite;
             currentItem.ItemUpdate();
 
-            Debug.Log(inventory.currentSlot);
+            //Debug.Log(inventory.currentSlot);
 
             if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
             {
@@ -52,6 +53,14 @@ namespace Game.Player.Inventory
             {
                 currentItem.Atacking(hand.transform.position, hand.transform.rotation);
             }
+
+            foreach (KeyCode k in inventoryKeys)
+            {
+                if (Input.GetKeyDown(k))
+                {
+                    inventory.ChangeSlot(inventoryKeys.FindIndex(x => x == k));
+                }
+            }
         }
 
         void Aim()
@@ -67,6 +76,24 @@ namespace Game.Player.Inventory
         public void InvUpdate()
         {
             inventory.InvUpdate();
+        }
+
+        public bool AddItem(Itens.ItemScriptable _newItem)
+        {
+            inventory.AddItem(_newItem, out bool added);
+            return added;
+        }
+
+        public void DropItem()
+        {
+            if (currentItem == handItem)
+            {
+                return;
+            }
+            Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
+            i.SetItem(inventory.CurrentItem());
+            inventory.DropItem();
+
         }
     }
 
@@ -96,6 +123,7 @@ namespace Game.Player.Inventory
         [SerializeField] List<GameObject> slots = new();
         public int currentSlot { get; private set; }
         [SerializeField] List<Resources> resources = new(8);
+        public GameObject dropGameObject;
 
         public void ChangeSlot(int _newValue)
         {
@@ -121,32 +149,50 @@ namespace Game.Player.Inventory
             ChangeSlot(currentSlot - 1);
         }
 
-        public void AddItem(Itens.ItemScriptable _newItem)
+        public void DropItem()
         {
-            Resources r = resources.Find(x => x.item == _newItem);
+            if (resources[currentSlot].quantity > 1)
+            {
+                resources[currentSlot].quantity--;
+            }
+            else
+            {
+                resources[currentSlot] = new();
+            }
+             //= new Resources();
+        }
+
+        public void AddItem(Itens.ItemScriptable _newItem, out bool added)
+        {
+            added = false;
+            //Resources r = resources.Find(x => x.item == _newItem);
+            bool hasItem = resources.Exists(x => x.item == _newItem);
             if (_newItem.stack)
             {
-                if (r.item != null)
+                if (hasItem)
                 {
                     resources.Find(x => x.item == _newItem).quantity++;
+                    added = true;
                 }
                 else
                 {
-                    NewItem(_newItem);
+                    NewItem(_newItem, out added);
                 }
             }
             else
             {
-                NewItem(_newItem);
+                NewItem(_newItem, out added);
             }
             InvUpdate();
         }
 
-        void NewItem(Itens.ItemScriptable _newItem)
+        void NewItem(Itens.ItemScriptable _newItem, out bool added)
         {
+            added = false;
             if (resources[currentSlot].item == null)
             {
                 resources[currentSlot] = new(_newItem);
+                added = true;
             }
             else
             {
@@ -155,6 +201,7 @@ namespace Game.Player.Inventory
                     if (resources[i].item == null)
                     {
                         resources[i] = new(_newItem);
+                        added = true;
                         break;
                     }
                 }
@@ -172,14 +219,19 @@ namespace Game.Player.Inventory
 
         public void InvUpdate()
         {
-            for (int i = 0; i < slots.Count - 1; i++)
+            for (int i = 0; i < slots.Count; i++)
             {
                 UnityEngine.UI.RawImage slot = slots[i].GetComponent<UnityEngine.UI.RawImage>();
 
                 if (resources[i].item != null)
                 {
+                    slot.color = Color.white;
                     Sprite spr = resources[i].item.itemSprite;
                     slot.texture = spr != null ? spr.texture : slot.texture;
+                }
+                else
+                {
+                    slot.color = Color.clear;
                 }
             }
         }

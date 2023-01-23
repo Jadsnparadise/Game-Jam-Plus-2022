@@ -45,7 +45,7 @@ namespace Game.StatusController
                     }
                     break;
                 case DropType.RandomDrop:
-                    int currentDrop = UnityEngine.Random.Range(0, drop.Count-1);
+                    int currentDrop = UnityEngine.Random.Range(0, drop.Count);
                     Drop(drop[currentDrop].itemDrop);
                     break;
             }
@@ -54,9 +54,9 @@ namespace Game.StatusController
 
         void Drop(Itens.ItemScriptable _itemDrop)
         {
-            //ItemController i = Instantiate(dropGameObject, transform.position, transform.rotation);
-            //i.SetItem(_itemDrop);
-            Instantiate(dropGameObject, transform.position, transform.rotation);
+            Itens.ItemController i = Instantiate(dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
+            i.SetItem(_itemDrop);
+            //Instantiate(dropGameObject, transform.position, transform.rotation);
         }
     }
 

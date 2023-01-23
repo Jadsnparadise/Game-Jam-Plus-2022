@@ -25,23 +25,10 @@ namespace Game.Itens
                     {
                         continue;
                     }
-                    StatusController.LifeSystem life;
-                    try
+                    if (o.gameObject.TryGetComponent(out StatusController.LifeSystem life))
                     {
-                        life = o.gameObject.GetComponent<StatusController.LifeSystem>();
+                        life.Damage(slashType.damage);
                     }
-                    catch
-                    {
-                        continue;
-                    }
-                    life.Damage(slashType.damage);
-
-                    /*
-                    if (o.CompareTag("Enemy"))
-                    {
-                        Enemy.AI.EnemyAI enemy = o.gameObject.GetComponent<Enemy.AI.EnemyAI>();
-                        enemy.Damage(slashType.damage);
-                    }*/
                 }
                 objects.AddRange(obj);
             }
