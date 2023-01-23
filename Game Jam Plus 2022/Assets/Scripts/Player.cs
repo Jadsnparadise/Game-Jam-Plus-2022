@@ -37,19 +37,19 @@ namespace Game.Player
         bool canTakeDamage;
         bool isRunning;
 
-        bool isStoned;
+        [SerializeField] bool isStoned;
         public bool IsStoned { get { return isStoned; } private set { IsStoned = value; } }
 
-        bool isDrunk;
+        [SerializeField] bool isDrunk;
         public bool IsDrunk { get { return isDrunk; } private set { IsDrunk = value; } }
 
-        bool isPoisoned;
+        [SerializeField] bool isPoisoned;
         public bool IsPoisoned { get { return isPoisoned; } private set { IsPoisoned = value; } }
 
-        bool isCold;
+        [SerializeField] bool isCold;
         public bool IsCold { get { return isCold; } private set { IsCold = value; } }
 
-        bool isHot;
+        [SerializeField] bool isHot;
         public bool IsHot { get { return isHot; } private set { IsHot = value; } }
 
 

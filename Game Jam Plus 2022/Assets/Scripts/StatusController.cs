@@ -36,6 +36,18 @@ namespace Game.StatusController
         float modifyStaminaRate = 0.2f;
         float clockStamina;
 
+        float waterDecreaseRate = 14f;
+        float currentWaterDecrease;
+        int decreaseWater = 1;
+
+        float foodDecreaseRate = 14f;
+        float currentFoodDecrease;
+        int decreaseFood = 1;
+
+        float happinessDecreaseRate = 14f;
+        float currentHappinessDecrease;
+        int decreaseHappiness = 1;
+
         private void Start()
         {
             player = GameObject.Find("Player");
@@ -48,14 +60,20 @@ namespace Game.StatusController
             //Debug.Log("Vida atual: " + playerStatus.LifeBar.CurrentValue);
             //Debug.Log("Vida max: " + playerStatus.LifeBar.MaxValue);
             //Debug.Log("fillamount: " + lifeBar.value);
+
+            HungryDecrease();
+            HungryIncrease();
+            WaterIncrease();
+            waterDecrease();
+            HappinessIncrease();
+            HapinessDecrease();
             LifeControl();
             StonedControl();
             DrunkControl();
             PoisonedControl();
             HotControl();
             ColdControl();
-            Happiness();
-            HungryControl();
+
         }
 
         private void LifeControl()
@@ -66,6 +84,7 @@ namespace Game.StatusController
         public void StaminaIncrease()
         {
             clockStamina += Time.deltaTime;
+
             if (clockStamina >= modifyStaminaRate)
             {
                 playerStatus.StaminaBar.AddValue(2);
@@ -88,7 +107,7 @@ namespace Game.StatusController
 
         private void WaterIncrease()
         {
-            if (playerStatus.WaterBar.CurrentValue < playerStatus.WaterBar.MaxValue)
+            if (playerStatus.WaterBar.CurrentValue < playerStatus.WaterBar.MaxValue && Input.GetKeyDown(KeyCode.R)) // depois modificar para ser quando consumir o item
             {
                 //se o objeto for água aumentar em 25 a barra de água
                 waterBar.value += 25;
@@ -96,22 +115,55 @@ namespace Game.StatusController
             }
         }
 
-        private void HungryControl()
+        private void waterDecrease()
+        {
+            currentWaterDecrease += Time.deltaTime;
+            if (currentWaterDecrease >= waterDecreaseRate)
+            {
+                playerStatus.WaterBar.DecreaseValue(decreaseWater);//modificar depois para pegar diretamente do atributo do item
+                waterBar.value = playerStatus.WaterBar.CurrentValue;
+                currentWaterDecrease = 0;
+            }
+        }
+        private void HungryIncrease()
         {
             hungryBar.value = playerStatus.Hungrybar.CurrentValue;
             if (playerStatus.IsStoned)
             {
                 playerStatus.Hungrybar.DecreaseValue(1);
             }
+
         }
 
-        private void Happiness()
+        private void HungryDecrease()
+        {
+            currentFoodDecrease += Time.deltaTime;
+            if (currentFoodDecrease >= foodDecreaseRate)
+            {
+                playerStatus.Hungrybar.DecreaseValue(decreaseFood);//modificar depois para pegar diretamente do atributo do item
+                hungryBar.value = playerStatus.Hungrybar.CurrentValue;
+                currentFoodDecrease = 0;
+            }
+        }
+
+        private void HappinessIncrease()
         {
             happinessBar.value = playerStatus.Hapinessbar.CurrentValue;
             if (playerStatus.IsStoned)
             {
                 playerStatus.Hapinessbar.AddValue(playerStatus.Hapinessbar.MaxValue);
 
+            }
+        }
+
+        private void HapinessDecrease()
+        {
+            currentHappinessDecrease += Time.deltaTime;
+            if (currentHappinessDecrease >= happinessDecreaseRate)
+            {
+                playerStatus.Hapinessbar.DecreaseValue(decreaseHappiness);//modificar depois para pegar diretamente do atributo do item
+                happinessBar.value = playerStatus.Hapinessbar.CurrentValue;
+                currentHappinessDecrease = 0;
             }
         }
 
