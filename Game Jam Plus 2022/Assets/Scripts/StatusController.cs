@@ -125,6 +125,7 @@ namespace Game.StatusController
                 //se o objeto for água aumentar em 25 a barra de água
                 waterBar.value += 25;
                 playerStatus.WaterBar.AddValue(25);//modificar depois para pegar diretamente do atributo do item
+                happinessBar.value += 10;
             }
         }
 
