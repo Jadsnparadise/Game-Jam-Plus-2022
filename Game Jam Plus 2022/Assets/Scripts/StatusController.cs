@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Game.Clock;
 using Unity.VisualScripting;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 namespace Game.StatusController
 {
@@ -33,6 +34,15 @@ namespace Game.StatusController
         GameObject Clock;
         Game.Clock.ClockController clock;
 
+        int DamageByStatus = 2;
+        public int damageByStatus { get { return DamageByStatus; } private set { damageByStatus = value; } }
+
+        float DamageByStatusCD = 3f;
+        public float damageByStatusCD { get { return DamageByStatusCD; } private set { damageByStatusCD = value; } }
+
+        float CurrentCDStatusDamage;
+        public float currentCDStatusDamage { get { return CurrentCDStatusDamage; } private set { currentCDStatusDamage = value; } }
+
         float modifyStaminaRate = 0.2f;
         float clockStamina;
 
@@ -43,6 +53,7 @@ namespace Game.StatusController
         float foodDecreaseRate = 14f;
         float currentFoodDecrease;
         int decreaseFood = 1;
+        bool stoneAlreadyDecresedFood;
 
         float happinessDecreaseRate = 14f;
         float currentHappinessDecrease;
@@ -73,6 +84,8 @@ namespace Game.StatusController
             PoisonedControl();
             HotControl();
             ColdControl();
+
+            
 
         }
 
@@ -127,11 +140,8 @@ namespace Game.StatusController
         }
         private void HungryIncrease()
         {
-            hungryBar.value = playerStatus.Hungrybar.CurrentValue;
-            if (playerStatus.IsStoned)
-            {
-                playerStatus.Hungrybar.DecreaseValue(1);
-            }
+            hungryBar.value = playerStatus.HungryBar.CurrentValue;
+            
 
         }
 
@@ -140,18 +150,24 @@ namespace Game.StatusController
             currentFoodDecrease += Time.deltaTime;
             if (currentFoodDecrease >= foodDecreaseRate)
             {
-                playerStatus.Hungrybar.DecreaseValue(decreaseFood);//modificar depois para pegar diretamente do atributo do item
-                hungryBar.value = playerStatus.Hungrybar.CurrentValue;
+                playerStatus.HungryBar.DecreaseValue(decreaseFood);//modificar depois para pegar diretamente do atributo do item
+                hungryBar.value = playerStatus.HungryBar.CurrentValue;
                 currentFoodDecrease = 0;
             }
+            if (playerStatus.IsStoned && !stoneAlreadyDecresedFood)
+            {
+                playerStatus.HungryBar.DecreaseValue(33);
+                stoneAlreadyDecresedFood = true;
+            }
+
         }
 
         private void HappinessIncrease()
         {
-            happinessBar.value = playerStatus.Hapinessbar.CurrentValue;
+            happinessBar.value = playerStatus.HappinessBar.CurrentValue;
             if (playerStatus.IsStoned)
             {
-                playerStatus.Hapinessbar.AddValue(playerStatus.Hapinessbar.MaxValue);
+                playerStatus.HappinessBar.AddValue(playerStatus.HappinessBar.MaxValue);
 
             }
         }
@@ -161,8 +177,8 @@ namespace Game.StatusController
             currentHappinessDecrease += Time.deltaTime;
             if (currentHappinessDecrease >= happinessDecreaseRate)
             {
-                playerStatus.Hapinessbar.DecreaseValue(decreaseHappiness);//modificar depois para pegar diretamente do atributo do item
-                happinessBar.value = playerStatus.Hapinessbar.CurrentValue;
+                playerStatus.HappinessBar.DecreaseValue(decreaseHappiness);//modificar depois para pegar diretamente do atributo do item
+                happinessBar.value = playerStatus.HappinessBar.CurrentValue;
                 currentHappinessDecrease = 0;
             }
         }

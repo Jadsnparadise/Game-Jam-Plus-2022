@@ -22,11 +22,11 @@ namespace Game.Player
         [SerializeField] System.Attribute waterBar;
         public System.Attribute WaterBar { get { return waterBar; } private set { WaterBar = value; } }
 
-        [SerializeField] System.Attribute hungrybar;
-        public System.Attribute Hungrybar { get { return hungrybar; } private set { Hungrybar = value; } }
+        [SerializeField] System.Attribute hungryBar;
+        public System.Attribute HungryBar { get { return hungryBar; } private set { HungryBar = value; } }
 
-        [SerializeField] System.Attribute hapinessbar;
-        public System.Attribute Hapinessbar { get { return hapinessbar; } private set { Hapinessbar = value; } }
+        [SerializeField] System.Attribute happinessBar;
+        public System.Attribute HappinessBar { get { return happinessBar; } private set { HappinessBar = value; } }
 
         [Header("Player Settings")]
         [SerializeField, Min(1)] float speed;
@@ -35,6 +35,7 @@ namespace Game.Player
         [SerializeField, Min(1)] float knockbackForce;
         Vector2 moveDir;
         bool canTakeDamage;
+        [SerializeField] float currentCDStatusDamage;
         bool isRunning;
 
         [SerializeField] bool isStoned;
@@ -64,7 +65,7 @@ namespace Game.Player
         SpriteRenderer spriteRenderer;
 
         GameObject statusController;
-        Game.StatusController.StatusController statusPlayerController;
+        StatusController.StatusController statusPlayerController;
 
         bool gotInZero = false;
 
@@ -95,6 +96,18 @@ namespace Game.Player
                     Enemy.AI.EnemyAI a = c.gameObject.GetComponent<Enemy.AI.EnemyAI>();
                     Damage(a.EnemyDamage);
                 }
+            }
+
+            if (waterBar.CurrentValue == 0 || hungryBar.CurrentValue == 0 || happinessBar.CurrentValue == 0)
+            {
+                currentCDStatusDamage += Time.deltaTime;
+                if (currentCDStatusDamage >= statusPlayerController.damageByStatusCD)
+                {
+                    knockbackForce = 0;
+                    Damage(statusPlayerController.damageByStatus);
+                    currentCDStatusDamage = 0;
+                }
+                    
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -212,6 +225,8 @@ namespace Game.Player
             }
             canTakeDamage = true;
         }
+
+
 
         private void OnDrawGizmos()
         {
