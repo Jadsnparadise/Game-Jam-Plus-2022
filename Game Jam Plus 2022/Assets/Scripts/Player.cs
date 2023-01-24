@@ -165,13 +165,14 @@ namespace Game.Player
                 statusPlayerController.StaminaIncrease();
             }
         }
-
+        
         void AnimationController()
         {
             anim.SetFloat("playerSpeed", moveDir.x);
             anim.SetFloat("mousePosX", aim.lookingDir.x);
             anim.SetFloat("mousePosY", aim.lookingDir.y);
             anim.SetBool("walking", moveDir.magnitude != 0);
+            anim.SetBool("running", isRunning);
             //spriteRenderer.flipX = aim.lookingDir.x < 0;
         }
         void Death()
