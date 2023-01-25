@@ -55,9 +55,10 @@ namespace Game.Player.Inventory
             }
             else
             {   
-                //handSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+                //handSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite
+                //
                 itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
-
+                handAnim.runtimeAnimatorController = null;
             }
             if (currentItem == handItem)
             {
@@ -79,7 +80,8 @@ namespace Game.Player.Inventory
         {
             if (Input.GetButton("Fire1"))
             {
-                currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+                //currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+                currentItem.Atacking(hand.transform.position, transform.rotation);
                 Knockback();
 
             }
@@ -121,10 +123,12 @@ namespace Game.Player.Inventory
 
         void AnimUpdate()
         {
-            handAnim.SetFloat("MousePosX", lookingDir.x);
-            handAnim.SetFloat("MousePosY", lookingDir.y);
-            handAnim.SetBool("Moving", playerScript.Moving());
-
+            if (handAnim.runtimeAnimatorController != null)
+            {
+                handAnim.SetFloat("MousePosX", lookingDir.x);
+                handAnim.SetFloat("MousePosY", lookingDir.y);
+                handAnim.SetBool("Moving", playerScript.Moving());
+            }
         }
 
         [ContextMenu("Inv Update")]

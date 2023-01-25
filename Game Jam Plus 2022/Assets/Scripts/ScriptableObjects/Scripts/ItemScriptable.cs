@@ -18,6 +18,7 @@ namespace Game.Itens
         [SerializeField] GameObject slashGameObject;
         public bool stack;
         public float knockbackForce;
+        
 
         public virtual void ItemStart()
         {

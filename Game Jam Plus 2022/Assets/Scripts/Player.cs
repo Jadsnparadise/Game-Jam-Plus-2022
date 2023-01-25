@@ -37,6 +37,7 @@ namespace Game.Player
         bool canTakeDamage;
         [SerializeField] float currentCDStatusDamage;
         bool isRunning;
+        bool isMoving;
 
         [SerializeField] bool isStoned;
         public bool IsStoned { get { return isStoned; } private set { IsStoned = value; } }
@@ -138,13 +139,13 @@ namespace Game.Player
 
         void Move()
         {
+            moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            isMoving = rig.velocity.normalized.magnitude != 0 && moveDir.magnitude != 0;
             if (!gotInZero)
             {
                 isRunning = Input.GetKey(KeyCode.LeftShift);
             }
-            moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-            if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue) {
+            if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue && isMoving) {
                 statusPlayerController.StaminaDecrease();
             }
             else
@@ -188,11 +189,12 @@ namespace Game.Player
         
         void AnimationController()
         {
+
             anim.SetFloat("playerSpeed", moveDir.x);
             anim.SetFloat("mousePosX", aim.lookingDir.x);
             anim.SetFloat("mousePosY", aim.lookingDir.y);
-            anim.SetBool("walking", moveDir.magnitude != 0);
-            anim.SetBool("running", isRunning);
+            anim.SetBool("walking", isMoving);
+            anim.SetBool("running", isRunning && isMoving);
             //spriteRenderer.flipX = aim.lookingDir.x < 0;
         }
 
@@ -236,13 +238,6 @@ namespace Game.Player
 
         public void Knockback(float _knockbackForce, Vector2 _dir)
         {
-            /*
-            //Vector2 knockbackDir = new(UnityEngine.Random.Range(-_knockback.x, _knockback.x), UnityEngine.Random.Range(-_knockback.y, _knockback.y));
-            while (knockbackDir.magnitude < knockbackForce / 3)
-            {
-                knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
-            }
-            */
             rig.AddForce(_dir.normalized * _knockbackForce, ForceMode2D.Impulse);
         }
 
