@@ -38,7 +38,8 @@ namespace Game.StatusController
                 case DropType.AllDrop:
                     foreach (Drop d in drop)
                     {
-                        for (int i = 0; i < UnityEngine.Random.Range(d.minMaxItens.x, d.minMaxItens.y); i++)
+                        //for (int i = 0; i < UnityEngine.Random.Range(d.minMaxItens.x, d.minMaxItens.y); i++)
+                        for (int i = 0; i < d.minMaxItens.y + 1; i++)
                         {
                             Drop(d.itemDrop);
                         }
@@ -46,7 +47,11 @@ namespace Game.StatusController
                     break;
                 case DropType.RandomDrop:
                     int currentDrop = UnityEngine.Random.Range(0, drop.Count);
-                    Drop(drop[currentDrop].itemDrop);
+                    for (int i = 0; i < UnityEngine.Random.Range(drop[currentDrop].minMaxItens.x, drop[currentDrop].minMaxItens.y + 1); i++)
+                    {
+                        Drop(drop[currentDrop].itemDrop);
+                    }
+                    
                     break;
             }
             Destroy(gameObject);

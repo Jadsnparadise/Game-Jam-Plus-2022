@@ -9,6 +9,8 @@ namespace Game.Itens
     {
         public string itemName;
         public Sprite itemSprite;
+        public Sprite itemSpriteInHand;
+        public RuntimeAnimatorController animInHand;
         [TextArea(2, 3)] public string description;
         [SerializeField, Min(0)] float timeToAtack = 1;
         float currentAtackTimer;
@@ -19,12 +21,10 @@ namespace Game.Itens
         public virtual void ItemStart()
         {
             currentAtackTimer = timeToAtack;
-            //Debug.Log($"{itemName} Start");
         }
         public virtual void ItemUpdate()
         {
             currentAtackTimer += Time.deltaTime;
-            //Debug.Log($"{itemName} Update");
         }
         public virtual void Atacking(Vector3 _handPos, Quaternion _handRot)
         {

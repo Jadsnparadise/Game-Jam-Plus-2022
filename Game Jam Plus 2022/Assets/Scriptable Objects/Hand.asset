@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Hand
   itemSprite: {fileID: 0}
+  itemSpriteInHand: {fileID: 0}
+  animInHand: {fileID: 9100000, guid: 9a51cf804389376469989257f236eec6, type: 2}
   description: 
-  itemDamage: 1
   timeToAtack: 0.3
   slashType: {fileID: 11400000, guid: 8c5be954a5803eb4b9476af101901b8e, type: 2}
   slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}

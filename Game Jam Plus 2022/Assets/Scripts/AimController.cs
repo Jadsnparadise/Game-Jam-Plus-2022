@@ -10,7 +10,10 @@ namespace Game.Player.Inventory
     public class AimController : MonoBehaviour
     {
         [SerializeField] GameObject hand;
+        //[SerializeField] List<HandSystem> hands;
         SpriteRenderer handSpriteRenderer;
+        Animator handAnim;
+        Player playerScript;
 
         public Vector2 lookingDir { get; private set; }
         [SerializeField] Itens.ItemScriptable currentItem;
@@ -26,18 +29,57 @@ namespace Game.Player.Inventory
             handSpriteRenderer.sprite = currentItem.itemSprite;
             currentItem.ItemStart();
             inventory.InvStart();
+            handAnim = GetComponentInChildren<Animator>();
+            playerScript = GetComponentInParent<Player>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            HandUpdate();
+            InputUpdate();
+            Aim();
+            AnimUpdate();
+        }
+
+        void HandUpdate()
+        {
             currentItem = inventory.CurrentItem();
             currentItem ??= handItem;
-            handSpriteRenderer.sprite = currentItem.itemSprite;
+            if (currentItem.animInHand != null)
+            {
+                handAnim.runtimeAnimatorController = currentItem.animInHand;
+            }
+            else
+            {
+                handSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+            }
+            if (currentItem == handItem)
+            {
+                hand.transform.localRotation = Quaternion.Euler(0, 0, 90);
+            }
+            else
+            {
+                //hand.transform.rotation.SetEulerAngles(0, 0, 0);
+                handSpriteRenderer.gameObject.transform.rotation = new();
+            }
+            //
             currentItem.ItemUpdate();
+        }
 
-            //Debug.Log(inventory.currentSlot);
-
+        void InputUpdate()
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+            }
+            foreach (KeyCode k in inventoryKeys)
+            {
+                if (Input.GetKeyDown(k))
+                {
+                    inventory.ChangeSlot(inventoryKeys.FindIndex(x => x == k));
+                }
+            }
             if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
             {
                 inventory.AddSlot();
@@ -46,32 +88,27 @@ namespace Game.Player.Inventory
             {
                 inventory.DecreaseSlot();
             }
-
-            Aim();
-
-            if (Input.GetButton("Fire1"))
-            {
-                currentItem.Atacking(hand.transform.position, hand.transform.rotation);
-            }
-
-            foreach (KeyCode k in inventoryKeys)
-            {
-                if (Input.GetKeyDown(k))
-                {
-                    inventory.ChangeSlot(inventoryKeys.FindIndex(x => x == k));
-                }
-            }
         }
 
         void Aim()
         {
+         
             Vector3 mousePos = Input.mousePosition;
             Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             lookingDir = new(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
             float angle = Mathf.Atan2(lookingDir.y, lookingDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            handSpriteRenderer.flipY = mousePos.x < screenPoint.x;
+            //handSpriteRenderer.flipY = mousePos.x < screenPoint.x;
         }
+
+        void AnimUpdate()
+        {
+            handAnim.SetFloat("MousePosX", lookingDir.x);
+            handAnim.SetFloat("MousePosY", lookingDir.y);
+            handAnim.SetBool("Moving", playerScript.Moving());
+
+        }
+
         [ContextMenu("Inv Update")]
         public void InvUpdate()
         {
@@ -95,6 +132,12 @@ namespace Game.Player.Inventory
             inventory.DropItem();
 
         }
+    }
+    [Serializable]
+    public struct HandSystem
+    {
+        public GameObject hand;
+        public Vector2 pos;
     }
 
 

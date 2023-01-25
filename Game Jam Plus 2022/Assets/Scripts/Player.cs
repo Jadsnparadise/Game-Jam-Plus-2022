@@ -81,14 +81,14 @@ namespace Game.Player
             canTakeDamage = true;
         }
 
-        // Update is called once per frame
         void Update()
         {
             Move();
             AnimationController();
 
-            //Debug.Log($"Player: {life.CurrentValue} / {life.MaxValue}");
-
+            /*
+             * TIRAR ISSO AQUI E COLOCAR NO ENEMYIA SCRIPT ---------------------------->
+            */
             if (hitbox.InCollision(transform, out Collider2D[] objects))
             {
                 foreach (Collider2D c in objects)
@@ -96,8 +96,11 @@ namespace Game.Player
                     Enemy.AI.EnemyAI a = c.gameObject.GetComponent<Enemy.AI.EnemyAI>();
                     Damage(a.EnemyDamage);
                 }
-            }
+            }//<----------------------------
 
+            /*
+             * TIRAR ISSO AQUI E COLOCAR NO STATUS CONTROLLER ---------------------------->
+            */
             if (waterBar.CurrentValue == 0 || hungryBar.CurrentValue == 0 || happinessBar.CurrentValue == 0)
             {
                 currentCDStatusDamage += Time.deltaTime;
@@ -107,35 +110,15 @@ namespace Game.Player
                     Damage(statusPlayerController.damageByStatus);
                     currentCDStatusDamage = 0;
                 }
-                    
-            }
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Application.Quit();
-            }
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                PickItem();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                aim.DropItem();
-                aim.InvUpdate();
-            }
-
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-            }
+            }//<----------------------------
+            Inputs();
         }
 
         void FixedUpdate()
         {
+            //Vector2 currentMoveDir = isDrunk ? -moveDir : moveDir;
             float currentSpeed = isRunning ? speedRun : speed;
-            rig.AddForce(moveDir * currentSpeed, ForceMode2D.Impulse);
+            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1), ForceMode2D.Impulse);
         }
 
         void PickItem()
@@ -178,6 +161,30 @@ namespace Game.Player
                 statusPlayerController.StaminaIncrease();
             }
         }
+
+        void Inputs()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PickItem();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                aim.DropItem();
+                aim.InvUpdate();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            }
+        }
         
         void AnimationController()
         {
@@ -188,12 +195,17 @@ namespace Game.Player
             anim.SetBool("running", isRunning);
             //spriteRenderer.flipX = aim.lookingDir.x < 0;
         }
+
+        public bool Moving()
+        {
+            return isRunning || moveDir.magnitude != 0;
+        }
         void Death()
         {
             Debug.LogWarning("MORREU BURRO RUIM LIXO HORROROSO");
         }
 
-        void Damage(int _damage)
+        public void Damage(int _damage)
         {
             if (!canTakeDamage)
             {
@@ -204,8 +216,22 @@ namespace Game.Player
             {
                 Death();
             }
-            Vector2 knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
-            while (knockbackDir.magnitude < knockbackForce/3)
+            StartCoroutine(DmageTaken());
+        }
+
+        public void Damage(int _damage, Vector2 _knockback)
+        {
+            if (!canTakeDamage)
+            {
+                return;
+            }
+            lifeBar.DecreaseValue(_damage);
+            if (lifeBar.CurrentValue <= lifeBar.MinValue)
+            {
+                Death();
+            }
+            Vector2 knockbackDir = new(UnityEngine.Random.Range(-_knockback.x, _knockback.x), UnityEngine.Random.Range(-_knockback.y, _knockback.y));
+            while (knockbackDir.magnitude < knockbackForce / 3)
             {
                 knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
             }

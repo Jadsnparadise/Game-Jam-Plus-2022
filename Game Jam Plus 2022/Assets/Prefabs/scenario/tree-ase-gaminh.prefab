@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2744048432980074717}
   - component: {fileID: 2744048432980074716}
-  - component: {fileID: 2744048432980074722}
   - component: {fileID: 2744048432980074723}
   - component: {fileID: 2744048432980074720}
-  m_Layer: 0
+  - component: {fileID: 1167146756297213668}
+  m_Layer: 10
   m_Name: tree-ase-gaminh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2744048432980074722
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2744048432980074718}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.13, y: -2.25}
-  serializedVersion: 2
-  m_Radius: 1.09
 --- !u!58 &2744048432980074723
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +100,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13, y: -2.25}
+  m_Offset: {x: 0.13, y: -2.18}
   serializedVersion: 2
   m_Radius: 1.09
 --- !u!61 &2744048432980074720
@@ -145,3 +129,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.11, y: 1.15}
   m_EdgeRadius: 0
+--- !u!114 &1167146756297213668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744048432980074718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079314c30653d04185417aa125ab37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life:
+    attributeName: life
+    currentValue: 10
+    startValue: 10
+    maxValue: 10
+    minValue: 0
+  dropType: 2
+  drop:
+  - itemDrop: {fileID: 11400000, guid: 16280e6eca48e8a48be37634c206e0f3, type: 2}
+    minMaxItens: {x: 1, y: 1}
+  dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
