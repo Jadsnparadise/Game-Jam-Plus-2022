@@ -15,13 +15,14 @@ MonoBehaviour:
   itemName: Shotgun
   itemSprite: {fileID: 21300000, guid: 128027fbd6cdd5e459332814c8360834, type: 3}
   itemSpriteInHand: {fileID: 21300000, guid: 128027fbd6cdd5e459332814c8360834, type: 3}
-  animInHand: {fileID: 0}
+  animInHand: {fileID: 9100000, guid: 38e6e3b927f3e2d44b935352000a0b28, type: 2}
   description: Shotgun
   timeToAtack: 1
   slashType: {fileID: 0}
   slashGameObject: {fileID: 0}
   stack: 0
-  currentAmmo: 999999703
+  knockbackForce: 0
+  currentAmmo: 999999686
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   fireRate: 0.8
   bulletType: {fileID: 11400000, guid: 5b878713cc92afe498385d6dc5ca01be, type: 2}
