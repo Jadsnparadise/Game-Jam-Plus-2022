@@ -32,7 +32,7 @@ namespace Game.Player
         [SerializeField, Min(1)] float speed;
         [SerializeField, Min(1)] float speedRun;
         [SerializeField, Min(1)] float godSeconds;
-        [SerializeField, Min(1)] float knockbackForce;
+        //[SerializeField, Min(1)] float knockbackForce;
         Vector2 moveDir;
         bool canTakeDamage;
         [SerializeField] float currentCDStatusDamage;
@@ -106,7 +106,7 @@ namespace Game.Player
                 currentCDStatusDamage += Time.deltaTime;
                 if (currentCDStatusDamage >= statusPlayerController.damageByStatusCD)
                 {
-                    knockbackForce = 0;
+                    //knockbackForce = 0;
                     Damage(statusPlayerController.damageByStatus);
                     currentCDStatusDamage = 0;
                 }
@@ -219,7 +219,7 @@ namespace Game.Player
             StartCoroutine(DmageTaken());
         }
 
-        public void Damage(int _damage, Vector2 _knockback)
+        public void Damage(int _damage, float _knockbackForce, Vector2 _dir)
         {
             if (!canTakeDamage)
             {
@@ -230,13 +230,20 @@ namespace Game.Player
             {
                 Death();
             }
-            Vector2 knockbackDir = new(UnityEngine.Random.Range(-_knockback.x, _knockback.x), UnityEngine.Random.Range(-_knockback.y, _knockback.y));
+            Knockback(_knockbackForce, _dir);
+            StartCoroutine(DmageTaken());
+        }
+
+        public void Knockback(float _knockbackForce, Vector2 _dir)
+        {
+            /*
+            //Vector2 knockbackDir = new(UnityEngine.Random.Range(-_knockback.x, _knockback.x), UnityEngine.Random.Range(-_knockback.y, _knockback.y));
             while (knockbackDir.magnitude < knockbackForce / 3)
             {
                 knockbackDir = new(UnityEngine.Random.Range(-knockbackForce, knockbackForce), UnityEngine.Random.Range(-knockbackForce, knockbackForce));
             }
-            rig.AddForce(Vector2.one * knockbackDir, ForceMode2D.Impulse);
-            StartCoroutine(DmageTaken());
+            */
+            rig.AddForce(_dir.normalized * _knockbackForce, ForceMode2D.Impulse);
         }
 
         IEnumerator DmageTaken()

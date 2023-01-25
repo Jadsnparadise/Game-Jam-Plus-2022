@@ -10,8 +10,10 @@ namespace Game.Player.Inventory
     public class AimController : MonoBehaviour
     {
         [SerializeField] GameObject hand;
+        [SerializeField] GameObject itenHand;
         //[SerializeField] List<HandSystem> hands;
         SpriteRenderer handSpriteRenderer;
+        SpriteRenderer itemSpriteRenderer;
         Animator handAnim;
         Player playerScript;
 
@@ -25,6 +27,7 @@ namespace Game.Player.Inventory
         void Start()
         {
             handSpriteRenderer = hand.GetComponent<SpriteRenderer>();
+            itemSpriteRenderer = itenHand.GetComponent<SpriteRenderer>();
             currentItem ??= handItem;
             handSpriteRenderer.sprite = currentItem.itemSprite;
             currentItem.ItemStart();
@@ -51,19 +54,24 @@ namespace Game.Player.Inventory
                 handAnim.runtimeAnimatorController = currentItem.animInHand;
             }
             else
-            {
-                handSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+            {   
+                //handSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+                itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+
             }
             if (currentItem == handItem)
             {
                 hand.transform.localRotation = Quaternion.Euler(0, 0, 90);
+                hand.transform.localPosition = new Vector3(0.6f , 0f, 0f);
             }
             else
             {
                 //hand.transform.rotation.SetEulerAngles(0, 0, 0);
                 handSpriteRenderer.gameObject.transform.rotation = new();
+                hand.transform.localPosition = new Vector3(1.6f, 0f, 0f);
             }
             //
+            handSpriteRenderer.sortingOrder = lookingDir.y < 0 ? 1 : -1;
             currentItem.ItemUpdate();
         }
 
@@ -72,6 +80,8 @@ namespace Game.Player.Inventory
             if (Input.GetButton("Fire1"))
             {
                 currentItem.Atacking(hand.transform.position, hand.transform.rotation);
+                Knockback();
+
             }
             foreach (KeyCode k in inventoryKeys)
             {
@@ -98,8 +108,16 @@ namespace Game.Player.Inventory
             lookingDir = new(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
             float angle = Mathf.Atan2(lookingDir.y, lookingDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            //handSpriteRenderer.flipY = mousePos.x < screenPoint.x;
+            handSpriteRenderer.flipY = currentItem != handItem ? mousePos.x < screenPoint.x : false;
+
         }
+
+        void Knockback()
+        {
+            playerScript.Knockback(currentItem.knockbackForce, -lookingDir);
+            //StartCoroutine(KnockbackAnim(lookingDir));
+        }
+
 
         void AnimUpdate()
         {
