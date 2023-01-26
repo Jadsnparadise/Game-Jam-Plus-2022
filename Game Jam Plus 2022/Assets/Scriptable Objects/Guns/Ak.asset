@@ -21,8 +21,9 @@ MonoBehaviour:
   slashType: {fileID: 0}
   slashGameObject: {fileID: 0}
   stack: 0
-  knockbackForce: 0.6
-  currentAmmo: 999993098
+  knockbackForce: 10
+  craft: []
+  currentAmmo: 2147482932
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   weaponRange: 40
   fireRate: 0.1

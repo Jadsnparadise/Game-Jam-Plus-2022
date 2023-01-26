@@ -18,8 +18,8 @@ namespace Game.Itens
         [SerializeField] GameObject slashGameObject;
         public bool stack;
         public float knockbackForce;
+        public List<Player.Inventory.Resources> craft = new();
         
-
         public virtual void ItemStart()
         {
             currentAtackTimer = timeToAtack;
@@ -28,7 +28,7 @@ namespace Game.Itens
         {
             currentAtackTimer += Time.deltaTime;
         }
-        public virtual void Atacking(Vector3 _handPos, Quaternion _handRot)
+        public virtual void Atacking(Game.Player.Player _player, Player.Inventory.AimController _aim ,Vector3 _handPos, Quaternion _handRot)
         {
             if (currentAtackTimer < timeToAtack)
             {

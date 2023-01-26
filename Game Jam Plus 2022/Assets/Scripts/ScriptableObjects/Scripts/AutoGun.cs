@@ -23,21 +23,21 @@ namespace Game.Itens
         {
             currentFireRate += Time.deltaTime;
         }
-        public override void Atacking(Vector3 _handPos, Quaternion _handRot)
+        public override void Atacking(Game.Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
             if (currentFireRate >= fireRate)
             {
-                Shot(_handPos, _handRot);
+                Shot(_aim, _handPos, _handRot);
             }
         }
 
-        void Shot(Vector3 _handPos, Quaternion _handRot)
+        void Shot(Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
             if (currentAmmo <= 0)
             {
                 return;
             }
-            
+            _aim.Knockback();            
             BulletController b = Instantiate(bullet, _handPos, _handRot).GetComponent<BulletController>();
             Destroy(Instantiate(flash, _handPos, _handRot), 0.8f);
             b.SetBullet(bulletType);

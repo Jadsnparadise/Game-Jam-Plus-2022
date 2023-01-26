@@ -24,6 +24,8 @@ namespace Game.Player.Inventory
         [SerializeField] Inventory inventory = new();
         [SerializeField] List<KeyCode> inventoryKeys = new();
 
+        [SerializeField, Range(0, 1)] float knockbackForce;
+
         void Start()
         {
             handSpriteRenderer = hand.GetComponent<SpriteRenderer>();
@@ -81,8 +83,8 @@ namespace Game.Player.Inventory
             if (Input.GetButton("Fire1"))
             {
                 //currentItem.Atacking(hand.transform.position, hand.transform.rotation);
-                currentItem.Atacking(hand.transform.position, transform.rotation);
-                Knockback();
+                currentItem.Atacking(playerScript, this, hand.transform.position, transform.rotation);
+                //Knockback();
 
             }
             foreach (KeyCode k in inventoryKeys)
@@ -114,12 +116,19 @@ namespace Game.Player.Inventory
 
         }
 
-        void Knockback()
+        public void Knockback()
         {
             playerScript.Knockback(currentItem.knockbackForce, -lookingDir);
-            //StartCoroutine(KnockbackAnim(lookingDir));
+            StartCoroutine(KnockbackAnim(lookingDir.normalized));
         }
 
+        IEnumerator KnockbackAnim(Vector3 _lookingDir)
+        {
+            Vector3 dir = -_lookingDir * currentItem.knockbackForce * knockbackForce;
+            transform.localPosition = dir;
+            yield return new WaitForSeconds(0.07f);
+            transform.localPosition = Vector3.zero;
+        }
 
         void AnimUpdate()
         {
@@ -152,7 +161,6 @@ namespace Game.Player.Inventory
             Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
             i.SetItem(inventory.CurrentItem());
             inventory.DropItem();
-
         }
     }
     [Serializable]

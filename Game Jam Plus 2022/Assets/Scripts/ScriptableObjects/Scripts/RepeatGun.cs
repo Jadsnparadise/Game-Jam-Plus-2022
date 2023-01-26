@@ -31,16 +31,16 @@ namespace Game.Itens
                 shot = false;
             }            
         }
-        public override void Atacking(Vector3 _handPos, Quaternion _handRot)
+        public override void Atacking(Game.Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
             if (!shot)
             {
-                Shot(_handPos, _handRot);
+                Shot(_aim, _handPos, _handRot);
                 shot = true;
             }
         }
 
-        void Shot(Vector3 _handPos, Quaternion _handRot)
+        void Shot(Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
             if (currentAmmo <= 0)
             {
@@ -54,6 +54,7 @@ namespace Game.Itens
                 BulletController b = Instantiate(bullet, _handPos, _handRot * rot).GetComponent<BulletController>();
                 b.SetBullet(bulletType);
             }
+            _aim.Knockback();
             Destroy(Instantiate(flash, _handPos, _handRot), 0.8f);
             currentAmmo -= 1;
             currentFireRate = 0;
