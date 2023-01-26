@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.Rendering.DebugUI;
 using static UnityEngine.UI.Image;
 
 namespace Game.Enemy.AI
@@ -16,10 +17,10 @@ namespace Game.Enemy.AI
         [SerializeField] Transform player;
 
         [SerializeField] LayerMask groundLayer, playerLayer;
-        
+
         [SerializeField] float CDWalkPoint;
         [SerializeField] float currentCDWalkPoint;
-        
+
         //vigiando
         [SerializeField] Vector3 walkPoint; //o ponto o qual o inimigo ira se mover
         [SerializeField] bool walkPointSet; //controla se o walkPoint está setado
@@ -29,8 +30,9 @@ namespace Game.Enemy.AI
         //Atacando
         [SerializeField] float coolDownAttack;
         [SerializeField] int enemyDamage;
+
         public int EnemyDamage { get { return enemyDamage; } private set { EnemyDamage = value; } }
-        
+        Collision hitbox;
         bool attacked;
 
         //controle dos estados
@@ -41,15 +43,24 @@ namespace Game.Enemy.AI
         //bool arriveInSetPoint;
 
         private void Awake()
-        {          
+        {
             player = GameObject.Find("Player").transform;
             enemy = GetComponent<NavMeshAgent>();
-            enemy.updateRotation = false; 
+            enemy.updateRotation = false;
             enemy.updateUpAxis = false;
         }
 
         private void Update()
         {
+            /*if (hitbox.InCollision(transform, out Collider2D[] objects))
+            {
+                foreach (Collider2D c in objects)
+                {
+                    Player.Player playerStatus = c.GetComponent<Player.Player>();
+                    playerStatus.Damage(EnemyDamage);
+                }
+            }*/
+
             currentCDWalkPoint += Time.deltaTime;
 
             playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, playerLayer);
@@ -66,9 +77,13 @@ namespace Game.Enemy.AI
         {
             if (walkPointSet)
             {
+                if (enemy.velocity == Vector3.zero)
+                {
+                    walkPointSet = false;
+                }
                 enemy.SetDestination(walkPoint);
             }
-            else if(currentCDWalkPoint >= CDWalkPoint)
+            else if (currentCDWalkPoint >= CDWalkPoint)
             {
                 WalkPointGeneration();
             }
@@ -77,8 +92,8 @@ namespace Game.Enemy.AI
 
             if (Mathf.Abs(distanceToWalkPoint.magnitude) < minRange)
             {
-                
-                walkPointSet = false ;
+
+                walkPointSet = false;
             }
         }
 
@@ -90,7 +105,7 @@ namespace Game.Enemy.AI
 
             walkPoint = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
 
-            if(Physics2D.OverlapCircle(walkPoint, 2f, groundLayer))
+            if (Physics2D.OverlapCircle(walkPoint, 2f, groundLayer))
             {
                 //(origin, direction, maxDistance, layerMask)
                 walkPointSet = true;
