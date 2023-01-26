@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Game.Clock;
 using Unity.VisualScripting;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+
 
 namespace Game.StatusController
 {
@@ -18,13 +18,11 @@ namespace Game.StatusController
 
         [SerializeField] GameObject stonedUI;
         [SerializeField] GameObject drunkUI;
-        [SerializeField] GameObject poisonedUI;
         [SerializeField] GameObject coldUI;
         [SerializeField] GameObject hotUI;
 
         bool stoned;
         bool drunk;
-        bool poisoned;
         bool cold;
         bool hot;
 
@@ -81,7 +79,6 @@ namespace Game.StatusController
             LifeControl();
             StonedControl();
             DrunkControl();
-            PoisonedControl();
             HotControl();
             ColdControl();
 
@@ -208,17 +205,6 @@ namespace Game.StatusController
             }
         }
 
-        private void PoisonedControl()
-        {
-            if (playerStatus.IsPoisoned)
-            {
-                poisonedUI.SetActive(true);
-            }
-            else
-            {
-                poisonedUI.SetActive(false);
-            }
-        }
         private void ColdControl()
         {
             if (playerStatus.IsCold)

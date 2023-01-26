@@ -45,9 +45,6 @@ namespace Game.Player
         [SerializeField] bool isDrunk;
         public bool IsDrunk { get { return isDrunk; } private set { IsDrunk = value; } }
 
-        [SerializeField] bool isPoisoned;
-        public bool IsPoisoned { get { return isPoisoned; } private set { IsPoisoned = value; } }
-
         [SerializeField] bool isCold;
         public bool IsCold { get { return isCold; } private set { IsCold = value; } }
 
