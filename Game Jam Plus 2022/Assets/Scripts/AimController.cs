@@ -24,7 +24,7 @@ namespace Game.Player.Inventory
         [SerializeField] Inventory inventory = new();
         [SerializeField] List<KeyCode> inventoryKeys = new();
 
-        [SerializeField, Range(0, 1)] float knockbackForce;
+        //[SerializeField, Range(0, 1)] float knockbackForce;
 
         void Start()
         {
@@ -116,15 +116,15 @@ namespace Game.Player.Inventory
 
         }
 
-        public void Knockback()
+        public void Knockback(float _knockback, float _recoil)
         {
-            playerScript.Knockback(currentItem.knockbackForce, -lookingDir);
-            StartCoroutine(KnockbackAnim(lookingDir.normalized));
+            playerScript.Knockback(_knockback, -lookingDir);
+            StartCoroutine(KnockbackAnim(lookingDir.normalized, _recoil));
         }
 
-        IEnumerator KnockbackAnim(Vector3 _lookingDir)
+        IEnumerator KnockbackAnim(Vector3 _lookingDir, float _recoil)
         {
-            Vector3 dir = -_lookingDir * currentItem.knockbackForce * knockbackForce;
+            Vector3 dir = -_lookingDir * _recoil;
             transform.localPosition = dir;
             yield return new WaitForSeconds(0.07f);
             transform.localPosition = Vector3.zero;

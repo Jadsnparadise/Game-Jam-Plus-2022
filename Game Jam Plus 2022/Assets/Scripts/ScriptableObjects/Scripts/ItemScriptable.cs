@@ -17,7 +17,6 @@ namespace Game.Itens
         [SerializeField] Slash slashType;
         [SerializeField] GameObject slashGameObject;
         public bool stack;
-        public float knockbackForce;
         public List<Player.Inventory.Resources> craft = new();
         
         public virtual void ItemStart()

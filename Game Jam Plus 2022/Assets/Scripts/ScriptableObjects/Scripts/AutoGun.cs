@@ -14,6 +14,8 @@ namespace Game.Itens
         float currentFireRate;
         [SerializeField] Bullets bulletType;
         [SerializeField] GameObject flash;
+        public float knockbackForce;
+        [SerializeField] float recoil;
 
         public override void ItemStart()
         {
@@ -23,7 +25,7 @@ namespace Game.Itens
         {
             currentFireRate += Time.deltaTime;
         }
-        public override void Atacking(Game.Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
+        public override void Atacking(Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
             if (currentFireRate >= fireRate)
             {
@@ -37,7 +39,7 @@ namespace Game.Itens
             {
                 return;
             }
-            _aim.Knockback();            
+            _aim.Knockback(knockbackForce, recoil);            
             BulletController b = Instantiate(bullet, _handPos, _handRot).GetComponent<BulletController>();
             Destroy(Instantiate(flash, _handPos, _handRot), 0.8f);
             b.SetBullet(bulletType);
