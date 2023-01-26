@@ -32,14 +32,9 @@ namespace Game.StatusController
         GameObject Clock;
         Game.Clock.ClockController clock;
 
-        int DamageByStatus = 2;
-        public int damageByStatus { get { return DamageByStatus; } private set { damageByStatus = value; } }
-
-        float DamageByStatusCD = 3f;
-        public float damageByStatusCD { get { return DamageByStatusCD; } private set { damageByStatusCD = value; } }
-
-        float CurrentCDStatusDamage;
-        public float currentCDStatusDamage { get { return CurrentCDStatusDamage; } private set { currentCDStatusDamage = value; } }
+        int damageByStatus = 2;
+        float damageByStatusCD = 3f;
+        float currentCDStatusDamage;
 
         float modifyStaminaRate = 0.2f;
         float clockStamina;
@@ -56,6 +51,7 @@ namespace Game.StatusController
         float happinessDecreaseRate = 14f;
         float currentHappinessDecrease;
         int decreaseHappiness = 1;
+
 
         private void Start()
         {
@@ -82,7 +78,10 @@ namespace Game.StatusController
             HotControl();
             ColdControl();
 
-            
+            if (waterBar.value == 0 || hungryBar.value == 0 || happinessBar.value == 0)
+            {
+                DamageStatus();
+            }
 
         }
 
@@ -225,6 +224,17 @@ namespace Game.StatusController
             else
             {
                 hotUI.SetActive(false);
+            }
+        }
+
+        private void DamageStatus()
+        {
+            currentCDStatusDamage += Time.deltaTime;
+            if (currentCDStatusDamage >= damageByStatusCD)
+            {
+                //knockbackForce = 0;
+                playerStatus.Damage(damageByStatus);
+                currentCDStatusDamage = 0;
             }
         }
     }

@@ -38,6 +38,7 @@ namespace Game.Enemy.AI
         [SerializeField] float attackRange;
         [SerializeField] bool playerInSightRange;
         [SerializeField] bool playerInAttackRange;
+        //bool arriveInSetPoint;
 
         private void Awake()
         {          
@@ -76,6 +77,7 @@ namespace Game.Enemy.AI
 
             if (Mathf.Abs(distanceToWalkPoint.magnitude) < minRange)
             {
+                
                 walkPointSet = false ;
             }
         }
@@ -127,6 +129,5 @@ namespace Game.Enemy.AI
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, sightRange);
         }
-
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3457915573798490791}
   - component: {fileID: 1882458713}
   - component: {fileID: 2164371337318912910}
+  - component: {fileID: 6575274145354557625}
   m_Layer: 0
   m_Name: tree-1-a
   m_TagString: Untagged
@@ -115,3 +116,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.35
+--- !u!114 &6575274145354557625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457915573798490790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a725ee7970f1740aa9764d7b4a1258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

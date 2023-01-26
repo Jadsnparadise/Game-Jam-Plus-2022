@@ -35,7 +35,6 @@ namespace Game.Player
         //[SerializeField, Min(1)] float knockbackForce;
         Vector2 moveDir;
         bool canTakeDamage;
-        [SerializeField] float currentCDStatusDamage;
         bool isRunning;
         bool isMoving;
 
@@ -95,20 +94,7 @@ namespace Game.Player
                     Damage(a.EnemyDamage);
                 }
             }//<----------------------------
-
-            /*
-             * TIRAR ISSO AQUI E COLOCAR NO STATUS CONTROLLER ---------------------------->
-            */
-            if (waterBar.CurrentValue == 0 || hungryBar.CurrentValue == 0 || happinessBar.CurrentValue == 0)
-            {
-                currentCDStatusDamage += Time.deltaTime;
-                if (currentCDStatusDamage >= statusPlayerController.damageByStatusCD)
-                {
-                    //knockbackForce = 0;
-                    Damage(statusPlayerController.damageByStatus);
-                    currentCDStatusDamage = 0;
-                }
-            }//<----------------------------
+            
             Inputs();
         }
 
