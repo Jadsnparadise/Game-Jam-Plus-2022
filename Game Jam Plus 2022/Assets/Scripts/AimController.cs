@@ -140,6 +140,14 @@ namespace Game.Player.Inventory
             }
         }
 
+        public void AttackAnim()
+        {
+            if (handAnim.runtimeAnimatorController != null)
+            {
+                handAnim.SetTrigger("Attack");
+            }
+        }
+
         [ContextMenu("Inv Update")]
         public void InvUpdate()
         {

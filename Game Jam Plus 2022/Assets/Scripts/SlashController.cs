@@ -38,6 +38,7 @@ namespace Game.Itens
             slashType = _newSlash;
             col.SetLayerMask(slashType.activeLayerMasks);
             col.SetRotation(_slashRotation);
+            GetComponent<SpriteRenderer>().enabled = _newSlash.rendering;
             Destroy(gameObject, slashType.LifeTime);
         }
 

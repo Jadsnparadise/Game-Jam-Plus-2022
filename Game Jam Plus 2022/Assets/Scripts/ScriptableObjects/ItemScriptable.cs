@@ -11,6 +11,7 @@ namespace Game.Itens
         public Sprite itemSprite;
         public Sprite itemSpriteInHand;
         public RuntimeAnimatorController animInHand;
+        [SerializeField] bool hasAttackAnim;
         [TextArea(2, 3)] public string description;
         [SerializeField, Min(0)] float timeToAtack = 1;
         float currentAtackTimer;
@@ -33,6 +34,11 @@ namespace Game.Itens
             {
                 return;
             }
+            if (hasAttackAnim)
+            {
+                _aim.AttackAnim();
+            }
+            
             SlashController s = Instantiate(slashGameObject, _handPos, _handRot).GetComponent<SlashController>();
             s.SetSlash(slashType, _handRot.eulerAngles.z);
             currentAtackTimer = 0;

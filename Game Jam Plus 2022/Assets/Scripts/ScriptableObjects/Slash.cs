@@ -8,6 +8,7 @@ namespace Game.Itens
     public class Slash : ScriptableObject
     {
         public int damage;
+        public bool rendering = true;
         float lifeTime = 0.3f;
         public float LifeTime { get { return lifeTime; } private set { LifeTime = value; } }
         public LayerMask activeLayerMasks;
