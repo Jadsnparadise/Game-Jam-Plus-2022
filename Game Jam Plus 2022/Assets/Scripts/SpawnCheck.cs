@@ -20,7 +20,6 @@ namespace Game.Map
                 }
             }
             GetComponent<SpriteRenderer>().flipX = Random.Range(0, 100) <= 49;
-            
         }
 
         // Update is called once per frame

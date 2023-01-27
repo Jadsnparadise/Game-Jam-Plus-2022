@@ -14,6 +14,17 @@ namespace Game.Map
         [SerializeField] Vector2Int endPoint;
         void Start()
         {
+            GridSpawn();
+        }
+
+        void SpawnObject(GameObject _obj, GameObject _parent, Vector2 _pos)
+        {
+            //Instantiate(_obj, _pos, Quaternion.identity);
+            Instantiate(_obj, _pos, Quaternion.identity, _parent.transform);
+        }
+
+        public void GridSpawn()
+        {
             foreach (Spawn s in objectsToSpawn)
             {
                 for (int x = startPoint.x; x < endPoint.x; x += UnityEngine.Random.Range(s.spawnIntervalMinimun.x, s.spawnIntervalMaximun.x))
@@ -25,22 +36,20 @@ namespace Game.Map
                         {
                             continue;
                         }
-                        Spawn(s.objects[UnityEngine.Random.Range(0, s.objects.Count)], s.parent, new (x, y));
+                        SpawnObject(s.objects[UnityEngine.Random.Range(0, s.objects.Count)], s.parent, new(x, y));
                     }
                 }
             }
         }
 
-        void Spawn(GameObject _obj, GameObject _parent, Vector2 _pos)
-        {
-            //Instantiate(_obj, _pos, Quaternion.identity);
-            Instantiate(_obj, _pos, Quaternion.identity, _parent.transform);
-        }
-
         // Update is called once per frame
         void Update()
         {
+            //########## QUALQUER PORRA AQUI ->
 
+
+            //
+            Destroy(this);
         }
     }
 
