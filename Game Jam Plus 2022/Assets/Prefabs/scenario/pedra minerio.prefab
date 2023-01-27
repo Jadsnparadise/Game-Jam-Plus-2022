@@ -138,6 +138,7 @@ MonoBehaviour:
   dropType: 0
   drop: []
   dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
+  anim: 1
   lifeAnim:
   - spriteInterval: {x: 7, y: 10}
     sprite: {fileID: 21300000, guid: 38623e10c0fb70e4f8ea45d2808d4881, type: 3}

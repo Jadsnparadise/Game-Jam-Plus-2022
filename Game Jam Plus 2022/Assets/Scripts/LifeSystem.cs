@@ -10,6 +10,7 @@ namespace Game.StatusController
         [SerializeField] DropType dropType;
         [SerializeField] List<Drop> drop;
         [SerializeField] GameObject dropGameObject;
+        [SerializeField] bool anim = false;
         [SerializeField] List<LifeAnim> lifeAnim;
         SpriteRenderer spriteRenderer;
 
@@ -36,7 +37,10 @@ namespace Game.StatusController
 
         void SetSprite()
         {
-            spriteRenderer.sprite = lifeAnim.Find(x => x.InInterval(life.CurrentValue)).Sprite;
+            if (anim)
+            {
+                spriteRenderer.sprite = lifeAnim.Find(x => x.InInterval(life.CurrentValue)).Sprite;
+            }
         }
 
         void Death()
@@ -59,7 +63,7 @@ namespace Game.StatusController
                     {
                         Drop(drop[currentDrop].itemDrop);
                     }
-                    
+
                     break;
             }
             Destroy(gameObject);
@@ -86,12 +90,12 @@ namespace Game.StatusController
         public Vector2Int minMaxItens;
     }
     [Serializable]
-    public struct LifeAnim 
+    public struct LifeAnim
     {
         [SerializeField] Vector2 spriteInterval;
         [SerializeField] Sprite sprite;
-        public Sprite Sprite { get { return sprite;  } private set { Sprite = value; } }
-            
+        public Sprite Sprite { get { return sprite; } private set { Sprite = value; } }
+
         public bool InInterval(float _value)
         {
             return _value > spriteInterval.x && _value <= spriteInterval.y;
