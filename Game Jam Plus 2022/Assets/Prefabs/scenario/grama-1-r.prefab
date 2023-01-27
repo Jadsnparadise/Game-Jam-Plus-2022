@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 134421034261971332}
   - component: {fileID: 9176579663530473921}
   - component: {fileID: 3438336708947720443}
+  - component: {fileID: 7318089523845444173}
   m_Layer: 12
   m_Name: grama-1-r
   m_TagString: Grass
@@ -143,3 +144,23 @@ MonoBehaviour:
       showGizmos: 1
       colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+--- !u!95 &7318089523845444173
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992815938313828819}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7305bab91032db40b9971ff08ad2587, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
