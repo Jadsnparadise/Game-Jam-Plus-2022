@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5336f605e327458428ef7f0916da85d4, type: 3}
-  m_Name: Pickaxe
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  itemName: pickaxe
-  itemSprite: {fileID: 21300000, guid: 48d42995b8c5722428b90c0e4efa29f2, type: 3}
-  itemSpriteInHand: {fileID: 0}
-  animInHand: {fileID: 9100000, guid: fca3ea199ec73ef4caceb60ad735f000, type: 2}
-  hasAttackAnim: 1
+  itemName: Axe
+  itemSprite: {fileID: 21300000, guid: 2e25a497db927ee4c96a3d54a3ff10ba, type: 3}
+  itemSpriteInHand: {fileID: 21300000, guid: 2e25a497db927ee4c96a3d54a3ff10ba, type: 3}
+  animInHand: {fileID: 9100000, guid: 4c48daee6eaf81b4abb08f63f0f2ad56, type: 2}
+  hasAttackAnim: 0
   description: 'plou
 
 '
   timeToAtack: 0.4
-  slashType: {fileID: 11400000, guid: d1a50522982720b41b5f1f71e36b7cd2, type: 2}
+  slashType: {fileID: 11400000, guid: bec8f0cc7b8f69f44b701efeaba6c0c0, type: 2}
   slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}
   stack: 0
   craft: []

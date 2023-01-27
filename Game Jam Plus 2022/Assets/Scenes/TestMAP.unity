@@ -2500,7 +2500,7 @@ Animator:
   m_GameObject: {fileID: 911610352}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fca3ea199ec73ef4caceb60ad735f000, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4c48daee6eaf81b4abb08f63f0f2ad56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2556,7 +2556,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.08, y: 4.26832}
+  m_Size: {x: 5.35, y: 7.6612053}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -4953,6 +4953,10 @@ MonoBehaviour:
     - item: {fileID: 11400000, guid: 34f05d6b6f2a9ec4592ff10e1036e4c7, type: 2}
       quantity: 1
     - item: {fileID: 11400000, guid: 0dd1facde2019b64b9c8842a7bd5ff27, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: 56255b706790a7544b723f20cfcb5fa6, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: 264d1842a5ba16442927f9a50fc96e01, type: 2}
       quantity: 1
     dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
   inventoryKeys: 3100000032000000330000003400000035000000360000003700000038000000

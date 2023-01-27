@@ -56,11 +56,12 @@ namespace Game.Player.Inventory
                 handAnim.runtimeAnimatorController = currentItem.animInHand;
             }
             else
-            {   
+            {
                 //handSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite
                 //
+                //itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
                 itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
-                handAnim.runtimeAnimatorController = null;
+                handAnim.runtimeAnimatorController = handItem.animInHand;
             }
             if (currentItem == handItem)
             {

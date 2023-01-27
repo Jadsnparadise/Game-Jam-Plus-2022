@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a65002813f0814182c965bc7586e94, type: 3}
   m_Name: Pickaxe Slash
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   rendering: 0
   activeLayerMasks:
     serializedVersion: 2

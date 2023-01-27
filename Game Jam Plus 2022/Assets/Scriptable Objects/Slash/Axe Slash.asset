@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a65002813f0814182c965bc7586e94, type: 3}
   m_Name: Axe Slash
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
+  rendering: 1
   activeLayerMasks:
     serializedVersion: 2
     m_Bits: 1152
