@@ -195,10 +195,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life:
     attributeName: 
-    currentValue: 100
-    startValue: 100
-    maxValue: 100
+    currentValue: 10
+    startValue: 10
+    maxValue: 10
     minValue: 0
   dropType: 0
   drop: []
   dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
+  lifeAnim: []
