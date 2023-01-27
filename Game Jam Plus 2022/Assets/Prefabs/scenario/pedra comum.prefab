@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7208726110428716332}
   - component: {fileID: 7208726110428716339}
   - component: {fileID: -6646884080885801273}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pedra comum
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7208726110428716333
 Transform:

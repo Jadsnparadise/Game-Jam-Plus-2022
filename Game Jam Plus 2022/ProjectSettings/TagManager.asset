@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Brush
+  - Grass
+  - Rock
+  - Tree
   layers:
   - Default
   - TransparentFX
@@ -18,8 +22,8 @@ TagManager:
   - Item
   - Tree
   - Rock
-  - 
-  - 
+  - Grass
+  - Bush
   - 
   - 
   - 

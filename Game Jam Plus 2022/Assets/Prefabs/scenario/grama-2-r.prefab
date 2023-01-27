@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 2417287836145932020}
   - component: {fileID: -8123122872280550714}
   - component: {fileID: 7200338061644816495}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: grama-2-r
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2417287836145932023
 Transform:
