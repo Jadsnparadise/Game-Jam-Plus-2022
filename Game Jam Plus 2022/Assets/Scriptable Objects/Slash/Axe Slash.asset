@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Axe Slash
   m_EditorClassIdentifier: 
   damage: 2
-  rendering: 1
+  rendering: 0
   activeLayerMasks:
     serializedVersion: 2
     m_Bits: 1152

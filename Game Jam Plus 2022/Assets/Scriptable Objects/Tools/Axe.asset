@@ -16,7 +16,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 2e25a497db927ee4c96a3d54a3ff10ba, type: 3}
   itemSpriteInHand: {fileID: 21300000, guid: 2e25a497db927ee4c96a3d54a3ff10ba, type: 3}
   animInHand: {fileID: 9100000, guid: 4c48daee6eaf81b4abb08f63f0f2ad56, type: 2}
-  hasAttackAnim: 0
+  hasAttackAnim: 1
   description: 'plou
 
 '
@@ -25,3 +25,4 @@ MonoBehaviour:
   slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}
   stack: 0
   craft: []
+  playerDistance: 1.5

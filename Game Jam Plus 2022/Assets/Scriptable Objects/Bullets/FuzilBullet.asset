@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fuzil Bullet
   itemSprite: {fileID: 0}
+  itemSpriteInHand: {fileID: 0}
+  animInHand: {fileID: 0}
+  hasAttackAnim: 0
   description: Fuzil Bullet
   timeToAtack: 1
   slashType: {fileID: 0}
   slashGameObject: {fileID: 0}
   stack: 0
+  craft: []
+  itemOffset: {x: 1.6, y: 0, z: 0}
   damage: 8
   speed: 60
-  lifeTime: 10
+  lifeTime: 3

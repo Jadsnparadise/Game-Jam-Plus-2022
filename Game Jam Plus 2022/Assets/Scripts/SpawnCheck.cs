@@ -9,14 +9,24 @@ namespace Game.Map
         [SerializeField] CollisionSystem.Collision col;
         void Start()
         {
-            if (col.InCollision(transform)) Destroy(gameObject);
+            if (col.InCollision(transform, out Collider2D[] obj))
+            {
+                foreach (Collider2D o in obj)
+                {
+                    if (o.gameObject != this.gameObject)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
             GetComponent<SpriteRenderer>().flipX = Random.Range(0, 100) <= 49;
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            Destroy(this);
         }
 
         private void OnDrawGizmos()

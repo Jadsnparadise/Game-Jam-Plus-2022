@@ -72,7 +72,9 @@ namespace Game.Player.Inventory
             {
                 //hand.transform.rotation.SetEulerAngles(0, 0, 0);
                 handSpriteRenderer.gameObject.transform.rotation = new();
-                hand.transform.localPosition = new Vector3(1.6f, 0f, 0f);
+                //hand.transform.localPosition = new Vector3(1.6f, 0f, 0f);
+                hand.transform.localPosition = currentItem.itemOffset;
+
             }
             //
             handSpriteRenderer.sortingOrder = lookingDir.y < 0 ? 1 : -1;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6575274145354557625}
   - component: {fileID: -5420636967974711421}
   - component: {fileID: 449887800915687301}
+  - component: {fileID: 612504771014871547}
   m_Layer: 10
   m_Name: tree-1-a
   m_TagString: Tree
@@ -147,11 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col:
-    colliderTag: Tree
+    colliderTag: New Collider
     dimension: 0
     layer:
       serializedVersion: 2
-      m_Bits: 3776
+      m_Bits: 15360
     offset: {x: 0, y: 0, z: 0}
     colliderMesh: 0
     size: {x: 4, y: 7}
@@ -180,3 +181,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.12, y: -2.7}
   m_Size: {x: 4.05, y: 1.18}
   m_Direction: 1
+--- !u!114 &612504771014871547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457915573798490790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079314c30653d04185417aa125ab37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life:
+    attributeName: 
+    currentValue: 10
+    startValue: 10
+    maxValue: 10
+    minValue: 0
+  dropType: 0
+  drop: []
+  dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}

@@ -1708,30 +1708,35 @@ MonoBehaviour:
     - {fileID: 5006914030588506864, guid: d3d43c9d0433f984592fc6582ae745c1, type: 3}
     - {fileID: 8014583665273633464, guid: 88de90ce50d223c4cbab959a6bc237de, type: 3}
     - {fileID: 2744048432980074718, guid: 29f9b50ecfd8fe94ca8cd06693d79189, type: 3}
-    density: 100
+    density: 60
     spawnIntervalMinimun: {x: 10, y: 10}
-    spawnIntervalMaximun: {x: 50, y: 50}
+    spawnIntervalMaximun: {x: 30, y: 30}
+  - parent: {fileID: 2036223807}
+    objects:
+    - {fileID: 8246943802468380330, guid: 4a74d31ad4faf484380f683285c0b68d, type: 3}
+    density: 60
+    spawnIntervalMinimun: {x: 10, y: 10}
+    spawnIntervalMaximun: {x: 30, y: 30}
   - parent: {fileID: 2036223807}
     objects:
     - {fileID: 7208726110428716338, guid: 2544398d405cc954d9e439441f9ba938, type: 3}
-    - {fileID: 8246943802468380330, guid: 4a74d31ad4faf484380f683285c0b68d, type: 3}
-    density: 100
-    spawnIntervalMinimun: {x: 10, y: 10}
-    spawnIntervalMaximun: {x: 25, y: 25}
+    density: 75
+    spawnIntervalMinimun: {x: 5, y: 5}
+    spawnIntervalMaximun: {x: 20, y: 20}
   - parent: {fileID: 247290936}
     objects:
-    - {fileID: 5222916580591721169, guid: 84bb9fc4a9166204daeef106551cd240, type: 3}
     - {fileID: 7176036659057946278, guid: c4eff78b5870fbd4daa11dc0c7fad20b, type: 3}
+    - {fileID: 5222916580591721169, guid: 84bb9fc4a9166204daeef106551cd240, type: 3}
     density: 100
     spawnIntervalMinimun: {x: 10, y: 10}
-    spawnIntervalMaximun: {x: 50, y: 50}
+    spawnIntervalMaximun: {x: 30, y: 30}
   - parent: {fileID: 1966237116}
     objects:
     - {fileID: 7992815938313828819, guid: 8c8ad4e6635f4f849845d73e4684ace1, type: 3}
     - {fileID: 2417287836145932021, guid: eb598369b98618e49ae4b46fb671649a, type: 3}
-    density: 100
-    spawnIntervalMinimun: {x: 10, y: 10}
-    spawnIntervalMaximun: {x: 20, y: 20}
+    density: 50
+    spawnIntervalMinimun: {x: 5, y: 5}
+    spawnIntervalMaximun: {x: 25, y: 25}
   startPoint: {x: -634, y: -368}
   endPoint: {x: 634, y: 368}
 --- !u!1 &487463871
@@ -2500,7 +2505,7 @@ Animator:
   m_GameObject: {fileID: 911610352}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4c48daee6eaf81b4abb08f63f0f2ad56, type: 2}
+  m_Controller: {fileID: 9100000, guid: fca3ea199ec73ef4caceb60ad735f000, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

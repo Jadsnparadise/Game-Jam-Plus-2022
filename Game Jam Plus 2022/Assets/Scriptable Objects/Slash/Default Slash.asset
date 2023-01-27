@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default Slash
   m_EditorClassIdentifier: 
   damage: 1
-  rendering: 0
+  rendering: 1
   activeLayerMasks:
     serializedVersion: 2
     m_Bits: 128

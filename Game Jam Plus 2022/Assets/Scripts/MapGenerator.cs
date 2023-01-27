@@ -50,8 +50,8 @@ namespace Game.Map
         public GameObject parent;
         public List<GameObject> objects;
         [Range(0, 100)] public int density = 50;
-        [Min(10)] public Vector2Int spawnIntervalMinimun = Vector2Int.one;
-        [Min(10)] public Vector2Int spawnIntervalMaximun = Vector2Int.one;
+        [Min(5)] public Vector2Int spawnIntervalMinimun = Vector2Int.one;
+        [Min(5)] public Vector2Int spawnIntervalMaximun = Vector2Int.one;
         //public List<Vector2> offSpawn;
     }
 }

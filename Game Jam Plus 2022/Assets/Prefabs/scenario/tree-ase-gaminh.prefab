@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1213532811035382246}
   m_Layer: 10
   m_Name: tree-ase-gaminh
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -184,7 +184,7 @@ MonoBehaviour:
     dimension: 0
     layer:
       serializedVersion: 2
-      m_Bits: 3776
+      m_Bits: 3712
     offset: {x: 0, y: 0, z: 0}
     colliderMesh: 0
     size: {x: 4, y: 7}

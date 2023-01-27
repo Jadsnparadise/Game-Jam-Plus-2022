@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5006914030588506867}
   - component: {fileID: 7912856568680531336}
   - component: {fileID: 3196698419389194347}
-  m_Layer: 0
+  - component: {fileID: 5176493016993613194}
+  m_Layer: 10
   m_Name: tree-2-a
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -167,7 +168,7 @@ MonoBehaviour:
     dimension: 0
     layer:
       serializedVersion: 2
-      m_Bits: 3776
+      m_Bits: 3712
     offset: {x: 0, y: 0, z: 0}
     colliderMesh: 0
     size: {x: 5.5, y: 6.2}
@@ -180,3 +181,24 @@ MonoBehaviour:
       showGizmos: 1
       colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &5176493016993613194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5006914030588506864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079314c30653d04185417aa125ab37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life:
+    attributeName: 
+    currentValue: 10
+    startValue: 10
+    maxValue: 10
+    minValue: 0
+  dropType: 0
+  drop: []
+  dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7176036659057946279}
   - component: {fileID: 2330976213946932373}
   - component: {fileID: 4165992020866902988}
-  m_Layer: 0
+  - component: {fileID: 5193368001926399329}
+  m_Layer: 13
   m_Name: arbusto-1-r
   m_TagString: Brush
   m_Icon: {fileID: 0}
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: -0.5
+  offset: 0
 --- !u!58 &4165992020866902988
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,3 +116,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.6}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &5193368001926399329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176036659057946278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3db9ce617222040a8d4dabee6fc94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col:
+    colliderTag: New Collider
+    dimension: 0
+    layer:
+      serializedVersion: 2
+      m_Bits: 16064
+    offset: {x: 0, y: -0.5, z: 0}
+    colliderMesh: 1
+    size: {x: 1, y: 1}
+    rotation: 0
+    radius: 1.36
+    raycastDir: 0
+    raycastDistance: 1
+    flip: 0
+    colliderRenderer:
+      showGizmos: 1
+      colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
+      colorInCollision: {r: 0, g: 1, b: 0, a: 1}

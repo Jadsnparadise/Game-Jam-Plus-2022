@@ -19,6 +19,8 @@ namespace Game.Itens
         [SerializeField] GameObject slashGameObject;
         public bool stack;
         public List<Player.Inventory.Resources> craft = new();
+        //public float playerDistance = 1.6f;
+        public Vector3 itemOffset = new(1.6f, 0, 0);
         
         public virtual void ItemStart()
         {
