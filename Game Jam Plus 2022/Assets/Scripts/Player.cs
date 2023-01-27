@@ -237,7 +237,49 @@ namespace Game.Player
             canTakeDamage = true;
         }
 
+        public void Effect(Game.Itens.ItemEffect _effect)
+        {
+            switch (_effect.effect)
+            {
+                case StatusController.Effect.Food:
+                    hungryBar.SetValue(Value(_effect.operation, hungryBar.CurrentValue, _effect.value));
+                    break;
 
+                case StatusController.Effect.Water:
+                    waterBar.SetValue(Value(_effect.operation, waterBar.CurrentValue, _effect.value));
+                    break;
+
+                case StatusController.Effect.Hapiness:
+                    happinessBar.SetValue(Value(_effect.operation, happinessBar.CurrentValue, _effect.value));
+                    break;
+
+                case StatusController.Effect.Drunk:
+                    isDrunk = Value(_effect.operation, 0, 0) == 1;
+                    break;
+
+                case StatusController.Effect.Stoned:
+                    isStoned = Value(_effect.operation, 0, 0) == 1;
+                    break;
+            }
+        }
+
+        int Value(System.Operation _operation, int _currentValue, int _newValue)
+        {
+            switch (_operation)
+            {
+                case System.Operation.Plus:
+                    return _currentValue + _newValue;
+                case System.Operation.Minus:
+                    return _currentValue - _newValue;
+                case System.Operation.SetValue:
+                    return _newValue;
+                case System.Operation.SetTrue:
+                    return 1;
+                case System.Operation.SetFalse:
+                    return 0;
+                default: return 0;
+            }
+        }
 
         private void OnDrawGizmos()
         {
@@ -268,6 +310,14 @@ namespace Game.System
         }
         public void SetValue(int _newValue)
         {
+            if (_newValue >= maxValue)
+            {
+                _newValue = maxValue;
+            }
+            else if (_newValue <= minValue)
+            {
+                _newValue = minValue;
+            }
             currentValue = _newValue;
         }
         public void AddValue(int _addValue)

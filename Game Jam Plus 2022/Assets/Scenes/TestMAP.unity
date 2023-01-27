@@ -4936,6 +4936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 997408216}
   itenHand: {fileID: 1625532687}
+  handAnim: {fileID: 0}
   currentItem: {fileID: 0}
   handItem: {fileID: 11400000, guid: 6d57de7777bbe8840b4efe4404cee8ee, type: 2}
   inventory:
@@ -4963,6 +4964,8 @@ MonoBehaviour:
       quantity: 1
     - item: {fileID: 11400000, guid: 264d1842a5ba16442927f9a50fc96e01, type: 2}
       quantity: 1
+    - item: {fileID: 11400000, guid: 56242148cad66b54ba190a0f36c98a64, type: 2}
+      quantity: 1
     dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
   inventoryKeys: 3100000032000000330000003400000035000000360000003700000038000000
 --- !u!1 &1625532687
@@ -4975,7 +4978,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1625532688}
   - component: {fileID: 1625532690}
-  - component: {fileID: 1625532689}
   m_Layer: 6
   m_Name: HandItem
   m_TagString: Untagged
@@ -4998,26 +5000,6 @@ Transform:
   m_Father: {fileID: 1624145932}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1625532689
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625532687}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a51cf804389376469989257f236eec6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1625532690
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6017,7 +5999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0

@@ -14,7 +14,9 @@ namespace Game.Itens
         [SerializeField] bool hasAttackAnim;
         [TextArea(2, 3)] public string description;
         [SerializeField, Min(0)] float timeToAtack = 1;
+        [SerializeField, Min(0)] protected float timeToUse = 1;
         float currentAtackTimer;
+        protected float currentUseTimer;
         [SerializeField] Slash slashType;
         [SerializeField] GameObject slashGameObject;
         public bool stack;
@@ -25,10 +27,12 @@ namespace Game.Itens
         public virtual void ItemStart()
         {
             currentAtackTimer = timeToAtack;
+            currentUseTimer = timeToUse;
         }
         public virtual void ItemUpdate()
         {
             currentAtackTimer += Time.deltaTime;
+            currentUseTimer += Time.deltaTime;
         }
         public virtual void Atacking(Game.Player.Player _player, Player.Inventory.AimController _aim ,Vector3 _handPos, Quaternion _handRot)
         {
@@ -46,9 +50,13 @@ namespace Game.Itens
             currentAtackTimer = 0;
         }
 
-        public virtual void Using()
+        public virtual void Using(Game.Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
-            Debug.Log($"Using {itemName}");
+            if (currentUseTimer < timeToUse)
+            {
+                return;
+            }
+            currentUseTimer = 0;
         }
     }
 }

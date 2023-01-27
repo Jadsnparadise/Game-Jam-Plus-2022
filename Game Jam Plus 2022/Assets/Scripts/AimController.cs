@@ -14,7 +14,7 @@ namespace Game.Player.Inventory
         //[SerializeField] List<HandSystem> hands;
         SpriteRenderer handSpriteRenderer;
         SpriteRenderer itemSpriteRenderer;
-        Animator handAnim;
+        [SerializeField] Animator handAnim;
         Player playerScript;
 
         public Vector2 lookingDir { get; private set; }
@@ -60,7 +60,7 @@ namespace Game.Player.Inventory
                 itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
                 handAnim.runtimeAnimatorController = handItem.animInHand;
             }
-            if (currentItem == handItem)
+            if (handAnim.runtimeAnimatorController == handItem.animInHand)
             {
                 hand.transform.localRotation = Quaternion.Euler(0, 0, 90);
             }
@@ -68,6 +68,7 @@ namespace Game.Player.Inventory
             {
                 handSpriteRenderer.gameObject.transform.rotation = new();
             }
+            itemSpriteRenderer.enabled = itemSpriteRenderer.sprite == currentItem.itemSprite || itemSpriteRenderer.sprite == currentItem.itemSpriteInHand;
             hand.transform.localPosition = currentItem.itemOffset;
             handSpriteRenderer.sortingOrder = lookingDir.y < 0 ? 1 : -1;
             currentItem.ItemUpdate();
@@ -75,9 +76,13 @@ namespace Game.Player.Inventory
 
         void InputUpdate()
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetMouseButton(0))
             {
                 currentItem.Atacking(playerScript, this, hand.transform.position, transform.rotation);
+            }
+            if (Input.GetMouseButton(1))
+            {
+                currentItem.Using(playerScript, this, hand.transform.position, transform.rotation);
             }
             foreach (KeyCode k in inventoryKeys)
             {
@@ -104,7 +109,7 @@ namespace Game.Player.Inventory
             lookingDir = new(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
             float angle = Mathf.Atan2(lookingDir.y, lookingDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            handSpriteRenderer.flipY = currentItem != handItem ? mousePos.x < screenPoint.x : false;
+            handSpriteRenderer.flipY = handAnim.runtimeAnimatorController != handItem.animInHand ? mousePos.x < screenPoint.x : false;
 
         }
 
@@ -152,6 +157,15 @@ namespace Game.Player.Inventory
             return added;
         }
 
+        public void UseItem()
+        {
+            if (currentItem == handItem)
+            {
+                return;
+            }
+            inventory.DropItem();
+        }
+
         public void DropItem()
         {
             if (currentItem == handItem)
@@ -162,12 +176,6 @@ namespace Game.Player.Inventory
             i.SetItem(inventory.CurrentItem());
             inventory.DropItem();
         }
-    }
-    [Serializable]
-    public struct HandSystem
-    {
-        public GameObject hand;
-        public Vector2 pos;
     }
 
 
@@ -232,7 +240,7 @@ namespace Game.Player.Inventory
             {
                 resources[currentSlot] = new();
             }
-             //= new Resources();
+            InvUpdate();
         }
 
         public void AddItem(Itens.ItemScriptable _newItem, out bool added)
