@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -8
-  m_Sprite: {fileID: 21300000, guid: ca92786123a890c43aa50f86cc1c0198, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85c53355efc5e8044ba69ebabed11130, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,13 +148,13 @@ MonoBehaviour:
   anim: 1
   lifeAnim:
   - spriteInterval: {x: 7, y: 10}
-    sprite: {fileID: 21300000, guid: 38623e10c0fb70e4f8ea45d2808d4881, type: 3}
+    sprite: {fileID: 21300000, guid: 85c53355efc5e8044ba69ebabed11130, type: 3}
   - spriteInterval: {x: 5, y: 7}
-    sprite: {fileID: 21300000, guid: 971cf59a54efb444f917b2dcb6170e8c, type: 3}
+    sprite: {fileID: 21300000, guid: fe229ee3f49fa494281d2a0e8a6aaee8, type: 3}
   - spriteInterval: {x: 3, y: 5}
-    sprite: {fileID: 21300000, guid: 74bd0b9bde91bf544b456c4a19eea96e, type: 3}
+    sprite: {fileID: 21300000, guid: 85f0125d8a3f90e49bcde7b65c9cd3d0, type: 3}
   - spriteInterval: {x: 0, y: 3}
-    sprite: {fileID: 21300000, guid: b6129a3a76946c54da05cb6c28c2e8f6, type: 3}
+    sprite: {fileID: 21300000, guid: 9abe420d6b373c341b72d3965edc9c5f, type: 3}
 --- !u!114 &5765493883553091034
 MonoBehaviour:
   m_ObjectHideFlags: 0

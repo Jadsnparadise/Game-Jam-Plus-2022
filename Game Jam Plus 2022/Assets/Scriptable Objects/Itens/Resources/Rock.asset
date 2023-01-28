@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Rock
   m_EditorClassIdentifier: 
   itemName: Rock
-  itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
-  itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  itemSprite: {fileID: 21300000, guid: 85c53355efc5e8044ba69ebabed11130, type: 3}
+  itemSpriteInHand: {fileID: 21300000, guid: 85c53355efc5e8044ba69ebabed11130, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: "Pequenas pedras colet\xE1veis"
