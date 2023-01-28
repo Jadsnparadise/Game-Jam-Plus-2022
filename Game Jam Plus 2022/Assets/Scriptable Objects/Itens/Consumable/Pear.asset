@@ -24,4 +24,4 @@ MonoBehaviour:
   slashGameObject: {fileID: 0}
   stack: 0
   craft: []
-  itemOffset: {x: 1.6, y: 0, z: 0}
+  itemOffset: {x: 0.6, y: 0, z: 0}

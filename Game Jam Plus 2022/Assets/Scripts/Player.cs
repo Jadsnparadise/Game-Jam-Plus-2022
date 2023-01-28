@@ -241,41 +241,40 @@ namespace Game.Player
         {
             switch (_effect.effect)
             {
+                case StatusController.Effect.Life:
+                    lifeBar.SetValue(Value(_effect.operation, lifeBar.CurrentValue, _effect.value));
+                    break;
                 case StatusController.Effect.Food:
                     hungryBar.SetValue(Value(_effect.operation, hungryBar.CurrentValue, _effect.value));
                     break;
-
                 case StatusController.Effect.Water:
                     waterBar.SetValue(Value(_effect.operation, waterBar.CurrentValue, _effect.value));
                     break;
-
                 case StatusController.Effect.Hapiness:
                     happinessBar.SetValue(Value(_effect.operation, happinessBar.CurrentValue, _effect.value));
                     break;
-
                 case StatusController.Effect.Drunk:
                     isDrunk = Value(_effect.operation, 0, 0) == 1;
                     break;
-
                 case StatusController.Effect.Stoned:
                     isStoned = Value(_effect.operation, 0, 0) == 1;
                     break;
             }
         }
 
-        int Value(System.Operation _operation, int _currentValue, int _newValue)
+        int Value(System.ArithmeticOperations _operation, int _currentValue, int _newValue)
         {
             switch (_operation)
             {
-                case System.Operation.Plus:
+                case System.ArithmeticOperations.Plus:
                     return _currentValue + _newValue;
-                case System.Operation.Minus:
+                case System.ArithmeticOperations.Minus:
                     return _currentValue - _newValue;
-                case System.Operation.SetValue:
+                case System.ArithmeticOperations.SetValue:
                     return _newValue;
-                case System.Operation.SetTrue:
+                case System.ArithmeticOperations.SetTrue:
                     return 1;
-                case System.Operation.SetFalse:
+                case System.ArithmeticOperations.SetFalse:
                     return 0;
                 default: return 0;
             }

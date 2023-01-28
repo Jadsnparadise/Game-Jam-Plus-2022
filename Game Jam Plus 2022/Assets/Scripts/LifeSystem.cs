@@ -7,7 +7,6 @@ namespace Game.StatusController
     public class LifeSystem : MonoBehaviour
     {
         [SerializeField] System.Attribute life;
-        [SerializeField] DropType dropType;
         [SerializeField] List<Drop> drop;
         [SerializeField] GameObject dropGameObject;
         [SerializeField] bool anim = false;
@@ -45,26 +44,14 @@ namespace Game.StatusController
 
         void Death()
         {
-            switch (dropType)
+            List<Itens.ItemScriptable> currentDrop = new();
+            foreach (Drop d in drop)
             {
-                case DropType.AllDrop:
-                    foreach (Drop d in drop)
-                    {
-                        //for (int i = 0; i < UnityEngine.Random.Range(d.minMaxItens.x, d.minMaxItens.y); i++)
-                        for (int i = 0; i < d.minMaxItens.y + 1; i++)
-                        {
-                            Drop(d.itemDrop);
-                        }
-                    }
-                    break;
-                case DropType.RandomDrop:
-                    int currentDrop = UnityEngine.Random.Range(0, drop.Count);
-                    for (int i = 0; i < UnityEngine.Random.Range(drop[currentDrop].minMaxItens.x, drop[currentDrop].minMaxItens.y + 1); i++)
-                    {
-                        Drop(drop[currentDrop].itemDrop);
-                    }
-
-                    break;
+                currentDrop.AddRange(d.GetDrop());
+            }
+            foreach (Itens.ItemScriptable d in currentDrop)
+            {
+                Drop(d);
             }
             Destroy(gameObject);
         }
@@ -73,7 +60,6 @@ namespace Game.StatusController
         {
             Itens.ItemController i = Instantiate(dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
             i.SetItem(_itemDrop);
-            //Instantiate(dropGameObject, transform.position, transform.rotation);
         }
     }
 
@@ -86,9 +72,37 @@ namespace Game.StatusController
     [Serializable]
     public struct Drop
     {
-        public Itens.ItemScriptable itemDrop;
-        public Vector2Int minMaxItens;
+        [SerializeField] Itens.ItemScriptable itemDrop;
+        [SerializeField, Range(0, 100)]  float chanceToDrop;
+        [SerializeField] DropType dropType;
+        [SerializeField, Min(1)] Vector2Int minMaxItensDrop;
+
+        public List<Itens.ItemScriptable> GetDrop()
+        {
+            List<Itens.ItemScriptable> currentdrop = new();
+            if (UnityEngine.Random.Range(0, 100) >= chanceToDrop)
+            {
+                return currentdrop;
+            }
+            switch (dropType)
+            {
+                case DropType.AllDrop:
+                    for (int i = 0; i < minMaxItensDrop.y + 1; i++)
+                    {
+                        currentdrop.Add(itemDrop);
+                    }
+                    break;
+                case DropType.RandomDrop:
+                    for (int i = 0; i < UnityEngine.Random.Range(minMaxItensDrop.x, minMaxItensDrop.y + 1); i++)
+                    {
+                         currentdrop.Add(itemDrop);
+                    }
+                    break;
+            }
+            return currentdrop;
+        }
     }
+
     [Serializable]
     public struct LifeAnim
     {
@@ -101,5 +115,4 @@ namespace Game.StatusController
             return _value > spriteInterval.x && _value <= spriteInterval.y;
         }
     }
-
 }

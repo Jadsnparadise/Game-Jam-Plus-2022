@@ -149,11 +149,18 @@ MonoBehaviour:
     startValue: 10
     maxValue: 10
     minValue: 0
-  dropType: 2
   drop:
-  - itemDrop: {fileID: 11400000, guid: 16280e6eca48e8a48be37634c206e0f3, type: 2}
-    minMaxItens: {x: 1, y: 1}
+  - itemDrop: {fileID: 11400000, guid: 01906c94a15e08441ba02852ecd30432, type: 2}
+    chanceToDrop: 100
+    dropType: 1
+    minMaxItensDrop: {x: 3, y: 6}
+  - itemDrop: {fileID: 11400000, guid: 56242148cad66b54ba190a0f36c98a64, type: 2}
+    chanceToDrop: 50
+    dropType: 1
+    minMaxItensDrop: {x: 1, y: 2}
   dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
+  anim: 0
+  lifeAnim: []
 --- !u!114 &617884427436645929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.35
+  offset: 0.4
 --- !u!114 &1213532811035382246
 MonoBehaviour:
   m_ObjectHideFlags: 0

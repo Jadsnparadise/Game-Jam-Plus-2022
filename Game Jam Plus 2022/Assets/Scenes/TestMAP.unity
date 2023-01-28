@@ -1878,7 +1878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &502255274
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2494,7 +2494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &911610353
 Animator:
   serializedVersion: 4
@@ -2561,7 +2561,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.35, y: 7.6612053}
+  m_Size: {x: 5.4303026, y: 6.7499995}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -2943,7 +2943,7 @@ MonoBehaviour:
   speed: 6
   speedRun: 10
   godSeconds: 2
-  isStoned: 1
+  isStoned: 0
   isDrunk: 0
   isCold: 0
   isHot: 0
@@ -4950,21 +4950,19 @@ MonoBehaviour:
     - {fileID: 443688937}
     - {fileID: 1970851997}
     resources:
-    - item: {fileID: 11400000, guid: 16280e6eca48e8a48be37634c206e0f3, type: 2}
-      quantity: 1
-    - item: {fileID: 11400000, guid: ce4f752804f9af940895f19e0dbd53d0, type: 2}
-      quantity: 1
-    - item: {fileID: 11400000, guid: b4e573c0a34124f45a2822695dc1430c, type: 2}
-      quantity: 1
-    - item: {fileID: 11400000, guid: 34f05d6b6f2a9ec4592ff10e1036e4c7, type: 2}
-      quantity: 1
     - item: {fileID: 11400000, guid: 0dd1facde2019b64b9c8842a7bd5ff27, type: 2}
-      quantity: 1
-    - item: {fileID: 11400000, guid: 56255b706790a7544b723f20cfcb5fa6, type: 2}
       quantity: 1
     - item: {fileID: 11400000, guid: 264d1842a5ba16442927f9a50fc96e01, type: 2}
       quantity: 1
     - item: {fileID: 11400000, guid: 56242148cad66b54ba190a0f36c98a64, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: 16280e6eca48e8a48be37634c206e0f3, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: ce4f752804f9af940895f19e0dbd53d0, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: 34f05d6b6f2a9ec4592ff10e1036e4c7, type: 2}
+      quantity: 1
+    - item: {fileID: 11400000, guid: b4e573c0a34124f45a2822695dc1430c, type: 2}
       quantity: 1
     dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
   inventoryKeys: 3100000032000000330000003400000035000000360000003700000038000000
@@ -4993,7 +4991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625532687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.291, y: 0, z: 0}
+  m_LocalPosition: {x: 1.2, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5243,7 +5241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1753116342
 RectTransform:
   m_ObjectHideFlags: 0
