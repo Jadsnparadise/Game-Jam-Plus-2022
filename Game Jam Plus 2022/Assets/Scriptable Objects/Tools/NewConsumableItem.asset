@@ -10,29 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 739f950cc2e06ab4686c46d95982a6bf, type: 3}
-  m_Name: Pear
+  m_Name: NewConsumableItem
   m_EditorClassIdentifier: 
-  itemName: Pear
-  itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
-  itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  itemName: 
+  itemSprite: {fileID: 0}
+  itemSpriteInHand: {fileID: 0}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: 
   timeToAtack: 1
   timeToUse: 1
-  slashType: {fileID: 11400000, guid: 8c5be954a5803eb4b9476af101901b8e, type: 2}
-  slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}
-  stack: 1
+  slashType: {fileID: 0}
+  slashGameObject: {fileID: 0}
+  stack: 0
   craft: []
   itemOffset: {x: 1.6, y: 0, z: 0}
-  effects:
-  - effect: 3
-    operation: 0
-    value: 3
-  - effect: 2
-    operation: 0
-    value: 2
-  - effect: 1
-    operation: 0
-    value: 2
+  effects: []
   conditions: []

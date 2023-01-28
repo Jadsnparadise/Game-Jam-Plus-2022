@@ -10,18 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5336f605e327458428ef7f0916da85d4, type: 3}
-  m_Name: Rock
+  m_Name: Water Purifier
   m_EditorClassIdentifier: 
-  itemName: Rock
+  itemName: Water Purifier
   itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
   itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
-  description: "Pequenas pedras colet\xE1veis"
+  description: 
   timeToAtack: 1
   timeToUse: 1
   slashType: {fileID: 11400000, guid: 8c5be954a5803eb4b9476af101901b8e, type: 2}
   slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}
-  stack: 1
-  craft: []
-  itemOffset: {x: 0.6, y: 0, z: 0}
+  stack: 0
+  craft:
+  - item: {fileID: 11400000, guid: 01906c94a15e08441ba02852ecd30432, type: 2}
+    quantity: 10
+  - item: {fileID: 11400000, guid: 683a27d0d7117b248a4a37785e94957d, type: 2}
+    quantity: 10
+  - item: {fileID: 11400000, guid: e46a4ade1090577469369e72c5f475a4, type: 2}
+    quantity: 5
+  itemOffset: {x: 1.6, y: 0, z: 0}

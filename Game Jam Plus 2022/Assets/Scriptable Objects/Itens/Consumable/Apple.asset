@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739f950cc2e06ab4686c46d95982a6bf, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Apple
   itemSprite: {fileID: 21300000, guid: 5b66765dd54a5bf44a582bbefb398da1, type: 3}
   itemSpriteInHand: {fileID: 21300000, guid: 5b66765dd54a5bf44a582bbefb398da1, type: 3}
   animInHand: {fileID: 0}

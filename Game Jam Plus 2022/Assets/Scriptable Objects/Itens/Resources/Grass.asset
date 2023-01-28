@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5336f605e327458428ef7f0916da85d4, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 21300000, guid: 73cdfbfb8577c9a438f33d7ba7b6bff5, type: 3}
-  itemSpriteInHand: {fileID: 21300000, guid: 73cdfbfb8577c9a438f33d7ba7b6bff5, type: 3}
+  itemName: Grass
+  itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: Grass Droped
