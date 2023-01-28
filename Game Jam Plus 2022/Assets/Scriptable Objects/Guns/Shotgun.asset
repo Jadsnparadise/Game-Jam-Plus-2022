@@ -16,13 +16,16 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 128027fbd6cdd5e459332814c8360834, type: 3}
   itemSpriteInHand: {fileID: 21300000, guid: 128027fbd6cdd5e459332814c8360834, type: 3}
   animInHand: {fileID: 9100000, guid: 38e6e3b927f3e2d44b935352000a0b28, type: 2}
+  hasAttackAnim: 0
   description: Shotgun
   timeToAtack: 1
+  timeToUse: 1
   slashType: {fileID: 0}
   slashGameObject: {fileID: 0}
   stack: 0
   craft: []
-  currentAmmo: 999999588
+  itemOffset: {x: 1.6, y: 0, z: 0}
+  currentAmmo: 999999557
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   fireRate: 0.8
   bulletType: {fileID: 11400000, guid: 5b878713cc92afe498385d6dc5ca01be, type: 2}
@@ -30,4 +33,4 @@ MonoBehaviour:
   randomBullet: {x: 6, y: 12}
   flash: {fileID: 406102140075121989, guid: 0b7c95a90a144bb489685e4b8cf2b9ed, type: 3}
   knockbackForce: 100
-  recoil: 0.3
+  recoil: 0.5

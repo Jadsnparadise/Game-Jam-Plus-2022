@@ -21,7 +21,9 @@ MonoBehaviour:
 
 '
   timeToAtack: 0.4
+  timeToUse: 1
   slashType: {fileID: 11400000, guid: d1a50522982720b41b5f1f71e36b7cd2, type: 2}
   slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}
   stack: 0
   craft: []
+  itemOffset: {x: 1, y: 0, z: 0}

@@ -19,16 +19,17 @@ MonoBehaviour:
   hasAttackAnim: 0
   description: AK
   timeToAtack: 1
+  timeToUse: 1
   slashType: {fileID: 0}
   slashGameObject: {fileID: 0}
   stack: 0
   craft: []
-  itemOffset: {x: 1.6, y: 0, z: 0}
-  currentAmmo: 2147481668
+  itemOffset: {x: 1.4, y: 0, z: 0}
+  currentAmmo: 2147481090
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   weaponRange: 40
   fireRate: 0.125
   bulletType: {fileID: 11400000, guid: 41dcae6dff5310e4aa68172882130db4, type: 2}
   flash: {fileID: 406102140075121989, guid: 0b7c95a90a144bb489685e4b8cf2b9ed, type: 3}
   knockbackForce: 12
-  recoil: 0.45
+  recoil: 0.2

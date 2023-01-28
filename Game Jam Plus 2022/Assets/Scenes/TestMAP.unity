@@ -1720,21 +1720,21 @@ MonoBehaviour:
   - parent: {fileID: 2036223807}
     objects:
     - {fileID: 7208726110428716338, guid: 2544398d405cc954d9e439441f9ba938, type: 3}
-    density: 75
+    density: 60
     spawnIntervalMinimun: {x: 5, y: 5}
     spawnIntervalMaximun: {x: 20, y: 20}
   - parent: {fileID: 247290936}
     objects:
     - {fileID: 7176036659057946278, guid: c4eff78b5870fbd4daa11dc0c7fad20b, type: 3}
     - {fileID: 5222916580591721169, guid: 84bb9fc4a9166204daeef106551cd240, type: 3}
-    density: 100
+    density: 60
     spawnIntervalMinimun: {x: 10, y: 10}
     spawnIntervalMaximun: {x: 30, y: 30}
   - parent: {fileID: 1966237116}
     objects:
     - {fileID: 7992815938313828819, guid: 8c8ad4e6635f4f849845d73e4684ace1, type: 3}
     - {fileID: 2417287836145932021, guid: eb598369b98618e49ae4b46fb671649a, type: 3}
-    density: 50
+    density: 60
     spawnIntervalMinimun: {x: 5, y: 5}
     spawnIntervalMaximun: {x: 25, y: 25}
   startPoint: {x: -634, y: -368}
@@ -2505,7 +2505,7 @@ Animator:
   m_GameObject: {fileID: 911610352}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 330723f9cc7b3d14c89a33002bd38d19, type: 2}
+  m_Controller: {fileID: 9100000, guid: fca3ea199ec73ef4caceb60ad735f000, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3150,7 +3150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997408216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.291, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4914,7 +4914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624145931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4993,7 +4993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625532687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []

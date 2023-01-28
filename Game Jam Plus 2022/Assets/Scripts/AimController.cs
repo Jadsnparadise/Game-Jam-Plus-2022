@@ -23,6 +23,7 @@ namespace Game.Player.Inventory
 
         [SerializeField] Inventory inventory = new();
         [SerializeField] List<KeyCode> inventoryKeys = new();
+        Vector3 savePos;
 
         //[SerializeField, Range(0, 1)] float knockbackForce;
 
@@ -36,6 +37,7 @@ namespace Game.Player.Inventory
             inventory.InvStart();
             handAnim = GetComponentInChildren<Animator>();
             playerScript = GetComponentInParent<Player>();
+            savePos = transform.localPosition;
         }
 
         // Update is called once per frame
@@ -130,10 +132,10 @@ namespace Game.Player.Inventory
 
         IEnumerator KnockbackAnim(Vector3 _lookingDir, float _recoil)
         {
-            Vector3 dir = -_lookingDir * _recoil;
+            Vector3 dir = (-_lookingDir * _recoil) + savePos;
             transform.localPosition = dir;
             yield return new WaitForSeconds(0.07f);
-            transform.localPosition = Vector3.zero;
+            transform.localPosition = savePos;
         }
 
         void AnimUpdate()
