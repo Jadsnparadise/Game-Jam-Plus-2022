@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1167146756297213668}
   - component: {fileID: 617884427436645929}
   - component: {fileID: 1213532811035382246}
+  - component: {fileID: 8161229576992842644}
   m_Layer: 10
   m_Name: tree-ase-gaminh
   m_TagString: Tree
@@ -204,3 +205,19 @@ MonoBehaviour:
       showGizmos: 1
       colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &8161229576992842644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744048432980074718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a725ee7970f1740aa9764d7b4a1258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

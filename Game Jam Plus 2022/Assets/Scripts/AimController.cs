@@ -99,6 +99,15 @@ namespace Game.Player.Inventory
             {
                 inventory.DecreaseSlot();
             }
+
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+            {
+                DropAllInHand();
+            }
+            else if(Input.GetKeyDown(KeyCode.Q))
+            {
+                DropItem();
+            }
         }
 
         void Aim()
@@ -176,6 +185,20 @@ namespace Game.Player.Inventory
             i.SetItem(inventory.CurrentItem());
             inventory.DropItem();
         }
+
+        public void DropAllInHand()
+        {
+            if (currentItem == handItem)
+            {
+                return;
+            }
+            for (int i = 0; i < inventory.Resources[inventory.currentSlot].quantity; i++)
+            {
+                Itens.ItemController item = Instantiate(inventory.dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
+                item.SetItem(inventory.Resources[inventory.currentSlot].item);
+            }
+            inventory.DropAllInHand();
+        }
     }
 
 
@@ -202,8 +225,10 @@ namespace Game.Player.Inventory
     public class Inventory
     {
         [SerializeField] List<GameObject> slots = new();
+        [SerializeField] GameObject overlay;
         public int currentSlot { get; private set; }
         [SerializeField] List<Resources> resources = new(8);
+        public List<Resources> Resources { get { return resources; } set { Resources = value; } }
         public GameObject dropGameObject;
 
         public void ChangeSlot(int _newValue)
@@ -216,8 +241,8 @@ namespace Game.Player.Inventory
             {
                 _newValue = 0;
             }
-
             currentSlot = _newValue;
+            overlay.transform.position = slots[currentSlot].transform.position;
         }
 
         public void AddSlot()
@@ -240,6 +265,15 @@ namespace Game.Player.Inventory
             {
                 resources[currentSlot] = new();
             }
+            InvUpdate();
+        }
+        public void DropAllInHand()
+        {
+            while (resources[currentSlot].quantity > 1)
+            {
+                resources[currentSlot].quantity--;
+            }
+            resources[currentSlot] = new();
             InvUpdate();
         }
 

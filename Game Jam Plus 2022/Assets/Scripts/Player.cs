@@ -158,12 +158,6 @@ namespace Game.Player
                 PickItem();
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                aim.DropItem();
-                aim.InvUpdate();
-            }
-
             if (Input.GetKeyDown(KeyCode.F1))
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
