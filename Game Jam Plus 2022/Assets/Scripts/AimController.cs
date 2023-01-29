@@ -9,6 +9,7 @@ namespace Game.Player.Inventory
     
     public class AimController : MonoBehaviour
     {
+        [HideInInspector] public bool canAttack = true;
         [SerializeField] GameObject hand;
         [SerializeField] GameObject itenHand;
         //[SerializeField] List<HandSystem> hands;
@@ -78,7 +79,7 @@ namespace Game.Player.Inventory
 
         void InputUpdate()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && canAttack)
             {
                 currentItem.Atacking(playerScript, this, hand.transform.position, transform.rotation);
             }
@@ -162,7 +163,7 @@ namespace Game.Player.Inventory
             inventory.InvUpdate();
         }
 
-        public bool AddItem(Itens.ItemScriptable _newItem)
+        public bool AddItem(Resources _newItem)
         {
             inventory.AddItem(_newItem, out bool added);
             return added;
@@ -183,8 +184,8 @@ namespace Game.Player.Inventory
             {
                 return;
             }
-            Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position, Quaternion.identity).GetComponent<Itens.ItemController>();
-            i.SetItem(inventory.CurrentItem());
+            Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position - new Vector3(0, 0, 0.1f), Quaternion.identity).GetComponent<Itens.ItemController>();
+            i.SetItem(new(inventory.CurrentResource().item), 15);
             inventory.DropItem();
         }
 
@@ -194,11 +195,8 @@ namespace Game.Player.Inventory
             {
                 return;
             }
-            for (int i = 0; i < inventory.Resources[inventory.currentSlot].quantity; i++)
-            {
-                Itens.ItemController item = Instantiate(inventory.dropGameObject, transform.position, Quaternion.identity).GetComponent<Itens.ItemController>();
-                item.SetItem(inventory.Resources[inventory.currentSlot].item);
-            }
+            Itens.ItemController item = Instantiate(inventory.dropGameObject, transform.position - new Vector3(0, 0, 0.1f), Quaternion.identity).GetComponent<Itens.ItemController>();
+            item.SetItem(inventory.CurrentResource(), 15);
             inventory.DropAllInHand();
         }
     }
@@ -220,6 +218,12 @@ namespace Game.Player.Inventory
         {
             item = _newItem;
             quantity = 1;
+        }
+
+        public Resources(Itens.ItemScriptable _newItem, int _quantity)
+        {
+            item = _newItem;
+            quantity = _quantity;
         }
     }
 
@@ -271,24 +275,20 @@ namespace Game.Player.Inventory
         }
         public void DropAllInHand()
         {
-            while (resources[currentSlot].quantity > 1)
-            {
-                resources[currentSlot].quantity--;
-            }
             resources[currentSlot] = new();
             InvUpdate();
         }
 
-        public void AddItem(Itens.ItemScriptable _newItem, out bool added)
+        public void AddItem(Resources _newItem, out bool added)
         {
             added = false;
             //Resources r = resources.Find(x => x.item == _newItem);
-            bool hasItem = resources.Exists(x => x.item == _newItem);
-            if (_newItem.stack)
+            bool hasItem = resources.Exists(x => x.item == _newItem.item);
+            if (_newItem.item.stack)
             {
                 if (hasItem)
                 {
-                    resources.Find(x => x.item == _newItem).quantity++;
+                    resources.Find(x => x.item == _newItem.item).quantity += _newItem.quantity;
                     added = true;
                 }
                 else
@@ -303,12 +303,12 @@ namespace Game.Player.Inventory
             InvUpdate();
         }
 
-        void NewItem(Itens.ItemScriptable _newItem, out bool added)
+        void NewItem(Resources _newItem, out bool added)
         {
             added = false;
             if (resources[currentSlot].item == null)
             {
-                resources[currentSlot] = new(_newItem);
+                resources[currentSlot] = _newItem;
                 added = true;
             }
             else
@@ -317,7 +317,7 @@ namespace Game.Player.Inventory
                 {
                     if (resources[i].item == null)
                     {
-                        resources[i] = new(_newItem);
+                        resources[i] = _newItem;
                         added = true;
                         break;
                     }
@@ -353,6 +353,10 @@ namespace Game.Player.Inventory
             }
         }
 
+        public Resources CurrentResource()
+        {
+            return resources[currentSlot];
+        }
         public Itens.ItemScriptable CurrentItem()
         {
             return resources[currentSlot].item;

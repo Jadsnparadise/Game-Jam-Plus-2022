@@ -44,22 +44,22 @@ namespace Game.StatusController
 
         void Death()
         {
-            List<Itens.ItemScriptable> currentDrop = new();
+            List<Game.Player.Inventory.Resources> currentDrop = new();
             foreach (Drop d in drop)
             {
                 currentDrop.AddRange(d.GetDrop());
             }
-            foreach (Itens.ItemScriptable d in currentDrop)
+            foreach (Player.Inventory.Resources d in currentDrop)
             {
                 Drop(d);
             }
             Destroy(gameObject);
         }
 
-        void Drop(Itens.ItemScriptable _itemDrop)
+        void Drop(Player.Inventory.Resources _itemDrop)
         {
             Itens.ItemController i = Instantiate(dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
-            i.SetItem(_itemDrop);
+            i.SetItem(_itemDrop, 15);
         }
     }
 
@@ -77,9 +77,9 @@ namespace Game.StatusController
         [SerializeField] DropType dropType;
         [SerializeField, Min(1)] Vector2Int minMaxItensDrop;
 
-        public List<Itens.ItemScriptable> GetDrop()
+        public List<Player.Inventory.Resources> GetDrop()
         {
-            List<Itens.ItemScriptable> currentdrop = new();
+            List<Player.Inventory.Resources> currentdrop = new();
             if (UnityEngine.Random.Range(0, 100) >= chanceToDrop)
             {
                 return currentdrop;
@@ -87,16 +87,20 @@ namespace Game.StatusController
             switch (dropType)
             {
                 case DropType.AllDrop:
+                    currentdrop.Add(new(itemDrop, minMaxItensDrop.y + 1));
+                    /*
                     for (int i = 0; i < minMaxItensDrop.y + 1; i++)
                     {
-                        currentdrop.Add(itemDrop);
-                    }
+                        
+                    }*/
                     break;
                 case DropType.RandomDrop:
+                    currentdrop.Add(new(itemDrop, UnityEngine.Random.Range(minMaxItensDrop.x, minMaxItensDrop.y + 1)));
+                    /*
                     for (int i = 0; i < UnityEngine.Random.Range(minMaxItensDrop.x, minMaxItensDrop.y + 1); i++)
                     {
                          currentdrop.Add(itemDrop);
-                    }
+                    }*/
                     break;
             }
             return currentdrop;

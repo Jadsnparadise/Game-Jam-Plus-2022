@@ -114,11 +114,12 @@ namespace Game.Player
                 foreach (Collider2D o in obj)
                 {
                     Itens.ItemController _item = o.GetComponent<Itens.ItemController>();
+                    aim.canAttack = _item.mouseOn;
                     if (!_item.canPick)
                     {
-                        return;
+                        continue;
                     }
-                    if (aim.AddItem(_item.CurrentItem()))
+                    if (aim.AddItem(_item.CurrentResource()))
                     {
                         Destroy(o.gameObject);
                     }

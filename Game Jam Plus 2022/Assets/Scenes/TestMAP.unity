@@ -1227,15 +1227,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323316966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: -2.5881915, z: -9.659258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 270942254}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!1 &344777827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,18 +1711,21 @@ MonoBehaviour:
     density: 60
     spawnIntervalMinimun: {x: 10, y: 10}
     spawnIntervalMaximun: {x: 30, y: 30}
+    canSpawn: 1
   - parent: {fileID: 2036223807}
     objects:
     - {fileID: 8246943802468380330, guid: 4a74d31ad4faf484380f683285c0b68d, type: 3}
     density: 60
     spawnIntervalMinimun: {x: 10, y: 10}
     spawnIntervalMaximun: {x: 30, y: 30}
+    canSpawn: 1
   - parent: {fileID: 2036223807}
     objects:
     - {fileID: 7208726110428716338, guid: 2544398d405cc954d9e439441f9ba938, type: 3}
     density: 60
     spawnIntervalMinimun: {x: 5, y: 5}
     spawnIntervalMaximun: {x: 20, y: 20}
+    canSpawn: 1
   - parent: {fileID: 247290936}
     objects:
     - {fileID: 7176036659057946278, guid: c4eff78b5870fbd4daa11dc0c7fad20b, type: 3}
@@ -1730,6 +1733,7 @@ MonoBehaviour:
     density: 60
     spawnIntervalMinimun: {x: 10, y: 10}
     spawnIntervalMaximun: {x: 30, y: 30}
+    canSpawn: 1
   - parent: {fileID: 1966237116}
     objects:
     - {fileID: 7992815938313828819, guid: 8c8ad4e6635f4f849845d73e4684ace1, type: 3}
@@ -1737,6 +1741,7 @@ MonoBehaviour:
     density: 60
     spawnIntervalMinimun: {x: 5, y: 5}
     spawnIntervalMaximun: {x: 25, y: 25}
+    canSpawn: 1
   startPoint: {x: -634, y: -368}
   endPoint: {x: 634, y: 368}
 --- !u!1 &487463871
@@ -4902,7 +4907,7 @@ GameObject:
   - component: {fileID: 1624145934}
   m_Layer: 6
   m_Name: AimController
-  m_TagString: Untagged
+  m_TagString: Aim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4936,6 +4941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070e1c1231cdb554ea62f494dd87a380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canAttack: 1
   hand: {fileID: 997408216}
   itenHand: {fileID: 1625532687}
   handAnim: {fileID: 0}
@@ -6053,8 +6059,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061483429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: -2.5881915, z: -9.659258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
