@@ -64,6 +64,8 @@ namespace Game.Player
         GameObject statusController;
         StatusController.StatusController statusPlayerController;
 
+        [SerializeField, Range(75, 100)] float cameraDistance;
+
         bool gotInZero = false;
 
         void Start()
@@ -122,11 +124,10 @@ namespace Game.Player
 
         void Move()
         {
-            moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            isMoving = rig.velocity.normalized.magnitude != 0 && moveDir.magnitude != 0;
+            isMoving = rig.velocity.normalized.magnitude != 0 && Moving();
             if (!gotInZero)
             {
-                isRunning = Input.GetKey(KeyCode.LeftShift);
+                isRunning = Input.GetKey(KeyCode.LeftShift) && (LookingForwardX() || LookingForwardY()) && !Input.GetMouseButton(0); 
             }
             if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue && isMoving) {
                 statusPlayerController.StaminaDecrease();
@@ -144,6 +145,16 @@ namespace Game.Player
                 }
                 statusPlayerController.StaminaIncrease();
             }
+        }
+
+        bool LookingForwardX()
+        {
+            return (moveDir.x > 0 && aim.lookingDir.normalized.x > 0) || (moveDir.x < 0 && aim.lookingDir.normalized.x < 0);
+        }
+
+        bool LookingForwardY()
+        {
+            return (moveDir.y > 0 && aim.lookingDir.normalized.y > 0) || (moveDir.y < 0 && aim.lookingDir.normalized.y < 0);
         }
 
         void Inputs()
@@ -166,8 +177,6 @@ namespace Game.Player
         
         void AnimationController()
         {
-
-            anim.SetFloat("playerSpeed", moveDir.x);
             anim.SetFloat("mousePosX", aim.lookingDir.x);
             anim.SetFloat("mousePosY", aim.lookingDir.y);
             anim.SetBool("walking", isMoving);
@@ -177,7 +186,8 @@ namespace Game.Player
 
         public bool Moving()
         {
-            return isRunning || moveDir.magnitude != 0;
+            moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            return moveDir.magnitude != 0;
         }
         void Death()
         {

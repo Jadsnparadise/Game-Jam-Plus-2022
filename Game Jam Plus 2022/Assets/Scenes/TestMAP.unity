@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 975762229}
   m_Follow: {fileID: 975762229}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 100
     OrthographicSize: 8
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -2983,6 +2983,7 @@ MonoBehaviour:
       showGizmos: 1
       colorOutCollision: {r: 1, g: 0.89983654, b: 0, a: 1}
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+  cameraDistance: 0
 --- !u!50 &975762231
 Rigidbody2D:
   serializedVersion: 4
@@ -6027,8 +6028,8 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
-  orthographic: 1
+  field of view: 100
+  orthographic: 0
   orthographic size: 8
   m_Depth: 0
   m_CullingMask:
