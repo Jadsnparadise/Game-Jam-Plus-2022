@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4409341384866210714}
   - component: {fileID: 1662919608372555881}
-  m_Layer: 0
+  - component: {fileID: -165792711888723047}
+  - component: {fileID: 861364825723743148}
+  m_Layer: 15
   m_Name: terra 3
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -9
-  m_Sprite: {fileID: 21300000, guid: c4e7e03f283950345a5e3f5a7129b68f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbad586c0f1e65946b97289f6d0b8de8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,3 +86,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-165792711888723047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504550939875487311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3db9ce617222040a8d4dabee6fc94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col:
+    colliderTag: New Collider
+    dimension: 0
+    layer:
+      serializedVersion: 2
+      m_Bits: 13312
+    offset: {x: 2.1, y: 0, z: 0}
+    colliderMesh: 0
+    size: {x: 20.85, y: 23.94}
+    rotation: 0
+    radius: 5.07
+    raycastDir: 0
+    raycastDistance: 1
+    flip: 0
+    colliderRenderer:
+      showGizmos: 1
+      colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
+      colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+--- !u!61 &861364825723743148
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504550939875487311}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.1, y: -0.06}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 25.98, y: 25.98}
+    newSize: {x: 12.99, y: 12.99}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.85, y: 23.94}
+  m_EdgeRadius: 0

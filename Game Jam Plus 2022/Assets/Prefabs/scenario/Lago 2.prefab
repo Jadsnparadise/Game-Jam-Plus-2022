@@ -10,12 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 6904583618036156555}
   - component: {fileID: 8148095421949662452}
-  m_Layer: 0
+  - component: {fileID: 4272651622917434362}
+  - component: {fileID: 6234527188818847365}
+  - component: {fileID: 6091363361526952201}
+  - component: {fileID: -3156869784729904416}
+  m_Layer: 14
   m_Name: Lago 2
-  m_TagString: Untagged
+  m_TagString: Lake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6904583618036156555
 Transform:
@@ -72,15 +76,97 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9618b8f90ca79124dbe8d27e031cdef3, type: 3}
+  m_SortingOrder: -9
+  m_Sprite: {fileID: 961274580, guid: 7b94ad1d7ddf94846bc538a77c455e2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.68, y: 7.68}
+  m_Size: {x: 4.95, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4272651622917434362
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419090875351740356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae8b01ea251b08f4bb4f7208fda79ec1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &6234527188818847365
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419090875351740356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02, y: 0.03}
+  m_Size: {x: 8.86, y: 2.7}
+  m_Direction: 1
+--- !u!114 &6091363361526952201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419090875351740356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3db9ce617222040a8d4dabee6fc94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col:
+    colliderTag: New Collider
+    dimension: 0
+    layer:
+      serializedVersion: 2
+      m_Bits: 65216
+    offset: {x: 0, y: 0, z: 0}
+    colliderMesh: 0
+    size: {x: 9.16, y: 3.75}
+    rotation: 0
+    radius: 1
+    raycastDir: 0
+    raycastDistance: 1
+    flip: 0
+    colliderRenderer:
+      showGizmos: 1
+      colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
+      colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-3156869784729904416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419090875351740356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a725ee7970f1740aa9764d7b4a1258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

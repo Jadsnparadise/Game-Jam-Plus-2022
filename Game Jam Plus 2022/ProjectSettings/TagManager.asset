@@ -9,6 +9,8 @@ TagManager:
   - Grass
   - Rock
   - Tree
+  - Lake
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -24,8 +26,8 @@ TagManager:
   - Rock
   - Grass
   - Bush
-  - 
-  - 
+  - Lake
+  - Terrain
   - 
   - 
   - 
