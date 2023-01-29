@@ -388,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135869854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1175,6 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 323316968}
   - component: {fileID: 323316967}
+  - component: {fileID: 323316969}
   m_Layer: 0
   m_Name: VirtualCamera1
   m_TagString: Untagged
@@ -1236,6 +1237,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
+--- !u!114 &323316969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323316966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a058d0245b9704e9888ee9a2cd75c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRange: {x: 75, y: 100}
+  cameraDistance: 0
+  cam: {fileID: 323316967}
 --- !u!1 &344777827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1737,8 @@ MonoBehaviour:
     canSpawn: 1
   - parent: {fileID: 2036223807}
     objects:
-    - {fileID: 7208726110428716338, guid: 2544398d405cc954d9e439441f9ba938, type: 3}
+    - {fileID: 7068059768583501794, guid: 188f760c7d32ed647b6e4928b9873f21, type: 3}
+    - {fileID: 7068059768583501794, guid: 7dc17520e988a52468421311d15be08b, type: 3}
     density: 60
     spawnIntervalMinimun: {x: 5, y: 5}
     spawnIntervalMaximun: {x: 20, y: 20}
@@ -2988,7 +3005,6 @@ MonoBehaviour:
       showGizmos: 1
       colorOutCollision: {r: 1, g: 0.89983654, b: 0, a: 1}
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
-  cameraDistance: 0
 --- !u!50 &975762231
 Rigidbody2D:
   serializedVersion: 4
@@ -4941,7 +4957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070e1c1231cdb554ea62f494dd87a380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAttack: 1
   hand: {fileID: 997408216}
   itenHand: {fileID: 1625532687}
   handAnim: {fileID: 0}

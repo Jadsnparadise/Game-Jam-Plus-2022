@@ -9,7 +9,7 @@ namespace Game.Player.Inventory
     
     public class AimController : MonoBehaviour
     {
-        [HideInInspector] public bool canAttack = true;
+        //[HideInInspector] public bool canAttack = true;
         [SerializeField] GameObject hand;
         [SerializeField] GameObject itenHand;
         //[SerializeField] List<HandSystem> hands;
@@ -79,7 +79,7 @@ namespace Game.Player.Inventory
 
         void InputUpdate()
         {
-            if (Input.GetMouseButton(0) && canAttack)
+            if (Input.GetMouseButton(0))
             {
                 currentItem.Atacking(playerScript, this, hand.transform.position, transform.rotation);
             }

@@ -88,19 +88,9 @@ namespace Game.StatusController
             {
                 case DropType.AllDrop:
                     currentdrop.Add(new(itemDrop, minMaxItensDrop.y + 1));
-                    /*
-                    for (int i = 0; i < minMaxItensDrop.y + 1; i++)
-                    {
-                        
-                    }*/
                     break;
                 case DropType.RandomDrop:
                     currentdrop.Add(new(itemDrop, UnityEngine.Random.Range(minMaxItensDrop.x, minMaxItensDrop.y + 1)));
-                    /*
-                    for (int i = 0; i < UnityEngine.Random.Range(minMaxItensDrop.x, minMaxItensDrop.y + 1); i++)
-                    {
-                         currentdrop.Add(itemDrop);
-                    }*/
                     break;
             }
             return currentdrop;

@@ -64,8 +64,6 @@ namespace Game.Player
         GameObject statusController;
         StatusController.StatusController statusPlayerController;
 
-        [SerializeField, Range(75, 100)] float cameraDistance;
-
         bool gotInZero = false;
 
         void Start()
@@ -114,7 +112,7 @@ namespace Game.Player
                 foreach (Collider2D o in obj)
                 {
                     Itens.ItemController _item = o.GetComponent<Itens.ItemController>();
-                    aim.canAttack = _item.mouseOn;
+                    //aim.canAttack = _item.mouseOn;
                     if (!_item.canPick)
                     {
                         continue;
