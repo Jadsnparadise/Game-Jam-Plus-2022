@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   text: {fileID: 8372032172532139998}
+  overlayColor: {r: 1, g: 0.90000004, b: 0, a: 1}
 --- !u!1 &8044224162196420964
 GameObject:
   m_ObjectHideFlags: 0

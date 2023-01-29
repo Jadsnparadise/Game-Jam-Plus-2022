@@ -131,7 +131,7 @@ MonoBehaviour:
     dimension: 0
     layer:
       serializedVersion: 2
-      m_Bits: 32448
+      m_Bits: 65216
     offset: {x: 0, y: 0, z: 0}
     colliderMesh: 1
     size: {x: 1, y: 1}

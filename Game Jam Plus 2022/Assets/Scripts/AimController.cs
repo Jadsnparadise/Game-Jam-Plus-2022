@@ -183,7 +183,7 @@ namespace Game.Player.Inventory
             {
                 return;
             }
-            Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
+            Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position, Quaternion.identity).GetComponent<Itens.ItemController>();
             i.SetItem(inventory.CurrentItem());
             inventory.DropItem();
         }
@@ -196,7 +196,7 @@ namespace Game.Player.Inventory
             }
             for (int i = 0; i < inventory.Resources[inventory.currentSlot].quantity; i++)
             {
-                Itens.ItemController item = Instantiate(inventory.dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
+                Itens.ItemController item = Instantiate(inventory.dropGameObject, transform.position, Quaternion.identity).GetComponent<Itens.ItemController>();
                 item.SetItem(inventory.Resources[inventory.currentSlot].item);
             }
             inventory.DropAllInHand();

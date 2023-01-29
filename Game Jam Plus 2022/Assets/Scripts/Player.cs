@@ -96,7 +96,7 @@ namespace Game.Player
                     Damage(a.EnemyDamage);
                 }
             }//<----------------------------
-            
+            PickItem();
             Inputs();
         }
 
@@ -113,8 +113,12 @@ namespace Game.Player
             {
                 foreach (Collider2D o in obj)
                 {
-                    Itens.ItemScriptable _item = o.GetComponent<Itens.ItemController>().CurrentItem();
-                    if (aim.AddItem(_item))
+                    Itens.ItemController _item = o.GetComponent<Itens.ItemController>();
+                    if (!_item.canPick)
+                    {
+                        return;
+                    }
+                    if (aim.AddItem(_item.CurrentItem()))
                     {
                         Destroy(o.gameObject);
                     }
@@ -162,11 +166,6 @@ namespace Game.Player
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
-            }
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                PickItem();
             }
 
             if (Input.GetKeyDown(KeyCode.F1))

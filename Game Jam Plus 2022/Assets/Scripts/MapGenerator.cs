@@ -7,7 +7,7 @@ namespace Game.Map
     
     public class MapGenerator : MonoBehaviour
     {
-        [SerializeField] List<Spawn> objectsToSpawn;
+        [SerializeField] Spawn[] objectsToSpawn;
         [SerializeField] Vector2Int startPoint; 
         [SerializeField] Vector2Int endPoint;
         NavMeshPlus.Components.NavMeshSurface navMesh;
@@ -29,6 +29,10 @@ namespace Game.Map
         {
             foreach (Spawn s in objectsToSpawn)
             {
+                if (!s.canSpawn)
+                {
+                    continue;
+                }
                 for (int x = startPoint.x; x < endPoint.x; x += UnityEngine.Random.Range(s.spawnIntervalMinimun.x, s.spawnIntervalMaximun.x))
                 {
                     for (int y = startPoint.y; y < endPoint.y; y += UnityEngine.Random.Range(s.spawnIntervalMinimun.x, s.spawnIntervalMaximun.x))
@@ -60,6 +64,7 @@ namespace Game.Map
         [Range(0, 100)] public int density = 50;
         [Min(5)] public Vector2Int spawnIntervalMinimun = Vector2Int.one;
         [Min(5)] public Vector2Int spawnIntervalMaximun = Vector2Int.one;
+        public bool canSpawn = true;
         //public List<Vector2> offSpawn;
     }
 }
