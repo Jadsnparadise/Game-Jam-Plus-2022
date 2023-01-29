@@ -97,16 +97,18 @@ namespace Game.StatusController
             if (clockStamina >= modifyStaminaRate)
             {
                 playerStatus.StaminaBar.AddValue(2);
+                playerStatus.HungryBar.DecreaseValue(1);
+                playerStatus.WaterBar.DecreaseValue(1);
                 staminaBar.value = playerStatus.StaminaBar.CurrentValue;
                 clockStamina = 0;
             }
         }
-        public void StaminaDecrease()
+        public void StaminaDecrease(int _value)
         {
             clockStamina += Time.deltaTime;
             if (clockStamina >= modifyStaminaRate)
             {
-                playerStatus.StaminaBar.DecreaseValue(5);
+                playerStatus.StaminaBar.DecreaseValue(_value);
                 staminaBar.value = playerStatus.StaminaBar.CurrentValue;
                 clockStamina = 0;
             }

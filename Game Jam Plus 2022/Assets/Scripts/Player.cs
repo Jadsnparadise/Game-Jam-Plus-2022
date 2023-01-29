@@ -128,12 +128,16 @@ namespace Game.Player
         void Move()
         {
             isMoving = rig.velocity.normalized.magnitude != 0 && Moving();
+            if (isMoving)
+            {
+                statusPlayerController.StaminaDecrease(2);
+            }
             if (!gotInZero)
             {
                 isRunning = Input.GetKey(KeyCode.LeftShift) && (LookingForwardX() || LookingForwardY()) && !Input.GetMouseButton(0); 
             }
             if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue && isMoving) {
-                statusPlayerController.StaminaDecrease();
+                statusPlayerController.StaminaDecrease(5);
             }
             else
             {
