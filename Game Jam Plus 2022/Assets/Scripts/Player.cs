@@ -61,7 +61,6 @@ namespace Game.Player
         Inventory.AimController aim;
         SpriteRenderer spriteRenderer;
 
-        GameObject statusController;
         StatusController.StatusController statusPlayerController;
 
         bool gotInZero = false;
@@ -73,10 +72,63 @@ namespace Game.Player
             aim ??= gameObject.GetComponentInChildren<Inventory.AimController>();
             anim ??= GetComponent<Animator>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
-            statusController = GameObject.Find("Status Controller");
-            statusPlayerController = statusController.GetComponent<StatusController.StatusController>();
+            statusPlayerController = GameObject.Find("Status Controller").GetComponent<StatusController.StatusController>();
             canTakeDamage = true;
         }
+
+        [ContextMenu("Bebeu")]
+        public void Beber()
+        {
+            isDrunk = true;
+            statusPlayerController.UiAddCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Drunk));
+        }
+        
+        [ContextMenu("Chapou")]
+        public void Chapou()
+        {
+            isStoned = true;
+            statusPlayerController.UiAddCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Stoned));
+        }
+        [ContextMenu("Hot")]
+        public void Hot()
+        {
+            isHot = true;
+            statusPlayerController.UiAddCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Hot));
+        }
+        
+        [ContextMenu("Cold")]
+        public void Cold()
+        {
+            isCold = true;
+            statusPlayerController.UiAddCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Cold));
+        }
+        [ContextMenu("Não Bebeu")]
+        public void DesBeber()
+        {
+            isDrunk = false;
+            statusPlayerController.UiRemoveCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Drunk));
+        }
+        
+        [ContextMenu("Não Chapou")]
+        public void DesChapou()
+        {
+            isStoned = false;
+            statusPlayerController.UiRemoveCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Stoned));
+        }
+        [ContextMenu("Não Hot")]
+        public void DesHot()
+        {
+            isHot = false;
+            statusPlayerController.UiRemoveCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Hot));
+        }
+        
+        [ContextMenu("Não Cold")]
+        public void DesCold()
+        {
+            isCold = false;
+            statusPlayerController.UiRemoveCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Cold));
+        }
+
 
         void Update()
         {

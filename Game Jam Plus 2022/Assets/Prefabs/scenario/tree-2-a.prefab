@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.4
+  offset: 0.8
 --- !u!114 &3196698419389194347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3db9ce617222040a8d4dabee6fc94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeRange: {x: 1, y: 1.5}
   col:
     colliderTag: Tree
     dimension: 0

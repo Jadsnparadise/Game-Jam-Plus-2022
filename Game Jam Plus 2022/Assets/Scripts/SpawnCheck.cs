@@ -6,6 +6,7 @@ namespace Game.Map
 {
     public class SpawnCheck : MonoBehaviour
     {
+        [SerializeField] Vector2 sizeRange = Vector2.one;
         [SerializeField] CollisionSystem.Collision col;
         void Start()
         {
@@ -19,6 +20,7 @@ namespace Game.Map
                     }
                 }
             }
+            transform.localScale *= Random.Range(sizeRange.x, sizeRange.y);
             GetComponent<SpriteRenderer>().flipX = Random.Range(0, 100) <= 49;
         }
 

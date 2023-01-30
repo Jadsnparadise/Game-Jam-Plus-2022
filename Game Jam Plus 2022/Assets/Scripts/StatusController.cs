@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Game.Clock;
-using Unity.VisualScripting;
-
+using System;
 
 namespace Game.StatusController
 {
@@ -16,21 +14,17 @@ namespace Game.StatusController
         [SerializeField] Slider hungryBar;
         [SerializeField] Slider happinessBar;
 
+        /*
         [SerializeField] GameObject stonedUI;
         [SerializeField] GameObject drunkUI;
         [SerializeField] GameObject coldUI;
         [SerializeField] GameObject hotUI;
+        */
+        [SerializeField] List<RawImage> conditionsUi;
+        public List<Condition> conditions;
+        [SerializeField] List<Condition> currentCondition;
 
-        bool stoned;
-        bool drunk;
-        bool cold;
-        bool hot;
-
-        GameObject player;
         Game.Player.Player playerStatus;
-
-        GameObject Clock;
-        Game.Clock.ClockController clock;
 
         int damageByStatus = 2;
         float damageByStatusCD = 3f;
@@ -55,17 +49,17 @@ namespace Game.StatusController
 
         private void Start()
         {
-            player = GameObject.Find("Player");
-            playerStatus = player.GetComponent<Game.Player.Player>();
-            //clock = Clock.GetComponent<Game.Clock.ClockController>();
+
+            playerStatus = GameObject.Find("Player").GetComponent<Game.Player.Player>();
+            foreach (RawImage r in conditionsUi)
+            {
+                r.color = Color.clear;
+            }
+            currentCondition = new();
         }
 
         private void Update()
         {
-            //Debug.Log("Vida atual: " + playerStatus.LifeBar.CurrentValue);
-            //Debug.Log("Vida max: " + playerStatus.LifeBar.MaxValue);
-            //Debug.Log("fillamount: " + lifeBar.value);
-
             HungryDecrease();
             HungryIncrease();
             WaterIncrease();
@@ -73,10 +67,7 @@ namespace Game.StatusController
             HappinessIncrease();
             HapinessDecrease();
             LifeControl();
-            StonedControl();
-            DrunkControl();
-            HotControl();
-            ColdControl();
+            UIUpdate();
 
             if (waterBar.value == 0 || hungryBar.value == 0 || happinessBar.value == 0)
             {
@@ -96,10 +87,9 @@ namespace Game.StatusController
 
             if (clockStamina >= modifyStaminaRate)
             {
-                playerStatus.StaminaBar.AddValue(2);
-                playerStatus.HungryBar.DecreaseValue(1);
-                playerStatus.WaterBar.DecreaseValue(1);
-                staminaBar.value = playerStatus.StaminaBar.CurrentValue;
+                playerStatus.StaminaBar.AddValue(50);
+                //playerStatus.HungryBar.AddValue(1);
+                //playerStatus.WaterBar.AddValue(1);
                 clockStamina = 0;
             }
         }
@@ -109,11 +99,8 @@ namespace Game.StatusController
             if (clockStamina >= modifyStaminaRate)
             {
                 playerStatus.StaminaBar.DecreaseValue(_value);
-                staminaBar.value = playerStatus.StaminaBar.CurrentValue;
                 clockStamina = 0;
             }
-
-
         }
 
         private void WaterIncrease()
@@ -158,7 +145,6 @@ namespace Game.StatusController
                 playerStatus.HungryBar.DecreaseValue(33);
                 stoneAlreadyDecresedFood = true;
             }
-
         }
 
         private void HappinessIncrease()
@@ -167,7 +153,6 @@ namespace Game.StatusController
             if (playerStatus.IsStoned)
             {
                 playerStatus.HappinessBar.AddValue(playerStatus.HappinessBar.MaxValue);
-
             }
         }
 
@@ -182,62 +167,72 @@ namespace Game.StatusController
             }
         }
 
-        private void StonedControl()
-        {
-            if (playerStatus.IsStoned)
-            {
-                stonedUI.SetActive(true);
-            }
-            else
-            {
-                stonedUI.SetActive(false);
-            }
-        }
-
-        private void DrunkControl()
-        {
-            if (playerStatus.IsDrunk)
-            {
-                drunkUI.SetActive(true);
-            }
-            else
-            {
-                drunkUI.SetActive(false);
-            }
-        }
-
-        private void ColdControl()
-        {
-            if (playerStatus.IsCold)
-            {
-                coldUI.SetActive(true);
-            }
-            else
-            {
-                coldUI.SetActive(false);
-            }
-        }
-        private void HotControl()
-        {
-            if (playerStatus.IsHot)
-            {
-                hotUI.SetActive(true);
-            }
-            else
-            {
-                hotUI.SetActive(false);
-            }
-        }
-
         private void DamageStatus()
         {
             currentCDStatusDamage += Time.deltaTime;
             if (currentCDStatusDamage >= damageByStatusCD)
             {
-                //knockbackForce = 0;
                 playerStatus.Damage(damageByStatus);
                 currentCDStatusDamage = 0;
             }
         }
+
+        void UIUpdate()
+        {
+            lifeBar.value = playerStatus.LifeBar.CurrentValue;
+            staminaBar.value = playerStatus.StaminaBar.CurrentValue;
+            waterBar.value = playerStatus.WaterBar.CurrentValue;
+            hungryBar.value = playerStatus.HungryBar.CurrentValue;
+            happinessBar.value = playerStatus.HappinessBar.CurrentValue;
+        }
+
+        public Sprite PickConditionSprite(Effect currentCondition)
+        {
+            return conditions.Find(x => x.effect == currentCondition).sprite;
+        }
+
+        public void UiAddCondition(Condition _newCondition)
+        {
+            if (currentCondition.Exists(x => x.effect == _newCondition.effect))
+            {
+                return;
+            }
+            currentCondition.Add(_newCondition);
+            UiConditionUpdate();
+        }
+
+        public void UiRemoveCondition(Condition _condition)
+        {
+            if (!currentCondition.Exists(x => x.effect == _condition.effect))
+            {
+                return;
+            }
+            currentCondition.Remove(_condition);
+            UiConditionUpdate();
+        }
+
+        void UiConditionUpdate()
+        {
+            for (int i = 0; i < conditionsUi.Count; i++)
+            {
+                conditionsUi[i].texture = currentCondition.Count > i ? currentCondition[i].sprite.texture : null;
+                if (conditionsUi[i].texture != null)
+                {
+                    conditionsUi[i].color = Color.white;
+                }
+                else
+                {
+                    conditionsUi[i].color = Color.clear;
+                }
+                conditionsUi[i].SetNativeSize();
+            }
+        }
+    }
+
+    [Serializable]
+    public struct Condition
+    {
+        public Effect effect;
+        public Sprite sprite;
     }
 }

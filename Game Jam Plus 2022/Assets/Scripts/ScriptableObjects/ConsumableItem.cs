@@ -76,7 +76,9 @@ namespace Game.StatusController
         Water,
         Food,
         Stoned,
-        Drunk
+        Drunk,
+        Hot,
+        Cold
     }
 }
 

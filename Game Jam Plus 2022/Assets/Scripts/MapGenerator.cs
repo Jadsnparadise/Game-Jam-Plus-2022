@@ -19,9 +19,10 @@ namespace Game.Map
             navMesh = navmesh.GetComponent<NavMeshPlus.Components.NavMeshSurface>();
         }
 
-        void SpawnObject(GameObject _obj, GameObject _parent, Vector2 _pos)
+        void SpawnObject(GameObject _obj, GameObject _parent, Vector3 _pos)
         {
             //Instantiate(_obj, _pos, Quaternion.identity);
+            _pos.Set(_pos.x, _pos.y, _obj.transform.position.z);
             Instantiate(_obj, _pos, Quaternion.identity, _parent.transform);
         }
 

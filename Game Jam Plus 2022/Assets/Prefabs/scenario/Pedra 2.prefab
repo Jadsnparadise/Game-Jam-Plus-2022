@@ -148,6 +148,8 @@ GameObject:
   - component: {fileID: 2965182015186971738}
   - component: {fileID: -1980765929341289146}
   - component: {fileID: 4169095309101540326}
+  - component: {fileID: -8912256895352905110}
+  - component: {fileID: 1087731920318271104}
   m_Layer: 9
   m_Name: Pedra 2
   m_TagString: Rock
@@ -260,6 +262,50 @@ MonoBehaviour:
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
   lifeTime: 0
   stack: 0
+--- !u!114 &-8912256895352905110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7068059768583501794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -0.5
+--- !u!114 &1087731920318271104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7068059768583501794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3db9ce617222040a8d4dabee6fc94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeRange: {x: 0.8, y: 1}
+  col:
+    colliderTag: New Collider
+    dimension: 0
+    layer:
+      serializedVersion: 2
+      m_Bits: 32256
+    offset: {x: 0, y: 0, z: 0}
+    colliderMesh: 0
+    size: {x: 1, y: 1}
+    rotation: 0
+    radius: 1
+    raycastDir: 0
+    raycastDistance: 1
+    flip: 0
+    colliderRenderer:
+      showGizmos: 1
+      colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
+      colorInCollision: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &8044224162196420964
 GameObject:
   m_ObjectHideFlags: 0
