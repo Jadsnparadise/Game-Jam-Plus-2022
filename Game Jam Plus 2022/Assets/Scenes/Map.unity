@@ -578,6 +578,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6c2eac9f650c5674c8e21f1b6dd98e4d, type: 3}
   - effect: 7
     sprite: {fileID: 21300000, guid: 43ba0b75c0eb1b14382b215768c7dfa0, type: 3}
+  currentCondition: []
 --- !u!1 &157887430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1387,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 975762229}
   m_Follow: {fileID: 975762229}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 75
     OrthographicSize: 8
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -6951,8 +6952,8 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
-  orthographic: 1
+  field of view: 75
+  orthographic: 0
   orthographic size: 8
   m_Depth: 0
   m_CullingMask:

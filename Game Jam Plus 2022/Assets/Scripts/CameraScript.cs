@@ -23,6 +23,11 @@ public class CameraScript : MonoBehaviour
         {
             ChangeValue(-2);
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            StartCoroutine(CamShake(0.15f, 5f));
+        }
     }
 
     void ChangeValue(float _newValue)
@@ -37,5 +42,22 @@ public class CameraScript : MonoBehaviour
             cameraDistance = cameraRange.x;
         }
         cam.m_Lens.FieldOfView = cameraDistance;
+    }
+
+    public IEnumerator CamShake(float duration, float magnitude)
+    {
+        Vector3 orignalPosition = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            transform.position = new Vector3(x, y, -10f);
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+        transform.position = orignalPosition;
     }
 }

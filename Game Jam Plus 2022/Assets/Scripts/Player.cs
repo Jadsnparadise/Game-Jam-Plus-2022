@@ -248,6 +248,11 @@ namespace Game.Player
             Debug.LogWarning("MORREU BURRO RUIM LIXO HORROROSO");
         }
 
+        [ContextMenu("Damage")]
+        public void Damage()
+        {
+            Damage(0);
+        }
         public void Damage(int _damage)
         {
             if (!canTakeDamage)
@@ -287,7 +292,7 @@ namespace Game.Player
             canTakeDamage = false;
             for (int i = 0; i < godSeconds; i++)
             {
-                spriteRenderer.color = Color.clear;
+                spriteRenderer.color = Color.red;
                 yield return new WaitForSeconds(0.1f);
                 spriteRenderer.color = Color.white;
                 yield return new WaitForSeconds(0.1f);

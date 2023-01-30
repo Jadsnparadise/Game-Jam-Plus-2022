@@ -11,19 +11,17 @@ namespace Game.Map
         [SerializeField] Vector2Int startPoint; 
         [SerializeField] Vector2Int endPoint;
         NavMeshPlus.Components.NavMeshSurface navMesh;
-        GameObject navmesh;
         void Start()
         {
-            navmesh = GameObject.Find("NavMesh");
             GridSpawn();
-            navMesh = navmesh.GetComponent<NavMeshPlus.Components.NavMeshSurface>();
+            navMesh = GameObject.Find("NavMesh").GetComponent<NavMeshPlus.Components.NavMeshSurface>();
         }
 
         void SpawnObject(GameObject _obj, GameObject _parent, Vector3 _pos)
         {
             //Instantiate(_obj, _pos, Quaternion.identity);
             _pos.Set(_pos.x, _pos.y, _obj.transform.position.z);
-            Instantiate(_obj, _pos, Quaternion.identity, _parent.transform);
+            Instantiate(_obj, _pos, _obj.transform.localRotation, _parent.transform);
         }
 
         public void GridSpawn()
