@@ -564,6 +564,12 @@ MonoBehaviour:
   waterBar: {fileID: 207063119}
   hungryBar: {fileID: 416324889}
   happinessBar: {fileID: 1485849056}
+  temperature:
+    attributeName: 
+    currentValue: 25
+    startValue: 25
+    maxValue: 35
+    minValue: 0
   conditionsUi:
   - {fileID: 2117279715}
   - {fileID: 1440119325}
@@ -579,6 +585,7 @@ MonoBehaviour:
   - effect: 7
     sprite: {fileID: 21300000, guid: 43ba0b75c0eb1b14382b215768c7dfa0, type: 3}
   currentCondition: []
+  canRegenStamina: 1
 --- !u!1 &157887430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,9 +3338,9 @@ MonoBehaviour:
     minValue: 0
   staminaBar:
     attributeName: 
-    currentValue: 100
-    startValue: 100
-    maxValue: 100
+    currentValue: 200
+    startValue: 200
+    maxValue: 200
     minValue: 0
   waterBar:
     attributeName: 
@@ -3356,6 +3363,8 @@ MonoBehaviour:
   speed: 6
   speedRun: 10
   godSeconds: 2
+  isRunning: 0
+  isMoving: 0
   isStoned: 0
   isDrunk: 0
   isCold: 0
@@ -4547,9 +4556,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 200
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

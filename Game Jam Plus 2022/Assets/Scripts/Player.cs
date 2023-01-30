@@ -35,8 +35,8 @@ namespace Game.Player
         //[SerializeField, Min(1)] float knockbackForce;
         Vector2 moveDir;
         bool canTakeDamage;
-        bool isRunning;
-        bool isMoving;
+        public bool isRunning;
+        public bool isMoving;
 
         [SerializeField] bool isStoned;
         public bool IsStoned { get { return isStoned; } private set { IsStoned = value; } }
@@ -154,7 +154,7 @@ namespace Game.Player
         {
             //Vector2 currentMoveDir = isDrunk ? -moveDir : moveDir;
             float currentSpeed = isRunning ? speedRun : speed;
-            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1), ForceMode2D.Impulse);
+            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1) * (isCold ? 0.5f : 1f), ForceMode2D.Impulse);
         }
 
         void PickItem()
@@ -182,27 +182,35 @@ namespace Game.Player
             isMoving = rig.velocity.normalized.magnitude != 0 && Moving();
             if (isMoving)
             {
-                statusPlayerController.StaminaDecrease(2);
+                //statusPlayerController.StaminaDecrease(1);
+                statusPlayerController.canRegenStamina = false;
             }
             if (!gotInZero)
             {
-                isRunning = Input.GetKey(KeyCode.LeftShift) && (LookingForwardX() || LookingForwardY()) && !Input.GetMouseButton(0); 
+                isRunning = Input.GetKey(KeyCode.LeftShift) && (LookingForwardX() || LookingForwardY()) && !Input.GetMouseButton(0);
+                statusPlayerController.canRegenStamina = false;
             }
             if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue && isMoving) {
-                statusPlayerController.StaminaDecrease(5);
+                //statusPlayerController.StaminaDecrease(2);
+                statusPlayerController.canRegenStamina = false;
+            }
+            if(!isMoving && !isRunning)
+            {
+                statusPlayerController.canRegenStamina = true;
             }
             else
             {
-                if(staminaBar.CurrentValue == staminaBar.MinValue)
+                
+                if (staminaBar.CurrentValue == staminaBar.MinValue)
                 {
                     gotInZero = true;
                     isRunning = false;
+                    
                 }
                 else if (staminaBar.CurrentValue > staminaBar.MaxValue/2)
                 {
                     gotInZero = false;
                 }
-                statusPlayerController.StaminaIncrease();
             }
         }
 

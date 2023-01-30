@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEditor.Rendering;
 
 namespace Game.StatusController
 {
@@ -13,25 +14,26 @@ namespace Game.StatusController
         [SerializeField] Slider waterBar;
         [SerializeField] Slider hungryBar;
         [SerializeField] Slider happinessBar;
+        [SerializeField] System.Attribute temperature;
 
-        /*
-        [SerializeField] GameObject stonedUI;
-        [SerializeField] GameObject drunkUI;
-        [SerializeField] GameObject coldUI;
-        [SerializeField] GameObject hotUI;
-        */
         [SerializeField] List<RawImage> conditionsUi;
         public List<Condition> conditions;
         [SerializeField] List<Condition> currentCondition;
 
-        Game.Player.Player playerStatus;
+        Player.Player playerStatus;
 
+        
         int damageByStatus = 2;
         float damageByStatusCD = 3f;
         float currentCDStatusDamage;
 
         float modifyStaminaRate = 0.2f;
         float clockStamina;
+        int staminaDecreseRunning = 5;
+        int staminaDecreaseWalking = 1;
+        int staminaIncreaseNormal = 2;
+        int staminaIncreaseCold = 1;
+
 
         float waterDecreaseRate = 14f;
         float currentWaterDecrease;
@@ -45,6 +47,8 @@ namespace Game.StatusController
         float happinessDecreaseRate = 14f;
         float currentHappinessDecrease;
         int decreaseHappiness = 1;
+
+        public bool canRegenStamina = true;
 
 
         private void Start()
@@ -60,14 +64,19 @@ namespace Game.StatusController
 
         private void Update()
         {
-            HungryDecrease();
-            HungryIncrease();
+
+            StaminaIncrease();
+            StaminaDecrease();
+            UIUpdate();
+            HungryDecrease(decreaseFood);
             WaterIncrease();
-            waterDecrease();
+            WaterDecrease(decreaseWater);
             HappinessIncrease();
             HapinessDecrease();
             LifeControl();
-            UIUpdate();
+            HotControl();
+            ColdControl();
+            
 
             if (waterBar.value == 0 || hungryBar.value == 0 || happinessBar.value == 0)
             {
@@ -84,22 +93,21 @@ namespace Game.StatusController
         public void StaminaIncrease()
         {
             clockStamina += Time.deltaTime;
-
-            if (clockStamina >= modifyStaminaRate)
+            if (clockStamina >= modifyStaminaRate && canRegenStamina)
             {
-                playerStatus.StaminaBar.AddValue(50);
+                playerStatus.StaminaBar.AddValue(playerStatus.IsCold? staminaIncreaseCold : staminaIncreaseNormal);
                 //playerStatus.HungryBar.AddValue(1);
                 //playerStatus.WaterBar.AddValue(1);
                 clockStamina = 0;
             }
         }
-        public void StaminaDecrease(int _value)
+        public void StaminaDecrease()
         {
             clockStamina += Time.deltaTime;
-            if (clockStamina >= modifyStaminaRate)
+            if (clockStamina >= modifyStaminaRate && !canRegenStamina)
             {
-                playerStatus.StaminaBar.DecreaseValue(_value);
-                clockStamina = 0;
+                playerStatus.StaminaBar.DecreaseValue( playerStatus.isRunning? staminaDecreseRunning : staminaDecreaseWalking);
+                clockStamina = 0; 
             }
         }
 
@@ -114,29 +122,23 @@ namespace Game.StatusController
             }
         }
 
-        private void waterDecrease()
+        private void WaterDecrease(int _value)
         {
             currentWaterDecrease += Time.deltaTime;
             if (currentWaterDecrease >= waterDecreaseRate)
             {
-                playerStatus.WaterBar.DecreaseValue(decreaseWater);//modificar depois para pegar diretamente do atributo do item
+                playerStatus.WaterBar.DecreaseValue(_value);//modificar depois para pegar diretamente do atributo do item
                 waterBar.value = playerStatus.WaterBar.CurrentValue;
                 currentWaterDecrease = 0;
             }
         }
-        private void HungryIncrease()
-        {
-            hungryBar.value = playerStatus.HungryBar.CurrentValue;
-            
 
-        }
-
-        private void HungryDecrease()
+        private void HungryDecrease(int _value)
         {
             currentFoodDecrease += Time.deltaTime;
             if (currentFoodDecrease >= foodDecreaseRate)
             {
-                playerStatus.HungryBar.DecreaseValue(decreaseFood);//modificar depois para pegar diretamente do atributo do item
+                playerStatus.HungryBar.DecreaseValue(_value);//modificar depois para pegar diretamente do atributo do item
                 hungryBar.value = playerStatus.HungryBar.CurrentValue;
                 currentFoodDecrease = 0;
             }
@@ -172,9 +174,40 @@ namespace Game.StatusController
             currentCDStatusDamage += Time.deltaTime;
             if (currentCDStatusDamage >= damageByStatusCD)
             {
+                canRegenStamina = false;
                 playerStatus.Damage(damageByStatus);
                 currentCDStatusDamage = 0;
             }
+            
+        }
+
+        private void ColdControl()
+        {
+            if (temperature.CurrentValue <= 20) //e não tiver usando casaco
+            {
+                playerStatus.Cold();
+                StaminaIncrease();
+            }
+            else
+            {
+                playerStatus.DesCold();
+            }
+        }
+
+        private void HotControl()
+        {
+            if (temperature.CurrentValue >= 30)
+            {
+                playerStatus.Hot();
+                HungryDecrease(decreaseFood * 2);
+                WaterDecrease(decreaseWater * 2);
+            }
+            else
+            {
+                playerStatus.DesHot();
+            }
+
+
         }
 
         void UIUpdate()
