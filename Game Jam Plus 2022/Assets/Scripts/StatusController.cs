@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEditor.Rendering;
+using System.Net;
 
 namespace Game.StatusController
 {
@@ -22,7 +23,7 @@ namespace Game.StatusController
 
         Player.Player playerStatus;
 
-        
+
         int damageByStatus = 2;
         float damageByStatusCD = 3f;
         float currentCDStatusDamage;
@@ -33,6 +34,8 @@ namespace Game.StatusController
         int staminaDecreaseWalking = 1;
         int staminaIncreaseNormal = 2;
         int staminaIncreaseCold = 1;
+
+        [SerializeField] bool isRegeneringStamina = false;
 
 
         float waterDecreaseRate = 14f;
@@ -69,14 +72,13 @@ namespace Game.StatusController
             StaminaDecrease();
             UIUpdate();
             HungryDecrease(decreaseFood);
-            WaterIncrease();
             WaterDecrease(decreaseWater);
             HappinessIncrease();
             HapinessDecrease();
             LifeControl();
             HotControl();
             ColdControl();
-            
+
 
             if (waterBar.value == 0 || hungryBar.value == 0 || happinessBar.value == 0)
             {
@@ -95,7 +97,11 @@ namespace Game.StatusController
             clockStamina += Time.deltaTime;
             if (clockStamina >= modifyStaminaRate && canRegenStamina)
             {
-                playerStatus.StaminaBar.AddValue(playerStatus.IsCold? staminaIncreaseCold : staminaIncreaseNormal);
+                if(staminaBar.value == playerStatus.StaminaBar.MaxValue)
+                {
+                    isRegeneringStamina = false;
+                }
+                playerStatus.StaminaBar.AddValue(playerStatus.IsCold ? staminaIncreaseCold : staminaIncreaseNormal);
                 //playerStatus.HungryBar.AddValue(1);
                 //playerStatus.WaterBar.AddValue(1);
                 clockStamina = 0;
@@ -106,26 +112,15 @@ namespace Game.StatusController
             clockStamina += Time.deltaTime;
             if (clockStamina >= modifyStaminaRate && !canRegenStamina)
             {
-                playerStatus.StaminaBar.DecreaseValue( playerStatus.isRunning? staminaDecreseRunning : staminaDecreaseWalking);
-                clockStamina = 0; 
-            }
-        }
-
-        private void WaterIncrease()
-        {
-            if (playerStatus.WaterBar.CurrentValue < playerStatus.WaterBar.MaxValue && Input.GetKeyDown(KeyCode.R)) // depois modificar para ser quando consumir o item
-            {
-                //se o objeto for água aumentar em 25 a barra de água
-                waterBar.value += 25;
-                playerStatus.WaterBar.AddValue(25);//modificar depois para pegar diretamente do atributo do item
-                happinessBar.value += 10;
+                playerStatus.StaminaBar.DecreaseValue(playerStatus.isRunning ? staminaDecreseRunning : staminaDecreaseWalking);
+                clockStamina = 0;
             }
         }
 
         private void WaterDecrease(int _value)
         {
             currentWaterDecrease += Time.deltaTime;
-            if (currentWaterDecrease >= waterDecreaseRate)
+            if (currentWaterDecrease >= waterDecreaseRate * (isRegeneringStamina ? 1 : 0.3f))
             {
                 playerStatus.WaterBar.DecreaseValue(_value);//modificar depois para pegar diretamente do atributo do item
                 waterBar.value = playerStatus.WaterBar.CurrentValue;
@@ -136,7 +131,7 @@ namespace Game.StatusController
         private void HungryDecrease(int _value)
         {
             currentFoodDecrease += Time.deltaTime;
-            if (currentFoodDecrease >= foodDecreaseRate)
+            if (currentFoodDecrease >= foodDecreaseRate *(isRegeneringStamina? 1 : 0.3f))
             {
                 playerStatus.HungryBar.DecreaseValue(_value);//modificar depois para pegar diretamente do atributo do item
                 hungryBar.value = playerStatus.HungryBar.CurrentValue;
@@ -178,7 +173,7 @@ namespace Game.StatusController
                 playerStatus.Damage(damageByStatus);
                 currentCDStatusDamage = 0;
             }
-            
+
         }
 
         private void ColdControl()
