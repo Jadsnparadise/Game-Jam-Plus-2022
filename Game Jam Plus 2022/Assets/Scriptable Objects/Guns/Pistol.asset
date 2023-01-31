@@ -25,7 +25,7 @@ MonoBehaviour:
   stack: 0
   craft: []
   itemOffset: {x: 1.21, y: 0, z: 0}
-  currentAmmo: 999999601
+  currentAmmo: 999999575
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   weaponRange: 0
   fireRate: 0.3
@@ -33,3 +33,5 @@ MonoBehaviour:
   flash: {fileID: 406102140075121989, guid: 0b7c95a90a144bb489685e4b8cf2b9ed, type: 3}
   knockbackForce: 7
   recoil: 0.1
+  camShakeTime: 0.05
+  camShakeMagnitude: 0.2

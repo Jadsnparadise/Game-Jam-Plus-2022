@@ -18,6 +18,8 @@ namespace Game.Itens
         [SerializeField] GameObject flash;
         public float knockbackForce;
         [SerializeField] float recoil;
+        [SerializeField, Min(0)] float camShakeTime;
+        [SerializeField, Range(0, 1)] float camShakeMagnitude;
 
         public override void ItemStart()
         {
@@ -37,12 +39,12 @@ namespace Game.Itens
         {
             if (!shot)
             {
-                Shot(_aim, _handPos, _handRot);
+                Shot(_player, _aim, _handPos, _handRot);
                 shot = true;
             }
         }
 
-        void Shot(Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
+        void Shot(Game.Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
         {
             if (currentAmmo <= 0)
             {
@@ -60,6 +62,7 @@ namespace Game.Itens
             Destroy(Instantiate(flash, _handPos, _handRot), 0.8f);
             currentAmmo -= 1;
             currentFireRate = 0;
+            _player.CamShake(camShakeTime, camShakeMagnitude);
         }
     }
 }

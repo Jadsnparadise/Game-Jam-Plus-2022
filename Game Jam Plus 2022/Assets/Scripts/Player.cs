@@ -60,6 +60,7 @@ namespace Game.Player
         Animator anim;
         Inventory.AimController aim;
         SpriteRenderer spriteRenderer;
+        Game.System.Cam.CameraScript cam;
 
         StatusController.StatusController statusPlayerController;
 
@@ -73,6 +74,7 @@ namespace Game.Player
             anim ??= GetComponent<Animator>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
             statusPlayerController = GameObject.Find("Status Controller").GetComponent<StatusController.StatusController>();
+            cam = GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<System.Cam.CameraScript>();
             canTakeDamage = true;
         }
 
@@ -251,16 +253,16 @@ namespace Game.Player
             moveDir.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             return moveDir.magnitude != 0;
         }
+        public void CamShake(float _duration, float _magnitude)
+        {
+            StartCoroutine(cam.CamShake(_duration, _magnitude));
+        }
+
         void Death()
         {
             Debug.LogWarning("MORREU BURRO RUIM LIXO HORROROSO");
         }
 
-        [ContextMenu("Damage")]
-        public void Damage()
-        {
-            Damage(0);
-        }
         public void Damage(int _damage)
         {
             if (!canTakeDamage)

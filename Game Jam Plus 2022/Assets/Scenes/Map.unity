@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
-  m_BiasX: 0
+  m_BiasX: 0.00000014901161
   m_BiasY: 0
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 323316969}
   m_Layer: 0
   m_Name: VirtualCamera1
-  m_TagString: Untagged
+  m_TagString: Cinemachine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,6 +1442,8 @@ MonoBehaviour:
   cameraRange: {x: 75, y: 100}
   cameraDistance: 75
   cam: {fileID: 323316967}
+  camRangeX: {x: -13, y: 13}
+  camRangeY: {x: -9, y: 7}
 --- !u!1 &328472327
 GameObject:
   m_ObjectHideFlags: 0

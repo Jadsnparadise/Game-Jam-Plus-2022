@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    item: {fileID: 11400000, guid: 97ad1587781f5534d8309a58e9732082, type: 2}
+    item: {fileID: 11400000, guid: 683a27d0d7117b248a4a37785e94957d, type: 2}
     quantity: 1
   text: {fileID: 8372032172532139998}
   overlayColor: {r: 1, g: 0.90000004, b: 0, a: 1}

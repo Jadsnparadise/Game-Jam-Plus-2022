@@ -12,6 +12,7 @@ TagManager:
   - Lake
   - Terrain
   - Aim
+  - Cinemachine
   layers:
   - Default
   - TransparentFX
