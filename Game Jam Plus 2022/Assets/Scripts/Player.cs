@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Game.Player
 {
     using CollisionSystem;
+    using Unity.PlasticSCM.Editor.WebApi;
     using Unity.VisualScripting;
 
     [RequireComponent(typeof(Rigidbody2D))]
@@ -31,12 +32,15 @@ namespace Game.Player
         [Header("Player Settings")]
         [SerializeField, Min(1)] float speed;
         [SerializeField, Min(1)] float speedRun;
+        [SerializeField, Min(1)] float SpeedNoStamina;
         [SerializeField, Min(1)] float godSeconds;
         //[SerializeField, Min(1)] float knockbackForce;
+        float currentSpeed;
         Vector2 moveDir;
         bool canTakeDamage;
         public bool isRunning;
         public bool isMoving;
+        bool gotInZero = false;
 
         [SerializeField] bool isStoned;
         public bool IsStoned { get { return isStoned; } private set { IsStoned = value; } }
@@ -61,10 +65,9 @@ namespace Game.Player
         Inventory.AimController aim;
         SpriteRenderer spriteRenderer;
         Game.System.Cam.CameraScript cam;
-
         StatusController.StatusController statusPlayerController;
 
-        bool gotInZero = false;
+        
 
         void Start()
         {
@@ -154,9 +157,25 @@ namespace Game.Player
 
         void FixedUpdate()
         {
-            //Vector2 currentMoveDir = isDrunk ? -moveDir : moveDir;
-            float currentSpeed = isRunning ? speedRun : speed;
+            currentSpeed = CurrentMove();
             rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1) * (isCold ? 0.5f : 1f), ForceMode2D.Impulse);
+        }
+
+        float CurrentMove()
+        {
+            if (isRunning)
+            {
+                currentSpeed = speedRun;
+            }
+            else if(isMoving && gotInZero)
+            {
+                currentSpeed = SpeedNoStamina;
+            }
+            else
+            {
+                currentSpeed = speed;
+            }
+            return currentSpeed;
         }
 
         void PickItem()
@@ -183,9 +202,8 @@ namespace Game.Player
         void Move()
         {
             isMoving = rig.velocity.normalized.magnitude != 0 && Moving();
-            if (isMoving)
+            if (isMoving && currentSpeed == speed)
             {
-                //statusPlayerController.StaminaDecrease(1);
                 statusPlayerController.canRegenStamina = false;
             }
             if (!gotInZero)
@@ -194,7 +212,6 @@ namespace Game.Player
                 statusPlayerController.canRegenStamina = false;
             }
             if (isRunning && staminaBar.CurrentValue > staminaBar.MinValue && isMoving) {
-                //statusPlayerController.StaminaDecrease(2);
                 statusPlayerController.canRegenStamina = false;
             }
             if(!isMoving && !isRunning)
@@ -208,7 +225,7 @@ namespace Game.Player
                 {
                     gotInZero = true;
                     isRunning = false;
-                    
+                    statusPlayerController.canRegenStamina = true;
                 }
                 else if (staminaBar.CurrentValue > staminaBar.MaxValue/2)
                 {
@@ -310,6 +327,7 @@ namespace Game.Player
             }
             canTakeDamage = true;
         }
+
 
         public void Effect(Game.Itens.ItemEffect _effect)
         {

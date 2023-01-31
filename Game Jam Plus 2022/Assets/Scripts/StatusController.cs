@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using UnityEditor.Rendering;
-using System.Net;
 
 namespace Game.StatusController
 {
@@ -16,6 +14,7 @@ namespace Game.StatusController
         [SerializeField] Slider hungryBar;
         [SerializeField] Slider happinessBar;
         [SerializeField] System.Attribute temperature;
+
 
         [SerializeField] List<RawImage> conditionsUi;
         public List<Condition> conditions;
@@ -120,7 +119,7 @@ namespace Game.StatusController
         private void WaterDecrease(int _value)
         {
             currentWaterDecrease += Time.deltaTime;
-            if (currentWaterDecrease >= waterDecreaseRate * (isRegeneringStamina ? 1 : 0.3f))
+            if (currentWaterDecrease >= waterDecreaseRate * (isRegeneringStamina ? 1 : 0.5f))
             {
                 playerStatus.WaterBar.DecreaseValue(_value);//modificar depois para pegar diretamente do atributo do item
                 waterBar.value = playerStatus.WaterBar.CurrentValue;
@@ -131,7 +130,7 @@ namespace Game.StatusController
         private void HungryDecrease(int _value)
         {
             currentFoodDecrease += Time.deltaTime;
-            if (currentFoodDecrease >= foodDecreaseRate *(isRegeneringStamina? 1 : 0.3f))
+            if (currentFoodDecrease >= foodDecreaseRate *(isRegeneringStamina? 1 : 0.5f))
             {
                 playerStatus.HungryBar.DecreaseValue(_value);//modificar depois para pegar diretamente do atributo do item
                 hungryBar.value = playerStatus.HungryBar.CurrentValue;
@@ -191,6 +190,7 @@ namespace Game.StatusController
 
         private void HotControl()
         {
+
             if (temperature.CurrentValue >= 30)
             {
                 playerStatus.Hot();
