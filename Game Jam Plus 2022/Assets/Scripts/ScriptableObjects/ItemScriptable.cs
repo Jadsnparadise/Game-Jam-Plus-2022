@@ -8,9 +8,15 @@ namespace Game.Itens
     public class ItemScriptable : ScriptableObject
     {
         public string itemName;
+        /*
         public Sprite itemSprite;
         public Sprite itemSpriteInHand;
+        */
+        public List<Sprite> mapSprites;
+        public Sprite spriteInInventory;
+        public Sprite spriteInHand;
         public RuntimeAnimatorController animInHand;
+
         [SerializeField] bool hasAttackAnim;
         [TextArea(2, 3)] public string description;
         [SerializeField, Min(0)] float timeToAtack = 1;
@@ -58,5 +64,39 @@ namespace Game.Itens
             }
             currentUseTimer = 0;
         }
+
+        public Sprite CurrentSprite(SpriteType _sprite)
+        {
+            switch (_sprite)
+            {
+                case SpriteType.World:
+                    if (mapSprites != null)
+                    {
+                        int i = Random.Range(0, mapSprites.Count);
+                        return mapSprites[i];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    
+                case SpriteType.Inventory:
+                    return spriteInInventory;
+                case SpriteType.Hand:
+                    return spriteInHand;
+            }
+            return null;
+        }
+
+        public bool CompareSprite(Sprite _s)
+        {
+            return _s == spriteInHand || _s == spriteInInventory || mapSprites.Exists(x => x == _s);
+        }
+    }
+    public enum SpriteType
+    {
+        World,
+        Inventory,
+        Hand
     }
 }

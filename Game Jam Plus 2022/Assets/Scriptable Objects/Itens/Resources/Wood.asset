@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   itemName: Wood
-  itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
-  itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  mapSprites:
+  - {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  spriteInInventory: {fileID: 7482667652216324306, guid: 3edc9a0139783f74e8c54c5281b2f7cf, type: 3}
+  spriteInHand: {fileID: 7482667652216324306, guid: 3edc9a0139783f74e8c54c5281b2f7cf, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: wood

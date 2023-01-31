@@ -9,7 +9,7 @@ namespace Game.Itens
     {
 
         [SerializeField] Player.Inventory.Resources item;
-        [SerializeField] TMPro.TextMeshProUGUI text;
+        
         [SerializeField] Color overlayColor;
         SpriteRenderer spriteRenderer;
         [SerializeField] CollisionSystem.Collision col;
@@ -44,20 +44,28 @@ namespace Game.Itens
 
         private void OnMouseEnter()
         {
+            /*
             Debug.Log($"Passou em {item.item.itemName}");
             text.gameObject.SetActive(true);
             text.text = item.item.itemName;
             
+            
+            */
+            System.Ui.TextMeshProController.Instance.SetManager(true, gameObject, item.item.itemName);
             spriteRenderer.color = overlayColor;
             mouseOn = true;
         }
 
         private void OnMouseExit()
         {
-            text.gameObject.SetActive(false);
+            System.Ui.TextMeshProController.Instance.SetManager(false);
             spriteRenderer.color = Color.white;
             mouseOn = false;
+            /*
+            text.gameObject.SetActive(false);
+            
             //text.gameObject.SetActive(false);
+            */
         }
 
         private void OnMouseDown()
@@ -74,10 +82,7 @@ namespace Game.Itens
         {
             item = _newItem;
             spriteRenderer = GetComponent<SpriteRenderer>();
-            if (item.item.itemSprite != null)
-            {
-                spriteRenderer.sprite = item.item.itemSprite;
-            }
+            spriteRenderer.sprite = _newItem.item.CurrentSprite(SpriteType.World);
             if (!TryGetComponent(out BoxCollider2D _))
             {
                 BoxCollider2D c = gameObject.AddComponent<BoxCollider2D>();
@@ -89,10 +94,7 @@ namespace Game.Itens
         {
             item = _newItem;
             spriteRenderer = GetComponent<SpriteRenderer>();
-            if (item.item.itemSprite != null)
-            {
-                spriteRenderer.sprite = item.item.itemSprite;
-            }
+            spriteRenderer.sprite = _newItem.item.CurrentSprite(SpriteType.World);
             if (!TryGetComponent(out BoxCollider2D _))
             {
                 BoxCollider2D c = gameObject.AddComponent<BoxCollider2D>();

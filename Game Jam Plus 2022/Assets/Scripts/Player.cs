@@ -173,6 +173,7 @@ namespace Game.Player
                     }
                     if (aim.AddItem(_item.CurrentResource()))
                     {
+                        System.Ui.TextMeshProController.Instance.SetManager(false);
                         Destroy(o.gameObject);
                     }
                 }

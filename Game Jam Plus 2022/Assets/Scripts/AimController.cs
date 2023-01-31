@@ -33,7 +33,7 @@ namespace Game.Player.Inventory
             handSpriteRenderer = hand.GetComponent<SpriteRenderer>();
             itemSpriteRenderer = itenHand.GetComponent<SpriteRenderer>();
             currentItem ??= handItem;
-            handSpriteRenderer.sprite = currentItem.itemSprite;
+            handSpriteRenderer.sprite = currentItem.CurrentSprite(Itens.SpriteType.Hand);
             currentItem.ItemStart();
             inventory.InvStart();
             handAnim = GetComponentInChildren<Animator>();
@@ -60,7 +60,9 @@ namespace Game.Player.Inventory
             }
             else
             {
-                itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+                //itemSpriteRenderer.sprite = currentItem.itemSpriteInHand != null ? currentItem.itemSpriteInHand : currentItem.itemSprite;
+                Sprite s = currentItem.CurrentSprite(Itens.SpriteType.Hand) != null ? currentItem.CurrentSprite(Itens.SpriteType.Hand) : currentItem.CurrentSprite(Itens.SpriteType.Inventory);
+                itemSpriteRenderer.sprite = s;
                 handAnim.runtimeAnimatorController = handItem.animInHand;
             }
             if (handAnim.runtimeAnimatorController == handItem.animInHand)
@@ -71,7 +73,7 @@ namespace Game.Player.Inventory
             {
                 handSpriteRenderer.gameObject.transform.rotation = new();
             }
-            itemSpriteRenderer.enabled = itemSpriteRenderer.sprite == currentItem.itemSprite || itemSpriteRenderer.sprite == currentItem.itemSpriteInHand;
+            itemSpriteRenderer.enabled = currentItem.CompareSprite(itemSpriteRenderer.sprite);
             hand.transform.localPosition = currentItem.itemOffset;
             handSpriteRenderer.sortingOrder = lookingDir.y < 0 ? 1 : -1;
             currentItem.ItemUpdate();
@@ -343,7 +345,7 @@ namespace Game.Player.Inventory
                 if (resources[i].item != null)
                 {
                     slot.color = Color.white;
-                    Sprite spr = resources[i].item.itemSprite;
+                    Sprite spr = resources[i].item.CurrentSprite(Itens.SpriteType.Inventory);
                     slot.texture = spr != null ? spr.texture : slot.texture;
                 }
                 else
