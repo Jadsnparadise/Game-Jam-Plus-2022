@@ -35,7 +35,7 @@ namespace Game.Itens
                     ItemController i = o.GetComponent<ItemController>();
                     if (i.CurrentItem().stack && i.CurrentItem() == item.item && i.gameObject != gameObject)
                     {
-                        AddResource();
+                        AddResource(i.CurrentResource());
                         Destroy(i.gameObject);
                     }
                 }
@@ -104,9 +104,9 @@ namespace Game.Itens
             //Destroy(gameObject, lifeTime);
         }
 
-        public void AddResource()
+        public void AddResource(Player.Inventory.Resources _newResource)
         {
-            item.quantity++;
+            item.quantity += _newResource.quantity;
         }
 
         public Player.Inventory.Resources CurrentResource()

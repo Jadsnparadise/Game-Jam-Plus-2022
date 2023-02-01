@@ -240,8 +240,7 @@ MonoBehaviour:
   item:
     item: {fileID: 11400000, guid: 683a27d0d7117b248a4a37785e94957d, type: 2}
     quantity: 1
-  text: {fileID: 8372032172532139998}
-  overlayColor: {r: 1, g: 0.90000004, b: 0, a: 1}
+  overlayColor: {r: 1, g: 0.90196085, b: 0, a: 1}
   col:
     colliderTag: New Collider
     dimension: 0
