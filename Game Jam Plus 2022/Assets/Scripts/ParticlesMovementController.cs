@@ -22,14 +22,11 @@ public class ParticlesMovementController : MonoBehaviour
     {
         currentClock += Time.deltaTime;
 
-       
-        if(currentClock >= walkingDustFormationClock)
-        {
-            if (player.isMoving)
-            {
+        walkingDustFormationClock = player.isRunning ? 0.2f : 0.3f;
+        if(currentClock >= walkingDustFormationClock && (player.isMoving || player.isRunning) )
+        {            
                 movementParticle.Play();
-                currentClock = 0;
-            }
+                currentClock = 0;            
         }
     }
 }
