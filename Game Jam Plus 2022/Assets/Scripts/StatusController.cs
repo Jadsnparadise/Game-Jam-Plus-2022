@@ -21,6 +21,7 @@ namespace Game.StatusController
         [SerializeField] List<Condition> currentCondition;
 
         Player.Player playerStatus;
+        Game.Clock.ClockController clock;
 
 
         int damageByStatus = 2;
@@ -57,6 +58,7 @@ namespace Game.StatusController
         {
 
             playerStatus = GameObject.Find("Player").GetComponent<Game.Player.Player>();
+            clock = GameObject.Find("Clock").GetComponent<Game.Clock.ClockController>();
             foreach (RawImage r in conditionsUi)
             {
                 r.color = Color.clear;
@@ -99,6 +101,7 @@ namespace Game.StatusController
                 if(staminaBar.value == playerStatus.StaminaBar.MaxValue)
                 {
                     isRegeneringStamina = false;
+                    canRegenStamina = false;
                 }
                 playerStatus.StaminaBar.AddValue(playerStatus.IsCold ? staminaIncreaseCold : staminaIncreaseNormal);
                 //playerStatus.HungryBar.AddValue(1);
@@ -177,7 +180,7 @@ namespace Game.StatusController
 
         private void ColdControl()
         {
-            if (temperature.CurrentValue <= 20) //e não tiver usando casaco
+            if (clock.isNight) //e não tiver usando casaco
             {
                 playerStatus.Cold();
                 StaminaIncrease();

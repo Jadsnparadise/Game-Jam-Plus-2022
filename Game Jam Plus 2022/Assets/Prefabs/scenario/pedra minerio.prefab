@@ -102,9 +102,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.18}
   serializedVersion: 2
-  m_Radius: 1.3
+  m_Radius: 1.33
 --- !u!114 &8838766882031773484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,11 +175,11 @@ MonoBehaviour:
     layer:
       serializedVersion: 2
       m_Bits: 65216
-    offset: {x: 0, y: 0, z: 0}
+    offset: {x: 0, y: -0.15, z: 0}
     colliderMesh: 1
     size: {x: 1, y: 1}
     rotation: 0
-    radius: 1.66
+    radius: 1.29
     raycastDir: 0
     raycastDistance: 1
     flip: 0

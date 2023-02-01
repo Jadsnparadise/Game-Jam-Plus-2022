@@ -17,23 +17,45 @@ namespace Game.Clock
         //12h = 360 segundos
         //24h = 720 segundos
         [SerializeField] float seconds;
-        [SerializeField] TextMeshProUGUI minutesInClock;
+        [SerializeField] TextMeshProUGUI DayPeriod;
         [SerializeField] TextMeshProUGUI hoursInClock;
         [SerializeField] TextMeshProUGUI currentDay;
         int daysSurvived = 0;
-        float minInThisWorld = 0.5f;
+        float minInThisWorld = 0.1f;
         int minutes = 0;
+        [SerializeField] bool am = true;
+        [SerializeField] bool pm = false;
+        public bool isNight;
+
         public int Minutes { get { return minutes; } private set { Minutes = value; } }
 
         int minutesLimit = 59;
         int hours = 0;
-        int hoursLimit = 23;
+        int hoursLimit = 12;
 
         private void FixedUpdate()
         {
             seconds += Time.deltaTime;
             IncreaseMinute();
             IncreaseHour();
+            dayTime();
+        }
+
+        void setDayPeriod()
+        {
+            if(hours >= 12 && am)
+            {
+                am = false;
+                pm = true;
+                DayPeriod.text = "pm";
+            }
+            else if(hours >= 12 && pm)
+            {
+                pm = false;
+                am = true;
+                DayPeriod.text = "am";
+                IncreaseDaysSurvived();
+            }
         }
 
         private void IncreaseMinute()
@@ -41,7 +63,6 @@ namespace Game.Clock
             if (seconds >= minInThisWorld)
             {
                 minutes++;
-                minutesInClock.text = minutes.ToString("00");
                 seconds = 0;
             }
         }
@@ -56,8 +77,9 @@ namespace Game.Clock
             }
             else if(minutes >= minutesLimit && hours == hoursLimit)
             {
+                setDayPeriod();
                 hours = 0;
-                IncreaseDaysSurvived();
+                
             }
         }
 
@@ -65,6 +87,14 @@ namespace Game.Clock
         {
             daysSurvived++;
             currentDay.text = daysSurvived.ToString("00");
+        }
+
+        void dayTime()
+        {
+            if (hours > 6 && pm || hours < 5 && am)
+            {
+                isNight = true;
+            }
         }
     
     }
