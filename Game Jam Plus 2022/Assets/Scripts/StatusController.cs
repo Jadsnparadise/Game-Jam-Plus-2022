@@ -21,7 +21,7 @@ namespace Game.StatusController
         [SerializeField] List<Condition> currentCondition;
 
         Player.Player playerStatus;
-        Game.Clock.ClockController clock;
+        Clock.ClockController clock;
 
 
         int damageByStatus = 2;
@@ -30,12 +30,12 @@ namespace Game.StatusController
 
         float modifyStaminaRate = 0.2f;
         float clockStamina;
-        int staminaDecreseRunning = 5;
+        int staminaDecreseRunning = 3;
         int staminaDecreaseWalking = 1;
         int staminaIncreaseNormal = 2;
         int staminaIncreaseCold = 1;
 
-        [SerializeField] bool isRegeneringStamina = false;
+        bool isRegeneringStamina = false;
 
 
         float waterDecreaseRate = 14f;
@@ -78,7 +78,7 @@ namespace Game.StatusController
             HapinessDecrease();
             LifeControl();
             HotControl();
-            ColdControl();
+            //ColdControl();
 
 
             if (waterBar.value == 0 || hungryBar.value == 0 || happinessBar.value == 0)
@@ -104,8 +104,6 @@ namespace Game.StatusController
                     canRegenStamina = false;
                 }
                 playerStatus.StaminaBar.AddValue(playerStatus.IsCold ? staminaIncreaseCold : staminaIncreaseNormal);
-                //playerStatus.HungryBar.AddValue(1);
-                //playerStatus.WaterBar.AddValue(1);
                 clockStamina = 0;
             }
         }

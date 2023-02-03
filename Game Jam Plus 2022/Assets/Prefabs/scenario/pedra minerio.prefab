@@ -145,7 +145,7 @@ MonoBehaviour:
     chanceToDrop: 25
     dropType: 1
     minMaxItensDrop: {x: 1, y: 3}
-  dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
+  dropGameObject: {fileID: 7068059768583501794, guid: 188f760c7d32ed647b6e4928b9873f21, type: 3}
   anim: 1
   lifeAnim:
   - spriteInterval: {x: 7, y: 10}

@@ -21,7 +21,7 @@ namespace Game.Clock
         [SerializeField] TextMeshProUGUI hoursInClock;
         [SerializeField] TextMeshProUGUI currentDay;
         int daysSurvived = 0;
-        float minInThisWorld = 0.1f;
+        float minInThisWorld = 0.5f;
         int minutes = 0;
         [SerializeField] bool am = true;
         [SerializeField] bool pm = false;

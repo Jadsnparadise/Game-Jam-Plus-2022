@@ -7,8 +7,6 @@ using UnityEngine;
 namespace Game.Player
 {
     using CollisionSystem;
-    using Unity.PlasticSCM.Editor.WebApi;
-    using Unity.VisualScripting;
 
     [RequireComponent(typeof(Rigidbody2D))]
     public class Player : MonoBehaviour
@@ -158,7 +156,7 @@ namespace Game.Player
         void FixedUpdate()
         {
             currentSpeed = CurrentMove();
-            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1) * (isCold ? 0.5f : 1f), ForceMode2D.Impulse);
+            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1) * (isCold ? 0.7f : 1f), ForceMode2D.Impulse);
         }
 
         float CurrentMove()
@@ -204,7 +202,7 @@ namespace Game.Player
             isMoving = rig.velocity.normalized.magnitude != 0 && Moving();
             if (isMoving && currentSpeed == speed)
             {
-                statusPlayerController.canRegenStamina = false;
+                statusPlayerController.canRegenStamina = true;
             }
             if (!gotInZero)
             {

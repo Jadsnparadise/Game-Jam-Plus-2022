@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922530135993468800}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 3.92, y: -2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!212 &4922530135993468863
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -156,12 +156,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  life:
-    attributeName: Life
-    currentValue: 10
-    startValue: 10
-    maxValue: 10
-    minValue: 0
   CDWalkPoint: 20
   currentCDWalkPoint: 0
   walkPoint: {x: 0, y: 0, z: 0}
@@ -192,6 +186,7 @@ MonoBehaviour:
     startValue: 10
     maxValue: 10
     minValue: 0
-  dropType: 0
   drop: []
   dropGameObject: {fileID: 0}
+  anim: 0
+  lifeAnim: []

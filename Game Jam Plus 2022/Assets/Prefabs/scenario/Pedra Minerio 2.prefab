@@ -102,9 +102,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.52}
+  m_Offset: {x: 0, y: -0.24}
   serializedVersion: 2
-  m_Radius: 3.21
+  m_Radius: 1.24
 --- !u!114 &8707486486476814063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
     chanceToDrop: 25
     dropType: 1
     minMaxItensDrop: {x: 1, y: 3}
-  dropGameObject: {fileID: 7068059768583501794, guid: 43f231200ded24648a53d4e6d14be768, type: 3}
+  dropGameObject: {fileID: 7068059768583501794, guid: 188f760c7d32ed647b6e4928b9873f21, type: 3}
   anim: 1
   lifeAnim:
   - spriteInterval: {x: 7, y: 10}
@@ -175,11 +175,11 @@ MonoBehaviour:
     layer:
       serializedVersion: 2
       m_Bits: 65216
-    offset: {x: 0, y: -0.53, z: 0}
+    offset: {x: 0, y: -0.21, z: 0}
     colliderMesh: 1
     size: {x: 1, y: 0.76}
     rotation: 0
-    radius: 2.96
+    radius: 1.2
     raycastDir: 0
     raycastDistance: 1
     flip: 0

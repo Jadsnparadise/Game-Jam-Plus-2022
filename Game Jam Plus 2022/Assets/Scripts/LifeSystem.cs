@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
+
 namespace Game.StatusController
 {
     public class LifeSystem : MonoBehaviour
@@ -60,6 +62,8 @@ namespace Game.StatusController
         {
             Itens.ItemController i = Instantiate(dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
             i.SetItem(_itemDrop, 15);
+            i.SlpashDrop();
+            
         }
     }
 

@@ -5,11 +5,13 @@ using UnityEngine;
 namespace Game.Itens
 {
     using UnityEngine.UI;
+    using UnityEngine.UIElements;
+
     public class ItemController : MonoBehaviour
     {
 
         [SerializeField] Player.Inventory.Resources item;
-        
+
         [SerializeField] Color overlayColor;
         SpriteRenderer spriteRenderer;
         [SerializeField] CollisionSystem.Collision col;
@@ -17,6 +19,8 @@ namespace Game.Itens
         [SerializeField] bool stack = true;
         public bool canPick { get; private set; }
         public bool mouseOn { get; private set; }
+
+
         void Start()
         {
             SetItem(item);
@@ -119,7 +123,62 @@ namespace Game.Itens
             return item.item;
         }
 
-        public void OnDrawGizmos()
+        public void SlpashDrop()
+        {
+            //StartCoroutine(fallDown());
+        }
+
+        /*IEnumerator fallDown()
+        {
+            float Delay = 1;
+            float delay = Delay;
+            float finalXPosition = Random.Range(-3f, 3);
+            float zRange = Random.Range(1f, 3f);
+            Vector3 initialPosition = transform.position;
+            int Bounce = 4;
+            int bounce = 1;
+            float normalizedDelay;
+
+            while (Bounce != bounce)
+            {
+
+                normalizedDelay = delay / (Delay / bounce);
+
+                if (normalizedDelay <= 0)
+                {
+
+                    if (zRange > initialPosition.z)
+                    {
+
+                        zRange = Random.Range(-3f, -1f);
+
+                    }
+                    else
+                    {
+
+                        zRange = Random.Range(1f, 3f);
+
+                    }
+
+                    initialPosition = transform.position;
+                    bounce++;
+                    delay = (Delay / bounce);
+
+                }
+
+                normalizedDelay = delay / (Delay / bounce);
+
+                transform.position = new Vector3(Mathf.Lerp(initialPosition.x, initialPosition.x + finalXPosition, 1 - ((delay + bounce)/Delay)), transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Lerp(initialPosition.z, initialPosition.z + zRange, 1 - normalizedDelay));
+
+
+                yield return new WaitForSeconds(0.02f);
+                delay -= 0.02f;
+                
+            }
+        }*/
+
+            public void OnDrawGizmos()
         {
             col.DrawCollider(transform);
         }
