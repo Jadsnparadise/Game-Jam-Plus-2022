@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.System.Map
+namespace Game.Map
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class MapRendering : MonoBehaviour

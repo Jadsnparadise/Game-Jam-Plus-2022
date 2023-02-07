@@ -9,10 +9,13 @@ using static UnityEngine.UI.Image;
 namespace Game.Enemy.AI
 {
     using CollisionSystem;
+    using Unity.Burst.Intrinsics;
+
     public class EnemyAI : MonoBehaviour
     {
 
         [SerializeField] NavMeshAgent enemy;
+        SpriteRenderer sprite;
 
         [SerializeField] Transform player;
 
@@ -20,6 +23,13 @@ namespace Game.Enemy.AI
 
         [SerializeField] float CDWalkPoint;
         [SerializeField] float currentCDWalkPoint;
+
+        [SerializeField] float lookingDirX = 0;
+        [SerializeField] float lookingDirY = 0;
+        Animator anim;
+
+        bool isChasing;
+        bool isWalking;
 
         //vigiando
         [SerializeField] Vector3 walkPoint; //o ponto o qual o inimigo ira se mover
@@ -45,13 +55,16 @@ namespace Game.Enemy.AI
         private void Awake()
         {
             player = GameObject.Find("Player").transform;
-            enemy = GetComponent<NavMeshAgent>();
+            enemy ??= GetComponent<NavMeshAgent>();
+            anim ??= GetComponent<Animator>();
+            sprite ??= GetComponent<SpriteRenderer>();
             enemy.updateRotation = false;
             enemy.updateUpAxis = false;
         }
 
         private void Update()
         {
+            sprite.flipX = player.transform.position.x > transform.position.x;
             /*if (hitbox.InCollision(transform, out Collider2D[] objects))
             {
                 foreach (Collider2D c in objects)
@@ -71,14 +84,37 @@ namespace Game.Enemy.AI
             if (playerInSightRange && !playerInAttackRange) Chase();
             if (playerInSightRange && playerInAttackRange) Attack();
 
+            LookingDir();
+            isIdle();
+            AnimationController();
+        }
+
+        void AnimationController()
+        {
+            anim.SetFloat("LookingDirX", lookingDirX);
+            anim.SetFloat("LookingDirY", lookingDirY);
+            anim.SetBool("Attacking", attacked);
+            anim.SetBool("isWalking", !isIdle());
+            anim.SetBool("Idle", isIdle());
+        }
+
+        void LookingDir()
+        {
+            walkPoint = isChasing ? player.transform.position : walkPoint;
+
+            lookingDirX = walkPoint.x - transform.position.x;
+            lookingDirY = walkPoint.y - transform.position.y;
         }
 
         private void Patrol()
         {
+            isChasing = false;
+            //isWalking = true;
             if (walkPointSet)
             {
                 if (enemy.velocity == Vector3.zero)
                 {
+                    //isWalking = false;
                     walkPointSet = false;
                 }
                 enemy.SetDestination(walkPoint);
@@ -113,20 +149,25 @@ namespace Game.Enemy.AI
             }
         }
 
+        bool isIdle()
+        {
+            return enemy.velocity == Vector3.zero;
+        }
+
         private void Chase()
         {
+            isChasing = true;
+            //isWalking = true;
             enemy.SetDestination(player.position);
         }
 
         private void Attack()
         {
             enemy.SetDestination(player.position);
-
             if (!attacked)
             {
-                Debug.Log("Atacou");
-
-
+                isChasing = false;
+                //isWalking = false;
                 attacked = true;
                 Invoke(nameof(AttackCoolDown), coolDownAttack);
             }

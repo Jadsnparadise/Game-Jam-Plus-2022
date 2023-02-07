@@ -3516,7 +3516,7 @@ MonoBehaviour:
       m_Bits: 128
     offset: {x: 0, y: 0, z: 0}
     colliderMesh: 0
-    size: {x: 1, y: 2.01}
+    size: {x: 3, y: 2.01}
     rotation: 0
     radius: 1
     raycastDir: 0
@@ -4860,25 +4860,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Melee 1 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7573477794124616848, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7573477794124616876, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7573477794124616876, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 401.4793
+      value: 405.03
       objectReference: {fileID: 0}
     - target: {fileID: 7573477794124616876, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 187.78735
+      value: 188.29
       objectReference: {fileID: 0}
     - target: {fileID: 7573477794124616876, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.86656
+      value: -39.13
       objectReference: {fileID: 0}
     - target: {fileID: 7573477794124616876, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4908,6 +4904,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573477794124616877, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573477794124616878, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 975762229}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
 --- !u!1 &1371584809

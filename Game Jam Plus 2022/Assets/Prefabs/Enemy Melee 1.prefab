@@ -10,10 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7573477794124616876}
   - component: {fileID: 7573477794124616879}
-  - component: {fileID: 7573477794124616877}
   - component: {fileID: 7573477794124616849}
   - component: {fileID: 7573477794124616878}
   - component: {fileID: 1478781560248005575}
+  - component: {fileID: 6851915130007755171}
+  - component: {fileID: 1868259513842126917}
+  - component: {fileID: 20793854324768370}
   m_Layer: 7
   m_Name: Enemy Melee 1
   m_TagString: Enemy
@@ -76,9 +78,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1943516983, guid: 14f56a505d4b5e340b6c017659c06fa9, type: 3}
-  m_Color: {r: 0, g: 0.09038353, b: 1, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: -1834920161, guid: 71327ac2136794a489c4f3e2e2e49ee8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,32 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7573477794124616877
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573477794124616848}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1007166, y: 2.1599998}
-    newSize: {x: 1.1007166, y: 2.1599998}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
 --- !u!195 &7573477794124616849
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -158,14 +134,16 @@ MonoBehaviour:
     m_Bits: 64
   CDWalkPoint: 20
   currentCDWalkPoint: 0
+  lookingDirX: 0
+  lookingDirY: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   walkPointRange: 50
   minRange: 10
-  coolDownAttack: 0.5
+  coolDownAttack: 0.6
   enemyDamage: 1
-  sightRange: 3.5
-  attackRange: 1.5
+  sightRange: 5
+  attackRange: 2.2
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &1478781560248005575
@@ -190,3 +168,55 @@ MonoBehaviour:
   dropGameObject: {fileID: 0}
   anim: 0
   lifeAnim: []
+--- !u!95 &6851915130007755171
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573477794124616848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 247ed138157214e47a88c06c977a6169, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &1868259513842126917
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573477794124616848}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0000029802322}
+  serializedVersion: 2
+  m_Radius: 2.16
+--- !u!58 &20793854324768370
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573477794124616848}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.3}
+  serializedVersion: 2
+  m_Radius: 1.22

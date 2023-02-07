@@ -78,7 +78,7 @@ namespace Game.StatusController
             HapinessDecrease();
             LifeControl();
             HotControl();
-            //ColdControl();
+            ColdControl();
 
 
             if (waterBar.value == 0 || hungryBar.value == 0 || happinessBar.value == 0)
