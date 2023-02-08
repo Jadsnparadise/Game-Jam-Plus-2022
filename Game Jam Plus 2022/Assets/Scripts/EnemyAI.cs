@@ -157,6 +157,7 @@ namespace Game.Enemy.AI
 
         bool isIdle()
         {
+            Debug.Log("velovidade: " + enemy.velocity);
             return enemy.velocity == Vector3.zero;
         }
 
