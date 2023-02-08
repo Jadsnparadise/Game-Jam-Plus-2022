@@ -28,9 +28,6 @@ namespace Game.Enemy.AI
         [SerializeField] float lookingDirY = 0;
         Animator anim;
 
-        bool isChasing;
-        bool isWalking;
-
         //vigiando
         [SerializeField] Vector3 walkPoint; //o ponto o qual o inimigo ira se mover
         [SerializeField] bool walkPointSet; //controla se o walkPoint está setado
@@ -50,7 +47,10 @@ namespace Game.Enemy.AI
         [SerializeField] float attackRange;
         [SerializeField] bool playerInSightRange;
         [SerializeField] bool playerInAttackRange;
-        //bool arriveInSetPoint;
+        bool isChasing;
+        bool isWalking;
+        [SerializeField] Vector3 enemyOffSet;
+
 
         private void Awake()
         {
@@ -104,6 +104,10 @@ namespace Game.Enemy.AI
 
             lookingDirX = walkPoint.x - transform.position.x;
             lookingDirY = walkPoint.y - transform.position.y;
+            Debug.Log("LookX: " + lookingDirX);
+            Debug.Log("LookY: " + lookingDirY);
+            //lookingDirX = walkPoint.x + enemyOffSet.x;
+            //lookingDirY = walkPoint.y + enemyOffSet.y;
         }
 
         private void Patrol()
@@ -148,6 +152,8 @@ namespace Game.Enemy.AI
                 currentCDWalkPoint = 0;
             }
         }
+
+       
 
         bool isIdle()
         {

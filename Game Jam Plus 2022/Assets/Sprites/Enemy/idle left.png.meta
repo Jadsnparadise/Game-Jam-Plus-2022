@@ -108,10 +108,10 @@ TextureImporter:
       name: idle left_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 103
-        width: 594
-        height: 464
+        x: 0
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: idle left_1
       rect:
         serializedVersion: 2
-        x: 770
-        y: 103
-        width: 594
-        height: 464
+        x: 720
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: idle left_2
       rect:
         serializedVersion: 2
-        x: 1489
-        y: 103
-        width: 593
-        height: 469
+        x: 1440
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: idle left_3
       rect:
         serializedVersion: 2
-        x: 2210
-        y: 99
-        width: 594
-        height: 473
+        x: 2160
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: idle left_4
       rect:
         serializedVersion: 2
-        x: 2932
-        y: 98
-        width: 594
-        height: 465
+        x: 2880
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: idle left_5
       rect:
         serializedVersion: 2
-        x: 3654
-        y: 94
-        width: 594
-        height: 465
+        x: 3600
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: idle left_6
       rect:
         serializedVersion: 2
-        x: 4372
-        y: 102
-        width: 594
-        height: 465
+        x: 4320
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: idle left_7
       rect:
         serializedVersion: 2
-        x: 5094
-        y: 98
-        width: 594
-        height: 465
+        x: 5040
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: idle left_8
       rect:
         serializedVersion: 2
-        x: 5811
-        y: 98
-        width: 594
-        height: 463
+        x: 5760
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: idle left_9
       rect:
         serializedVersion: 2
-        x: 6533
-        y: 98
-        width: 594
-        height: 465
+        x: 6480
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: idle left_10
       rect:
         serializedVersion: 2
-        x: 7251
-        y: 99
-        width: 594
-        height: 464
+        x: 7200
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +339,10 @@ TextureImporter:
       name: idle left_11
       rect:
         serializedVersion: 2
-        x: 7969
-        y: 103
-        width: 594
-        height: 464
+        x: 7920
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: idle left_12
       rect:
         serializedVersion: 2
-        x: 8690
-        y: 103
-        width: 594
-        height: 464
+        x: 8640
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

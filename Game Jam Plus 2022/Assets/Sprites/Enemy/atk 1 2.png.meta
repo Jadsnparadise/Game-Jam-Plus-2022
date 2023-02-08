@@ -108,12 +108,12 @@ TextureImporter:
       name: atk 1 2_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 0
         y: 0
-        width: 667
-        height: 713
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: atk 1 2_1
       rect:
         serializedVersion: 2
-        x: 752
+        x: 720
         y: 0
-        width: 658
-        height: 718
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: atk 1 2_2
       rect:
         serializedVersion: 2
-        x: 1492
+        x: 1440
         y: 0
-        width: 635
+        width: 720
         height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: atk 1 2_3
       rect:
         serializedVersion: 2
-        x: 2242
+        x: 2160
         y: 0
-        width: 598
+        width: 720
         height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: atk 1 2_4
       rect:
         serializedVersion: 2
-        x: 2946
+        x: 2880
         y: 0
-        width: 612
+        width: 720
         height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: atk 1 2_5
       rect:
         serializedVersion: 2
-        x: 3645
+        x: 3600
         y: 0
-        width: 635
+        width: 720
         height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: atk 1 2_6
       rect:
         serializedVersion: 2
-        x: 4372
+        x: 4320
         y: 0
-        width: 626
+        width: 720
         height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,12 +255,12 @@ TextureImporter:
       name: atk 1 2_7
       rect:
         serializedVersion: 2
-        x: 5089
+        x: 5040
         y: 0
-        width: 626
+        width: 720
         height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: atk 1 2_8
       rect:
         serializedVersion: 2
-        x: 5893
+        x: 5760
         y: 0
-        width: 517
-        height: 686
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: atk 1 2_9
       rect:
         serializedVersion: 2
-        x: 6638
+        x: 6480
         y: 0
-        width: 489
-        height: 681
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -318,12 +318,12 @@ TextureImporter:
       name: atk 1 2_10
       rect:
         serializedVersion: 2
-        x: 7315
+        x: 7200
         y: 0
-        width: 548
-        height: 690
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: atk 1 2_11
       rect:
         serializedVersion: 2
-        x: 7987
+        x: 7920
         y: 0
-        width: 612
-        height: 704
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -360,12 +360,12 @@ TextureImporter:
       name: atk 1 2_12
       rect:
         serializedVersion: 2
-        x: 8686
+        x: 8640
         y: 0
-        width: 640
-        height: 709
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 720
+        height: 720
+      alignment: 9
+      pivot: {x: 0.5, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

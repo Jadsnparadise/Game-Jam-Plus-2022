@@ -4860,6 +4860,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Melee 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7573477794124616849, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573477794124616849, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
+      propertyPath: m_Acceleration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7573477794124616876, guid: 722c20d595e8b8f4e8d5e45e0d33bc0e, type: 3}
       propertyPath: m_RootOrder
       value: 2
