@@ -16,7 +16,7 @@ namespace Game.StatusController
         [SerializeField] System.Attribute temperature;
 
 
-        [SerializeField] List<RawImage> conditionsUi;
+        [SerializeField] List<Image> conditionsUi;
         public List<Condition> conditions;
         [SerializeField] List<Condition> currentCondition;
 
@@ -59,7 +59,7 @@ namespace Game.StatusController
 
             playerStatus = GameObject.Find("Player").GetComponent<Game.Player.Player>();
             clock = GameObject.Find("Clock").GetComponent<Game.Clock.ClockController>();
-            foreach (RawImage r in conditionsUi)
+            foreach (Image r in conditionsUi)
             {
                 r.color = Color.clear;
             }
@@ -244,8 +244,8 @@ namespace Game.StatusController
         {
             for (int i = 0; i < conditionsUi.Count; i++)
             {
-                conditionsUi[i].texture = currentCondition.Count > i ? currentCondition[i].sprite.texture : null;
-                if (conditionsUi[i].texture != null)
+                conditionsUi[i].sprite = currentCondition.Count > i ? currentCondition[i].sprite : null;
+                if (conditionsUi[i].sprite != null)
                 {
                     conditionsUi[i].color = Color.white;
                 }
