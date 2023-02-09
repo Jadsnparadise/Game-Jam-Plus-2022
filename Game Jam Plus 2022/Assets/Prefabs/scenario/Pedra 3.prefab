@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     item: {fileID: 11400000, guid: e8afe1f3bbc5f5d408c328a8421fc908, type: 2}
-    quantity: 1
+    quantity: 3
   overlayColor: {r: 1, g: 0.90196085, b: 0, a: 1}
   col:
     colliderTag: New Collider
