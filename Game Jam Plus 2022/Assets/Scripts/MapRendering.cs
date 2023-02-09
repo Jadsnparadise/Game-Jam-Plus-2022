@@ -19,7 +19,7 @@ namespace Game.Map
         // Update is called once per frame
         void Update()
         {
-            spriteRenderer.sortingOrder = playerTransform.position.y + offset <= transform.position.y ? -1 : 1;
+            // spriteRenderer.sortingOrder = playerTransform.position.y + offset <= transform.position.y ? -1 : 1;
         }
     }
 }
