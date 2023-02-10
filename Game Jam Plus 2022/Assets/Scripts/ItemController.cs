@@ -20,10 +20,44 @@ namespace Game.Itens
         public bool canPick { get; private set; }
         public bool mouseOn { get; private set; }
 
+        [Header("Animation Idle")]
+        public float m_idleSpeed = 0.2f;
+        public LeanTweenType m_idleEase;
+
+        [Header("Animation Drop")]
+        public float m_dropSpeed = 0.2f;
+        public LeanTweenType m_dropEase;
 
         void Start()
         {
+        
             SetItem(item);
+        }
+
+        private void OnEnable() {
+
+
+            Vector2 mouseInput = Input.mousePosition;
+            float mouseX = mouseInput.x / Screen.width;
+            float mouseY = mouseInput.y / Screen.height;
+
+            int inverterX;
+            if (mouseX > 0.5f) inverterX = 1;
+            else inverterX = -1;
+
+            int inverterY;
+            if (mouseY > 0.5f) inverterY = 1;
+            else inverterY = -1;
+
+            LeanTween.moveLocal(gameObject, new Vector2(transform.position.x + Random.Range(1, 1.2f) * inverterX, transform.position.y + Random.Range(0.3f, 0.5f) * inverterY), m_idleSpeed).setEase(m_idleEase).setOnComplete((() => {
+                LeanTween.moveLocal(gameObject, new Vector2(transform.position.x, transform.position.y + 0.2f), m_idleSpeed).setEase(m_idleEase).setLoopPingPong();
+            }));
+
+
+        }
+
+        private void OnDisable() {
+            gameObject.LeanCancel();
         }
 
         void Update()
@@ -52,10 +86,9 @@ namespace Game.Itens
             Debug.Log($"Passou em {item.item.itemName}");
             text.gameObject.SetActive(true);
             text.text = item.item.itemName;
-            
-            
             */
-            System.Ui.TextMeshProController.Instance.SetManager(true, gameObject, item.item.itemName);
+
+            System.Ui.TextMeshProController.Instance.SetManager(true, gameObject, item.item.itemName, new Vector3(0,0.7f,0));
             spriteRenderer.color = overlayColor;
             mouseOn = true;
         }

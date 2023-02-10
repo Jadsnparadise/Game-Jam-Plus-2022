@@ -121,3 +121,7 @@ MonoBehaviour:
       colorInCollision: {r: 0, g: 1, b: 0, a: 1}
   lifeTime: 0
   stack: 1
+  m_idleSpeed: 0.2
+  m_idleEase: 0
+  m_dropSpeed: 0.2
+  m_dropEase: 2
