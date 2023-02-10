@@ -132,7 +132,6 @@ namespace Game.Player
             statusPlayerController.UiRemoveCondition(statusPlayerController.conditions.Find(x => x.effect == StatusController.Effect.Cold));
         }
 
-
         void Update()
         {
             Move();
@@ -149,6 +148,7 @@ namespace Game.Player
                     Damage(a.EnemyDamage);
                 }
             }//<----------------------------
+
             PickItem();
             Inputs();
         }
@@ -234,12 +234,12 @@ namespace Game.Player
 
         bool LookingForwardX()
         {
-            return (moveDir.x > 0 && aim.lookingDir.normalized.x > 0) || (moveDir.x < 0 && aim.lookingDir.normalized.x < 0);
+            return (moveDir.x > 0 && aim.lookingDir.x > 0) || (moveDir.x < 0 && aim.lookingDir.x < 0);
         }
 
         bool LookingForwardY()
         {
-            return (moveDir.y > 0 && aim.lookingDir.normalized.y > 0) || (moveDir.y < 0 && aim.lookingDir.normalized.y < 0);
+            return (moveDir.y > 0 && aim.lookingDir.y > 0) || (moveDir.y < 0 && aim.lookingDir.y < 0);
         }
 
         void Inputs()
@@ -310,7 +310,7 @@ namespace Game.Player
 
         public void Knockback(float _knockbackForce, Vector2 _dir)
         {
-            rig.AddForce(_dir.normalized * _knockbackForce, ForceMode2D.Impulse);
+            rig.AddForce(_dir * _knockbackForce, ForceMode2D.Impulse);
         }
 
         IEnumerator DmageTaken()

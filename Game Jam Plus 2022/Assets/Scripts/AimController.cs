@@ -52,6 +52,8 @@ namespace Game.Player.Inventory
 
         void HandUpdate()
         {
+
+            
             currentItem = inventory.CurrentItem();
             currentItem ??= handItem;
             if (currentItem.animInHand != null)
@@ -120,9 +122,8 @@ namespace Game.Player.Inventory
          
             Vector3 mousePos = Input.mousePosition;
             Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-            lookingDir = new(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
-            float angle = Mathf.Atan2(lookingDir.y, lookingDir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            lookingDir = (mousePos - screenPoint).normalized;
+            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(lookingDir.y,lookingDir.x) * Mathf.Rad2Deg);
             handSpriteRenderer.flipY = handAnim.runtimeAnimatorController != handItem.animInHand ? mousePos.x < screenPoint.x : false;
 
         }
@@ -130,7 +131,7 @@ namespace Game.Player.Inventory
         public void Knockback(float _knockback, float _recoil)
         {
             playerScript.Knockback(_knockback, -lookingDir);
-            StartCoroutine(KnockbackAnim(lookingDir.normalized, _recoil));
+            StartCoroutine(KnockbackAnim(lookingDir, _recoil));
         }
 
         IEnumerator KnockbackAnim(Vector3 _lookingDir, float _recoil)
