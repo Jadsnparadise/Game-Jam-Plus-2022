@@ -63,3 +63,6 @@ TagManager:
   - name: Tree
     uniqueID: 4099937297
     locked: 0
+  - name: Brush Fruit
+    uniqueID: 1249070631
+    locked: 0
