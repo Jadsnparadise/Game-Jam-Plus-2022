@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1275691707
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1943516983, guid: 14f56a505d4b5e340b6c017659c06fa9, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -158,6 +158,8 @@ MonoBehaviour:
     m_Bits: 64
   CDWalkPoint: 20
   currentCDWalkPoint: 0
+  lookingDirX: 0
+  lookingDirY: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   walkPointRange: 50
@@ -168,6 +170,7 @@ MonoBehaviour:
   attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
+  enemyOffSet: {x: 0, y: 0, z: 0}
 --- !u!114 &1665221962684440140
 MonoBehaviour:
   m_ObjectHideFlags: 0
