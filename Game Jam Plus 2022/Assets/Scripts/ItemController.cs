@@ -49,7 +49,7 @@ namespace Game.Itens
             if (mouseY > 0.5f) inverterY = 1;
             else inverterY = -1;
 
-            LeanTween.moveLocal(gameObject, new Vector2(transform.position.x + Random.Range(1, 1.2f) * inverterX, transform.position.y + Random.Range(0.3f, 0.5f) * inverterY), m_idleSpeed).setEase(m_idleEase).setOnComplete((() => {
+            LeanTween.moveLocal(gameObject, new Vector2(transform.position.x + Random.Range(0.2f, 0.4f) * inverterX, transform.position.y + Random.Range(0.1f, 0.2f) * inverterY), m_idleSpeed).setEase(m_idleEase).setOnComplete((() => {
                 LeanTween.moveLocal(gameObject, new Vector2(transform.position.x, transform.position.y + 0.2f), m_idleSpeed).setEase(m_idleEase).setLoopPingPong();
             }));
 
