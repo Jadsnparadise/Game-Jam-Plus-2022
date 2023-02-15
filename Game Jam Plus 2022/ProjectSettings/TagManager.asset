@@ -66,3 +66,6 @@ TagManager:
   - name: Brush Fruit
     uniqueID: 1249070631
     locked: 0
+  - name: Stone
+    uniqueID: 758774057
+    locked: 0
