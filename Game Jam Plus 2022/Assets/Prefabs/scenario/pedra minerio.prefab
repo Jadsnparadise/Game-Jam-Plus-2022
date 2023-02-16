@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2666647773938231545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalPosition: {x: 0, y: -0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8246943802468380330}
   m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -581.96, y: 13.389967, z: -0.1}
+  m_LocalPosition: {x: -581.96, y: 13.389967, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -162,12 +162,12 @@ SpriteRenderer:
   m_SortingLayerID: 758774057
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 93c05cfdf34d0714682a445d19e7833f, type: 3}
+  m_Sprite: {fileID: -2072059159, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.25, y: 5.25}
+  m_Size: {x: 7.4072337, y: 7.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -186,18 +186,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: -0.84}
+  m_Offset: {x: -0.14, y: 0.63}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7, y: 3.7}
-    newSize: {x: 5.25, y: 5.25}
+    pivot: {x: 0.5, y: 0.12}
+    oldSize: {x: 4.938156, y: 4.8}
+    newSize: {x: 7.4072337, y: 7.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.96, y: 0.81}
+  m_Size: {x: 2.35, y: 0.82}
   m_EdgeRadius: 0
 --- !u!114 &8838766882031773484
 MonoBehaviour:
@@ -226,9 +226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life:
     attributeName: 
-    currentValue: 8
-    startValue: 10
-    maxValue: 10
+    currentValue: 12
+    startValue: 12
+    maxValue: 12
     minValue: 0
   drop:
   - itemDrop: {fileID: 11400000, guid: 683a27d0d7117b248a4a37785e94957d, type: 2}
@@ -242,16 +242,18 @@ MonoBehaviour:
   dropGameObject: {fileID: 326227587479845332, guid: f7affc5a77bda4849b32295917052dac, type: 3}
   anim: 1
   lifeAnim:
-  - spriteInterval: {x: 7, y: 10}
-    sprite: {fileID: 21300000, guid: 93c05cfdf34d0714682a445d19e7833f, type: 3}
-  - spriteInterval: {x: 5, y: 7}
-    sprite: {fileID: 21300000, guid: 67dc4c413c93859449027773d52a733a, type: 3}
-  - spriteInterval: {x: 3, y: 5}
-    sprite: {fileID: 21300000, guid: 02273b2c79633374ea0a5419411a64fc, type: 3}
-  - spriteInterval: {x: 0, y: 3}
-    sprite: {fileID: 21300000, guid: 425ce631837173a4a84aa5a5ce8b53f6, type: 3}
-  - spriteInterval: {x: 0, y: 3}
-    sprite: {fileID: 21300000, guid: c3d8cd0a1d532f54084ca55481b696b9, type: 3}
+  - spriteInterval: {x: 10, y: 12}
+    sprite: {fileID: -2072059159, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
+  - spriteInterval: {x: 8, y: 10}
+    sprite: {fileID: -2013648012, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
+  - spriteInterval: {x: 6, y: 8}
+    sprite: {fileID: 754487573, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
+  - spriteInterval: {x: 4, y: 6}
+    sprite: {fileID: 1486938218, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
+  - spriteInterval: {x: 2, y: 4}
+    sprite: {fileID: -311635224, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
+  - spriteInterval: {x: 0, y: 2}
+    sprite: {fileID: -448865016, guid: 1c63f35012327c44a8b7de0cbaff7ed7, type: 3}
 --- !u!114 &649879612869484707
 MonoBehaviour:
   m_ObjectHideFlags: 0

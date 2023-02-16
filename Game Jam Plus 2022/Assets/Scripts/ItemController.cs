@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace Game.Itens
 {
-    using UnityEngine.UI;
-    using UnityEngine.UIElements;
 
     public class ItemController : MonoBehaviour
     {
@@ -82,11 +80,9 @@ namespace Game.Itens
 
         private void OnMouseEnter()
         {
-            /*
             Debug.Log($"Passou em {item.item.itemName}");
-            text.gameObject.SetActive(true);
-            text.text = item.item.itemName;
-            */
+            
+            
 
             System.Ui.TextMeshProController.Instance.SetManager(true, gameObject, item.item.itemName, new Vector3(0,0.7f,0));
             spriteRenderer.color = overlayColor;

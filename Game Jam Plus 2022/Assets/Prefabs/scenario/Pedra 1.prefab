@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6742283533996209692}
   - component: {fileID: 6742283533996209667}
   - component: {fileID: 6742283533996209666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pedra 1
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 234983641
-  m_SortingLayer: 1
+  m_SortingLayerID: 758774057
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 844d9a9aca128934585255bb91136c13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.34857142, y: 0.21714285}
+    oldSize: {x: 0.40666667, y: 0.25333333}
     newSize: {x: 0.61, y: 0.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
