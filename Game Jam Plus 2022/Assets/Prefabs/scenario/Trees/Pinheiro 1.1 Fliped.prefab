@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3090197228409865454}
   m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 1.46, z: -0.1}
+  m_LocalPosition: {x: 0, y: 1.253, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3090197228409865451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3090197229345205815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 3090197229608989435}
   - component: {fileID: 3090197229608989433}
   - component: {fileID: 3090197229608989432}
+  - component: {fileID: 1406416727099023584}
   m_Layer: 10
   m_Name: Pinheiro 1.1 Fliped
   m_TagString: Tree
@@ -343,6 +344,17 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!210 &1406416727099023584
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090197229608989439}
+  m_Enabled: 1
+  m_SortingLayerID: -195029999
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1 &8451172306179934985
 GameObject:
   m_ObjectHideFlags: 0
