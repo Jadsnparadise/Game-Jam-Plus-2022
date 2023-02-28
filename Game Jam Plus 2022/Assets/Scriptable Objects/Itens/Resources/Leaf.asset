@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Leaf
   mapSprites:
-  - {fileID: 21300000, guid: 03510a4352641cb408c1af27235128e0, type: 3}
-  spriteInInventory: {fileID: 21300000, guid: a3f5cf842e214af41910c731bef00429, type: 3}
-  spriteInHand: {fileID: 21300000, guid: a3f5cf842e214af41910c731bef00429, type: 3}
+  - {fileID: 21300000, guid: 1545c35baab1aa643b40bc4f90e2ad34, type: 3}
+  spriteInInventory: {fileID: 21300000, guid: 1545c35baab1aa643b40bc4f90e2ad34, type: 3}
+  spriteInHand: {fileID: 21300000, guid: 1545c35baab1aa643b40bc4f90e2ad34, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: 

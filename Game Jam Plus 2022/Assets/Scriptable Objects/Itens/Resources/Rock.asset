@@ -16,7 +16,7 @@ MonoBehaviour:
   mapSprites:
   - {fileID: 21300000, guid: 844d9a9aca128934585255bb91136c13, type: 3}
   - {fileID: 21300000, guid: 03602bfafdd563f469b2fa4ec3a42f56, type: 3}
-  spriteInInventory: {fileID: 21300000, guid: 844d9a9aca128934585255bb91136c13, type: 3}
+  spriteInInventory: {fileID: 21300000, guid: 82db1f08a78777d4f99d475beb5daddc, type: 3}
   spriteInHand: {fileID: 21300000, guid: 844d9a9aca128934585255bb91136c13, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
