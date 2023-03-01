@@ -29,6 +29,7 @@ namespace Game.Itens
         public List<Player.Inventory.Resources> craft = new();
         //public float playerDistance = 1.6f;
         public Vector3 itemOffset = new(1.6f, 0, 0);
+        public Vector3 scaleDrop = new(0.3f, 0.3f, 1);
         
         public virtual void ItemStart()
         {

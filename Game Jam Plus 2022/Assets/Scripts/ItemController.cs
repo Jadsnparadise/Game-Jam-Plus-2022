@@ -125,6 +125,7 @@ namespace Game.Itens
 
         public void SetItem(Player.Inventory.Resources _newItem, float _lifeTime)
         {
+            transform.localScale = _newItem.item.scaleDrop;
             item = _newItem;
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = _newItem.item.CurrentSprite(SpriteType.World);
