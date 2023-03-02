@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using Game.Itens;
 
 namespace Game.Player.Inventory
 {
@@ -189,6 +189,8 @@ namespace Game.Player.Inventory
             }
             Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position - new Vector3(0, 0, 0.1f), Quaternion.identity).GetComponent<Itens.ItemController>();
             i.SetItem(new(inventory.CurrentResource().item), 15);
+            currentItem.CurrentSprite(SpriteType.Drop);
+
             inventory.DropItem();
         }
 

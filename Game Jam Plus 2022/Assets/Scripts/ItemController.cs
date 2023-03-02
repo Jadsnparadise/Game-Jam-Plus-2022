@@ -18,6 +18,8 @@ namespace Game.Itens
         public bool canPick { get; private set; }
         public bool mouseOn { get; private set; }
 
+        public bool hasDropAnim = true;
+
         [Header("Animation Idle")]
         public float m_idleSpeed = 0.2f;
         public LeanTweenType m_idleEase;
@@ -47,8 +49,8 @@ namespace Game.Itens
             if (mouseY > 0.5f) inverterY = 1;
             else inverterY = -1;
 
-            LeanTween.moveLocal(gameObject, new Vector2(transform.position.x + Random.Range(0.2f, 0.4f) * inverterX, transform.position.y + Random.Range(0.1f, 0.2f) * inverterY), m_idleSpeed).setEase(m_idleEase).setOnComplete((() => {
-                LeanTween.moveLocal(gameObject, new Vector2(transform.position.x, transform.position.y + 0.2f), m_idleSpeed).setEase(m_idleEase).setLoopPingPong();
+            LeanTween.move(gameObject, new Vector2(transform.position.x + Random.Range(0.2f, 0.4f) * inverterX, transform.position.y + Random.Range(0.1f, 0.2f) * inverterY), m_idleSpeed).setEase(m_idleEase).setOnComplete((() => {
+                LeanTween.move(gameObject, new Vector2(transform.position.x, transform.position.y + 0.2f), m_idleSpeed).setEase(m_idleEase).setLoopPingPong();
             }));
 
 

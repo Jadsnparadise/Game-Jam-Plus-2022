@@ -54,21 +54,21 @@ TagManager:
   - name: Ground
     uniqueID: 234983641
     locked: 0
-  - name: Player
+  - name: Stone
     uniqueID: 1456918525
     locked: 0
-  - name: Enemy
+  - name: Player
     uniqueID: 1275691707
-    locked: 0
-  - name: Tree
-    uniqueID: 4099937297
     locked: 0
   - name: Brush Fruit
     uniqueID: 1249070631
     locked: 0
-  - name: Stone
+  - name: Enemy
     uniqueID: 758774057
     locked: 0
-  - name: UI
+  - name: Tree
     uniqueID: 225548137
+    locked: 0
+  - name: UI
+    uniqueID: 3207799773
     locked: 0

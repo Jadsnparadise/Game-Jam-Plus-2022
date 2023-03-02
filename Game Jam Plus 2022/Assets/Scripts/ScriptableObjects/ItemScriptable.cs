@@ -15,6 +15,7 @@ namespace Game.Itens
         public List<Sprite> mapSprites;
         public Sprite spriteInInventory;
         public Sprite spriteInHand;
+        public Sprite spriteToDrop;
         public RuntimeAnimatorController animInHand;
 
         [SerializeField] bool hasAttackAnim;
@@ -85,6 +86,8 @@ namespace Game.Itens
                     return spriteInInventory;
                 case SpriteType.Hand:
                     return spriteInHand;
+                case SpriteType.Drop:
+                    return spriteToDrop;
             }
             return null;
         }
@@ -98,6 +101,7 @@ namespace Game.Itens
     {
         World,
         Inventory,
-        Hand
+        Hand,
+        Drop
     }
 }
