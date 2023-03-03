@@ -54,6 +54,9 @@ TagManager:
   - name: Ground
     uniqueID: 234983641
     locked: 0
+  - name: Grass
+    uniqueID: 2659437049
+    locked: 0
   - name: Stone
     uniqueID: 1456918525
     locked: 0
