@@ -54,17 +54,17 @@ TagManager:
   - name: Ground
     uniqueID: 234983641
     locked: 0
-  - name: Grass
-    uniqueID: 2659437049
-    locked: 0
   - name: Stone
     uniqueID: 1456918525
     locked: 0
-  - name: Player
-    uniqueID: 1275691707
+  - name: Grass
+    uniqueID: 2659437049
     locked: 0
   - name: Brush Fruit
     uniqueID: 1249070631
+    locked: 0
+  - name: Player
+    uniqueID: 1275691707
     locked: 0
   - name: Enemy
     uniqueID: 758774057
