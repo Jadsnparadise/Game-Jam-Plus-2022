@@ -195,7 +195,6 @@ namespace Game.StatusController
             if (temperature.CurrentValue >= 30)
             {
                 playerStatus.Hot();
-                HungryDecrease(decreaseFood * 2);
                 WaterDecrease(decreaseWater * 2);
             }
             else

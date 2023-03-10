@@ -95,6 +95,10 @@ namespace Game.Clock
             {
                 isNight = true;
             }
+            else
+            {
+                isNight = false;
+            }
         }
     
     }

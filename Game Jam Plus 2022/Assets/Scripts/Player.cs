@@ -156,7 +156,7 @@ namespace Game.Player
         void FixedUpdate()
         {
             currentSpeed = CurrentMove();
-            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1) * (isCold ? 0.7f : 1f), ForceMode2D.Impulse);
+            rig.AddForce(moveDir * currentSpeed * (isDrunk ? -1 : 1), ForceMode2D.Impulse);
         }
 
         float CurrentMove()
