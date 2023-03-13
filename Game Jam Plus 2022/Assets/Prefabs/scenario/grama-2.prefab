@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2417287836145932023}
   - component: {fileID: 2417287836145932020}
-  - component: {fileID: -8123122872280550714}
-  - component: {fileID: 7200338061644816495}
   - component: {fileID: 6027218572168433402}
-  m_Layer: 12
+  - component: {fileID: 4090807797513459807}
+  - component: {fileID: 3116420671864692046}
+  m_Layer: 9
   m_Name: grama-2
   m_TagString: Grass
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2417287836145932021}
   m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,32 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8123122872280550714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2417287836145932021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: -1
---- !u!65 &7200338061644816495
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2417287836145932021}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.98, y: 1.24, z: 0.2}
-  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!95 &6027218572168433402
 Animator:
   serializedVersion: 4
@@ -133,3 +107,70 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4090807797513459807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417287836145932021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96e3cb413553fc4d90eea89d09b7e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    item: {fileID: 11400000, guid: c1c0b4e4af311ae47ad3adaa66360e69, type: 2}
+    quantity: 1
+  overlayColor: {r: 1, g: 0.90196085, b: 0, a: 1}
+  col:
+    colliderTag: New Collider
+    dimension: 0
+    layer:
+      serializedVersion: 2
+      m_Bits: 512
+    offset: {x: 0, y: 0, z: 0}
+    colliderMesh: 0
+    size: {x: 1, y: 1}
+    rotation: 0
+    radius: 0.37
+    raycastDir: 0
+    raycastDistance: 1
+    flip: 0
+    colliderRenderer:
+      showGizmos: 1
+      colorOutCollision: {r: 1, g: 0, b: 0, a: 1}
+      colorInCollision: {r: 0, g: 1, b: 0, a: 1}
+  lifeTime: 10
+  stack: 1
+  hasDropAnim: 1
+  m_idleSpeed: 759.32
+  m_idleEase: 0
+  m_dropSpeed: 0
+  m_dropEase: 0
+--- !u!61 &3116420671864692046
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417287836145932021}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.045, y: 1.295}
+    newSize: {x: 1.95, y: 2.79}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.22}
+  m_EdgeRadius: 0
