@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5336f605e327458428ef7f0916da85d4, type: 3}
   m_Name: pinheiro plate
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Pinheiro Table
   mapSprites:
   - {fileID: 21300000, guid: 8b2e69ac26071af40973eead28fff99a, type: 3}
   spriteInInventory: {fileID: 21300000, guid: 8b2e69ac26071af40973eead28fff99a, type: 3}
   spriteInHand: {fileID: 21300000, guid: 8b2e69ac26071af40973eead28fff99a, type: 3}
+  spriteToDrop: {fileID: 21300000, guid: 8b2e69ac26071af40973eead28fff99a, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: 
@@ -27,3 +28,4 @@ MonoBehaviour:
   stack: 1
   craft: []
   itemOffset: {x: 1.6, y: 0, z: 0}
+  scaleDrop: {x: 0.3, y: 0.3, z: 1}

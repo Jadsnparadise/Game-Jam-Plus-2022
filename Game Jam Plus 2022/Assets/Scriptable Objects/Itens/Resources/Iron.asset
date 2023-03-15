@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   itemName: Iron
-  itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
-  itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  mapSprites: []
+  spriteInInventory: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  spriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  spriteToDrop: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: 
@@ -25,3 +27,4 @@ MonoBehaviour:
   stack: 1
   craft: []
   itemOffset: {x: 0.6, y: 0, z: 0}
+  scaleDrop: {x: 0.3, y: 0.3, z: 1}

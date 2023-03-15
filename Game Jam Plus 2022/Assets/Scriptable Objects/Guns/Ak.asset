@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b801ac8ab8c71c408c34a6b6526edb0, type: 3}
   spriteInInventory: {fileID: 21300000, guid: 8b801ac8ab8c71c408c34a6b6526edb0, type: 3}
   spriteInHand: {fileID: 21300000, guid: 8b801ac8ab8c71c408c34a6b6526edb0, type: 3}
+  spriteToDrop: {fileID: 21300000, guid: 8b801ac8ab8c71c408c34a6b6526edb0, type: 3}
   animInHand: {fileID: 9100000, guid: a0a4cb11d0e98cc4b98c8a468b0b765a, type: 2}
   hasAttackAnim: 0
   description: AK
@@ -27,7 +28,8 @@ MonoBehaviour:
   stack: 0
   craft: []
   itemOffset: {x: 1.4, y: 0, z: 0}
-  currentAmmo: 2147481008
+  scaleDrop: {x: 0.3, y: 0.3, z: 1}
+  currentAmmo: 2147481003
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   weaponRange: 40
   fireRate: 0.125

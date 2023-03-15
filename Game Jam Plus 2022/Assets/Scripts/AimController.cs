@@ -188,8 +188,7 @@ namespace Game.Player.Inventory
                 return;
             }
             Itens.ItemController i = Instantiate(inventory.dropGameObject, transform.position - new Vector3(0, 0, 0.1f), Quaternion.identity).GetComponent<Itens.ItemController>();
-            i.SetItem(new(inventory.CurrentResource().item), 15);
-            currentItem.CurrentSprite(SpriteType.Drop);
+            i.SetItem(new(inventory.CurrentResource().item), 15, SpriteType.Drop);
             inventory.DropItem();
         }
 
@@ -200,7 +199,7 @@ namespace Game.Player.Inventory
                 return;
             }
             Itens.ItemController item = Instantiate(inventory.dropGameObject, transform.position - new Vector3(0, 0, 0.1f), Quaternion.identity).GetComponent<Itens.ItemController>();
-            item.SetItem(inventory.CurrentResource(), 15);
+            item.SetItem(inventory.CurrentResource(), 15, SpriteType.Drop);
             inventory.DropAllInHand();
         }
     }

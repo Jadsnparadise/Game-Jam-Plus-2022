@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
+using Game.Itens;
 
 namespace Game.StatusController
 {
@@ -61,7 +62,7 @@ namespace Game.StatusController
         void Drop(Player.Inventory.Resources _itemDrop)
         {
             Itens.ItemController i = Instantiate(dropGameObject, transform.position, transform.rotation).GetComponent<Itens.ItemController>();
-            i.SetItem(_itemDrop, 15);
+            i.SetItem(_itemDrop, 15, SpriteType.Drop);
             i.SlpashDrop();
             
         }
