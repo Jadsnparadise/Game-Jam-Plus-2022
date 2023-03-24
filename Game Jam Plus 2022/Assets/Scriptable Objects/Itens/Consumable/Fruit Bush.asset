@@ -29,7 +29,7 @@ MonoBehaviour:
   stack: 1
   craft: []
   itemOffset: {x: 1.6, y: 0, z: 0}
-  scaleDrop: {x: 0.3, y: 0.3, z: 1}
+  scaleDrop: {x: 0.3, y: 0.3, z: 0.3}
   effects:
   - effect: 3
     operation: 0
