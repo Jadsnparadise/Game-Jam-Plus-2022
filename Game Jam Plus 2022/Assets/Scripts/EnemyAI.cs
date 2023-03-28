@@ -102,8 +102,8 @@ namespace Game.Enemy.AI
         {
             walkPoint = isChasing ? player.transform.position : walkPoint;
 
-            lookingDirX = walkPoint.x - transform.position.x;
-            lookingDirY = walkPoint.y - transform.position.y;
+            lookingDirX = transform.position.x - walkPoint.x;
+            lookingDirY = transform.position.y - walkPoint.y;
             Debug.Log("LookX: " + lookingDirX);
             Debug.Log("LookY: " + lookingDirY);
             //lookingDirX = walkPoint.x + enemyOffSet.x;
