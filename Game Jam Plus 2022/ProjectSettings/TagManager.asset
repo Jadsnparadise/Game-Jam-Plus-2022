@@ -63,6 +63,9 @@ TagManager:
   - name: Brush Fruit
     uniqueID: 1249070631
     locked: 0
+  - name: Wall north
+    uniqueID: 4190326817
+    locked: 0
   - name: Player
     uniqueID: 1275691707
     locked: 0
@@ -71,6 +74,9 @@ TagManager:
     locked: 0
   - name: Tree
     uniqueID: 225548137
+    locked: 0
+  - name: Wall
+    uniqueID: 67554941
     locked: 0
   - name: UI
     uniqueID: 3207799773
