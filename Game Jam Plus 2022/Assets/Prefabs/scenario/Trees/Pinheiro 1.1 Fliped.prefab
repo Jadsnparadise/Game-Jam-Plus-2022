@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &3090197228409865449
 Transform:
@@ -132,7 +132,7 @@ GameObject:
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &3090197229345205812
 Transform:
@@ -248,7 +248,7 @@ GameObject:
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &3090197229608989438
 Transform:
@@ -353,7 +353,7 @@ SortingGroup:
   m_GameObject: {fileID: 3090197229608989439}
   m_Enabled: 1
   m_SortingLayerID: 225548137
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
 --- !u!1 &8451172306179934985
 GameObject:
@@ -370,7 +370,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 0
 --- !u!4 &2185470159472795191
 Transform:

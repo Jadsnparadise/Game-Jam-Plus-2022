@@ -82,7 +82,7 @@ namespace Game.Itens
 
         private void OnMouseEnter()
         {
-            Debug.Log($"Passou em {item.item.itemName}");
+            //Debug.Log($"Passou em {item.item.itemName}");
             
             
 

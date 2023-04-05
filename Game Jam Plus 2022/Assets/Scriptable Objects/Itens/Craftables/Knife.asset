@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   itemName: Knife
-  itemSprite: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
-  itemSpriteInHand: {fileID: 21300000, guid: 40e77b1bdee2f7542aa7997d93333956, type: 3}
+  mapSprites: []
+  spriteInInventory: {fileID: -424914169, guid: 604c6ba64ceddc240b16d684370b1616, type: 3}
+  spriteInHand: {fileID: 0}
+  spriteToDrop: {fileID: 0}
   animInHand: {fileID: 0}
   hasAttackAnim: 0
   description: 
@@ -29,3 +31,4 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: e46a4ade1090577469369e72c5f475a4, type: 2}
     quantity: 2
   itemOffset: {x: 1.6, y: 0, z: 0}
+  scaleDrop: {x: 0.3, y: 0.3, z: 1}

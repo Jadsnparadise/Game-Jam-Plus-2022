@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5336f605e327458428ef7f0916da85d4, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: 
+  itemName: Hammer
+  mapSprites: []
+  spriteInInventory: {fileID: 0}
+  spriteInHand: {fileID: 0}
+  spriteToDrop: {fileID: 0}
+  animInHand: {fileID: 0}
+  hasAttackAnim: 0
+  description: 
+  timeToAtack: 0.4
+  timeToUse: 1
+  slashType: {fileID: 11400000, guid: 8c5be954a5803eb4b9476af101901b8e, type: 2}
+  slashGameObject: {fileID: 5616472787274832770, guid: bbf00c802f3f8c446b917d98f9cfdb05, type: 3}
+  stack: 0
+  craft:
+  - item: {fileID: 11400000, guid: 01906c94a15e08441ba02852ecd30432, type: 2}
+    quantity: 10
+  - item: {fileID: 11400000, guid: 683a27d0d7117b248a4a37785e94957d, type: 2}
+    quantity: 20
+  itemOffset: {x: 1.6, y: 0, z: 0}
+  scaleDrop: {x: 0.3, y: 0.3, z: 1}

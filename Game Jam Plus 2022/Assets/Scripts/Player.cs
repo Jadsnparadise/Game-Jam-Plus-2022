@@ -186,12 +186,12 @@ namespace Game.Player
                     //aim.canAttack = _item.mouseOn;
                     if (!_item.canPick)
                     {
-                        Debug.Log("Passou aqui não pick item");
+                        //Debug.Log("Passou aqui não pick item");
                         continue;
                     }
                     if (aim.AddItem(_item.CurrentResource()))
                     {
-                        Debug.Log("Passou aqui pick item");
+                        //Debug.Log("Passou aqui pick item");
                         System.Ui.TextMeshProController.Instance.SetManager(false);
                         Destroy(o.gameObject);
                     }
