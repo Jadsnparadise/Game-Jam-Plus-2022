@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 3090197228409865449}
   - component: {fileID: 3090197228409865448}
   - component: {fileID: 3090197228409865451}
-  - component: {fileID: 3090197228409865450}
   m_Layer: 10
   m_Name: Folha_2_1
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3090197228409865449
 Transform:
@@ -102,19 +101,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &3090197228409865450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3090197228409865454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 2
 --- !u!1 &3090197229345205834
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,13 +112,12 @@ GameObject:
   - component: {fileID: 3090197229345205812}
   - component: {fileID: 3090197229345205813}
   - component: {fileID: 3090197229345205815}
-  - component: {fileID: 3090197229345205814}
   m_Layer: 10
   m_Name: Tronco_1
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3090197229345205812
 Transform:
@@ -217,19 +202,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &3090197229345205814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3090197229345205834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 2
 --- !u!1 &3090197229608989439
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +220,7 @@ GameObject:
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3090197229608989438
 Transform:
@@ -370,7 +342,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &2185470159472795191
 Transform:

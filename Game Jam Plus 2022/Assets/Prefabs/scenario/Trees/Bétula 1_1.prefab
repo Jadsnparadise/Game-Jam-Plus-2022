@@ -13,13 +13,12 @@ GameObject:
   - component: {fileID: 1968646847591155330}
   - component: {fileID: 6227477025683576812}
   - component: {fileID: 7485993872789215563}
-  - component: {fileID: 2833655129707609036}
   m_Layer: 10
   m_Name: "B\xE9tula 1_1"
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &742856283501334070
 Transform:
@@ -165,19 +164,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &2833655129707609036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4825319598648211992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 1.8
 --- !u!1 &6458174823867577983
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +179,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8123635032691552485
 Transform:
