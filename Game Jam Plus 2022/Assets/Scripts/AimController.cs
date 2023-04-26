@@ -341,13 +341,13 @@ namespace Game.Player.Inventory
         {
             for (int i = 0; i < slots.Count; i++)
             {
-                UnityEngine.UI.RawImage slot = slots[i].GetComponent<UnityEngine.UI.RawImage>();
+                UnityEngine.UI.Image slot = slots[i].GetComponent<UnityEngine.UI.Image>();
 
                 if (resources[i].item != null)
                 {
                     slot.color = Color.white;
                     Sprite spr = resources[i].item.CurrentSprite(Itens.SpriteType.Inventory);
-                    slot.texture = spr != null ? spr.texture : slot.texture;
+                    slot.sprite = spr != null ? spr : slot.sprite;
                 }
                 else
                 {
