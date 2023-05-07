@@ -30,8 +30,8 @@ namespace Game.Itens
 
         void Start()
         {
-        
-            //SetItem(item);
+
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void OnEnable() {
@@ -113,17 +113,16 @@ namespace Game.Itens
             canPick = false;
         }
 
-        void SetItem(Player.Inventory.Resources _newItem)
+        /*void SetItem(Player.Inventory.Resources _newItem, SpriteType spriteToRender)
         {
             item = _newItem;
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = _newItem.item.CurrentSprite(SpriteType.World);
+            spriteRenderer.sprite = _newItem.item.CurrentSprite(spriteToRender);
             if (!TryGetComponent(out BoxCollider2D _))
             {
                 BoxCollider2D c = gameObject.AddComponent<BoxCollider2D>();
                 c.isTrigger = true;
             }
-        }
+        }*/
 
         public void SetItem(Player.Inventory.Resources _newItem, float _lifeTime, SpriteType spriteToRender)
         {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0b275330-beca-46d5-aaf4-35ea6cc024a4}">
+		<property name="assetPath">
+			<value>Music Game jam plus 2 .wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>105.15528344671202</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f3860cea-8eb5-4d78-9330-9378583e5521}</destination>
+		</relationship>
+	</object>
+</objects>

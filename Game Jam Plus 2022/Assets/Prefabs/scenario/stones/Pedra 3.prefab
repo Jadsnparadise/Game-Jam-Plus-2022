@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 5928765851024395969}
   - component: {fileID: 5928765851024395972}
   - component: {fileID: 5928765851024395973}
-  - component: {fileID: 5928765851024395974}
   m_Layer: 9
   m_Name: Pedra 3
   m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5928765851024395968
 Transform:
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1456918525
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c04877261dd919240a71aad32f7cce58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,16 +153,3 @@ MonoBehaviour:
   m_idleEase: 0
   m_dropSpeed: 0.2
   m_dropEase: 0
---- !u!114 &5928765851024395974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928765851024395970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3cd01598f98904f8505509be84b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: -0.5

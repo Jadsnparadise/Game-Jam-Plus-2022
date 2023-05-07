@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DAWProject" id="{b908214b-6b9f-42a6-8efa-de62fae41b32}">
+		<property name="assetPath">
+			<value>game jam plus.RPP.link/</value>
+		</property>
+		<property name="dawProjectPath">
+			<value>/Users/andersonlkpires/Desktop/gamejam plus/game jam plus.RPP</value>
+		</property>
+		<property name="renderedAssetsPath">
+			<value>bounce</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f3860cea-8eb5-4d78-9330-9378583e5521}</destination>
+		</relationship>
+	</object>
+</objects>
