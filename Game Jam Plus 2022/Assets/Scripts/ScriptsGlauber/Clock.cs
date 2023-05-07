@@ -21,6 +21,7 @@ public class Clock : MonoBehaviour
     public int m_DefaultDay = 0;
 
 
+    public GameObject m_Conditions;
     public GameObject m_StatusController;
     public GameObject m_Player;
 
@@ -36,6 +37,7 @@ public class Clock : MonoBehaviour
     {
         m_StatusController = GameObject.Find("StatusControllerNew");
         m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_Conditions = GameObject.Find("ConditionsSV");
 
     }
 
@@ -118,12 +120,40 @@ public class Clock : MonoBehaviour
         {            
             m_StatusController.GetComponent<PlayerStatusController>().StaminaIncrement();
         }
-
+        
+        
     }
     //Função de chamada por horas
     public void StatusControllerTimeForHours()
     {
-        //
-        
+        //Controle de saude se fome
+        if (m_Player.GetComponent<Game.Player.Player>().HealthAccess > 0 && m_StatusController.GetComponent<PlayerStatusController>().m_Hungry <= 0)
+        {
+            m_Player.GetComponent<Game.Player.Player>().HealthAccess = m_Player.GetComponent<Game.Player.Player>().HealthAccess - 1;
+        }
+        //Controle de saude se sede
+        if (m_Player.GetComponent<Game.Player.Player>().HealthAccess > 0 && m_StatusController.GetComponent<PlayerStatusController>().m_Thirst <= 0)
+        {
+            m_Player.GetComponent<Game.Player.Player>().HealthAccess = m_Player.GetComponent<Game.Player.Player>().HealthAccess - 3;
+        }
+        //Controle de saude se triste
+        if (m_Player.GetComponent<Game.Player.Player>().HealthAccess > 5 && m_StatusController.GetComponent<PlayerStatusController>().m_Happiness <= 0)
+        {
+            m_Player.GetComponent<Game.Player.Player>().HealthAccess = 5;
+        }
+        //Controle de saude se envenenado
+        if (m_Player.GetComponent<Game.Player.Player>().HealthAccess > 0 && m_Conditions.GetComponent<Conditions>().m_Poison == true && m_StatusController.GetComponent<PlayerStatusController>().m_Timepoison > 0)
+        {
+            m_StatusController.GetComponent<PlayerStatusController>().m_Timepoison = m_StatusController.GetComponent<PlayerStatusController>().m_Timepoison - 1;
+            m_Player.GetComponent<Game.Player.Player>().HealthAccess = m_Player.GetComponent<Game.Player.Player>().HealthAccess - 1;
+            if(m_StatusController.GetComponent<PlayerStatusController>().m_Timepoison <= 0)
+            {
+                m_Conditions.GetComponent<Conditions>().m_Poison = false;
+                m_StatusController.GetComponent<PlayerStatusController>().m_Timepoison = 5;
+
+            }
+        }
+        m_Conditions.GetComponent<Conditions>().CheckConditions();
+
     }
 }

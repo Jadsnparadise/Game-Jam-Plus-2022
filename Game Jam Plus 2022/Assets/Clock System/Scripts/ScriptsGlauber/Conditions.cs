@@ -31,7 +31,7 @@ public class Conditions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       CheckConditions();
+       //CheckConditions();
 
     }
     public void ShowCondition()

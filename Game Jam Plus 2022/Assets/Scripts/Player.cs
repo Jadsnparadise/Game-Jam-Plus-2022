@@ -65,6 +65,8 @@ namespace Game.Player
         Game.System.Cam.CameraScript cam;
         StatusController.StatusController statusPlayerController;
 
+        [SerializeField]
+        private int m_Health = 100;
         
 
         void Start()
@@ -78,6 +80,12 @@ namespace Game.Player
             cam = GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<System.Cam.CameraScript>();
             canTakeDamage = true;
         }
+        public int HealthAccess
+        {
+            get { return m_Health; }
+            set { m_Health = value; }
+        }
+        
 
         [ContextMenu("Bebeu")]
         public void Beber()

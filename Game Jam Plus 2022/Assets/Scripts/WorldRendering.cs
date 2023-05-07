@@ -7,6 +7,7 @@ public class WorldRendering : MonoBehaviour
 {
     void Update()
     {
+        /*
         if (isInScreen())
         {
             EnableDisableComponent(true);
@@ -14,7 +15,12 @@ public class WorldRendering : MonoBehaviour
         else
         {
             EnableDisableComponent(false);
-        }
+        }*/
+    }
+
+    void isInScreen()
+    {
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
