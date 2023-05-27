@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
+using FMODUnity;
+
 
 namespace Game.Itens
 {
@@ -19,6 +22,7 @@ namespace Game.Itens
         [SerializeField, Min(0)] float camShakeTime;
         [SerializeField, Range(0, 1)] float camShakeMagnitude;
 
+        //[SerializeField] private EventReference FireSound;
 
         public override void ItemStart()
         {
@@ -33,6 +37,7 @@ namespace Game.Itens
             if (currentFireRate >= fireRate)
             {
                 Shot(_player, _aim, _handPos, _handRot);
+                
             }
         }
 
@@ -49,6 +54,9 @@ namespace Game.Itens
             currentAmmo -= 1;
             currentFireRate = 0;
             _player.CamShake(camShakeTime, camShakeMagnitude);
+            PlayAttackSound(attackSound);
         }
+
+
     }
 }

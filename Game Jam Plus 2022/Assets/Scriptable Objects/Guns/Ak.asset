@@ -29,7 +29,14 @@ MonoBehaviour:
   craft: []
   itemOffset: {x: 1.4, y: 0, z: 0}
   scaleDrop: {x: 0.3, y: 0.3, z: 1}
-  currentAmmo: 2147481003
+  attackSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  currentAmmo: 2147480983
   bullet: {fileID: 6681023464341227122, guid: 8c4a147d03ac8d04294873d2244c99ef, type: 3}
   weaponRange: 40
   fireRate: 0.125

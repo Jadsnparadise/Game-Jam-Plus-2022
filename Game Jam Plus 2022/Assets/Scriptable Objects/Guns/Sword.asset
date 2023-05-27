@@ -29,3 +29,10 @@ MonoBehaviour:
   craft: []
   itemOffset: {x: 1.3, y: 0, z: 0}
   scaleDrop: {x: 0.3, y: 0.3, z: 1}
+  attackSound:
+    Guid:
+      Data1: -1244462448
+      Data2: 1087975523
+      Data3: 623458211
+      Data4: -1367557716
+    Path: event:/Personagem/sword

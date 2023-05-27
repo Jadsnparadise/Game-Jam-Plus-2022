@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using Unity.VisualScripting;
 
 namespace Game.Itens
 {
@@ -31,7 +33,9 @@ namespace Game.Itens
         //public float playerDistance = 1.6f;
         public Vector3 itemOffset = new(1.6f, 0, 0);
         public Vector3 scaleDrop = new(0.3f, 0.3f, 1);
-        
+
+        [SerializeField] public EventReference attackSound;
+
         public virtual void ItemStart()
         {
             currentAtackTimer = timeToAtack;
@@ -56,6 +60,7 @@ namespace Game.Itens
             SlashController s = Instantiate(slashGameObject, _handPos, _handRot).GetComponent<SlashController>();
             s.SetSlash(slashType, _handRot.eulerAngles.z);
             currentAtackTimer = 0;
+            PlayAttackSound(attackSound);
         }
 
         public virtual void Using(Game.Player.Player _player, Player.Inventory.AimController _aim, Vector3 _handPos, Quaternion _handRot)
@@ -96,7 +101,17 @@ namespace Game.Itens
         {
             return _s == spriteInHand || _s == spriteInInventory || mapSprites.Exists(x => x == _s);
         }
+
+        public void PlayAttackSound(EventReference sound)
+        {
+            if (!attackSound.IsUnityNull())
+            {
+                RuntimeManager.PlayOneShot(sound);
+            }
+
+        }
     }
+
     public enum SpriteType
     {
         World,

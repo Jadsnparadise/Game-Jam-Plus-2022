@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+
 
 namespace Game.Itens
 {
@@ -19,7 +21,7 @@ namespace Game.Itens
         public float knockbackForce;
         [SerializeField] float recoil;
         [SerializeField, Min(0)] float camShakeTime;
-        [SerializeField, Range(0, 1)] float camShakeMagnitude;
+        [SerializeField, Range(0, 1)] float camShakeMagnitude;     
 
         public override void ItemStart()
         {
@@ -41,6 +43,7 @@ namespace Game.Itens
             {
                 Shot(_player, _aim, _handPos, _handRot);
                 shot = true;
+                PlayAttackSound(attackSound);
             }
         }
 
@@ -63,6 +66,7 @@ namespace Game.Itens
             currentAmmo -= 1;
             currentFireRate = 0;
             _player.CamShake(camShakeTime, camShakeMagnitude);
+            
         }
     }
 }
